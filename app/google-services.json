@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "461196820940-fkm88ga1e2parl1l5cav5io9010d380s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.athrved.masterclass",
+            "certificate_hash": "06b89467c1d0a1754a675608468002eea4fd698b"
+          }
+        },
+        {
           "client_id": "461196820940-jr3kb40ep80cf1re7ub8chj2e62rrlj3.apps.googleusercontent.com",
           "client_type": 3
         }
