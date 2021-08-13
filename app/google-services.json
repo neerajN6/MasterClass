@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "461196820940",
+    "project_id": "master-class-1d78a",
+    "storage_bucket": "master-class-1d78a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461196820940:android:5efc217a30f5ab9fe29d69",
+        "android_client_info": {
+          "package_name": "com.athrved.masterclass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461196820940-jr3kb40ep80cf1re7ub8chj2e62rrlj3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPMa1PI4fVh55eIbgQLq6DufdK09dbf1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461196820940-jr3kb40ep80cf1re7ub8chj2e62rrlj3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

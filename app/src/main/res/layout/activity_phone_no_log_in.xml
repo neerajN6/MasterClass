@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:padding="15dp"
+    tools:context=".PhoneNoLogIn">
+
+    <ImageButton
+        android:id="@+id/backBtnInPhoneNoLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-10dp"
+        android:background="@color/black"
+        android:padding="5dp"
+        android:src="@drawable/back_arrow_button" />
+
+    <ImageView
+        android:id="@+id/athrvedLogoInPhoneNoLogIn"
+        android:layout_width="150dp"
+        android:layout_height="88dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/athrved_logo_white" />
+
+    <TextView
+        android:id="@+id/textViewInPhoneNoLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/athrvedLogoInPhoneNoLogIn"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif-black"
+        android:paddingLeft="10dp"
+        android:text="Enter your Mobile Number"
+        android:textColor="#F2FAFF"
+        android:textSize="20dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutInPhoneNoLogIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewInPhoneNoLogIn"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/countryCodePicker"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_contentColor="@color/white"
+            app:ccp_showFlag="true"
+            app:ccp_showFullName="false"
+            app:ccp_showNameCode="true" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneNoEditText"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile Number"
+            android:textColorHint="@color/white"
+            app:boxStrokeColor="#529BF2"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/white"
+            app:hintTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="phone"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/continueWithSocialTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayoutInPhoneNoLogIn"
+        android:layout_marginTop="15dp"
+        android:padding="5dp"
+        android:text="or continue with your social login"
+        android:textColor="#529BF2" />
+
+    <Button
+        android:id="@+id/continueBtnInPhoneNoLogIn"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/continueWithSocialTextView"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="#2B73C9"
+        android:onClick="callVerifyOtpScreen"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>

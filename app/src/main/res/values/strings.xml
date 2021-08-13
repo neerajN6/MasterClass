@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Master Class</string>
+    <string name="facebook_app_id">566397444719165</string>
+    <string name="fb_login_protocol_scheme">fb566397444719165</string>
+    <string name="Agree">By signing in, you agree to AthrV-Ed’s</string>
+    <string name="Terms_and_Condition"><u><b>Terms and Conditions</b></u></string>
+    <string name="and">and</string>
+    <string name="Terms_of_Service"><u><b>Terms of Service</b></u></string>
+</resources>
