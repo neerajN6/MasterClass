@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#121517"
+
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/add_course_image"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="26dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginRight="8dp">
+    <TextView
+
+        android:id="@+id/allc_title"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="#FFF"
+        android:text="Playing with Grid -\nWeb design Fundamentals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+        <TextView
+            android:id="@+id/allc_topic"
+            android:textSize="12sp"
+            android:textColor="#2b73c9"
+            android:text="WEBFLOW"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/allc_image"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:id="@+id/allc_author"
+                android:text="Goutam Naik"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:textSize="11sp"
+                android:textColor="#FFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    </LinearLayout>
