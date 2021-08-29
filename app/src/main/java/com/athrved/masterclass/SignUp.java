@@ -199,7 +199,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void openProfile() {
-        startActivity(new Intent(this, FacebookProfile.class));
+        startActivity(new Intent(this, MainActivity.class));
         finish();
 
     }
@@ -209,7 +209,7 @@ public class SignUp extends AppCompatActivity {
         super.onStart();
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            Intent intent = new Intent(SignUp.this, Dashboard.class);
+            Intent intent = new Intent(SignUp.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
@@ -217,7 +217,7 @@ public class SignUp extends AppCompatActivity {
 
 
         if (mAuth.getCurrentUser() != null) {
-            Intent intent = new Intent(getApplicationContext(), FacebookProfile.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         }
 
@@ -233,7 +233,7 @@ public class SignUp extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(SignUp.this, Profile.class);
+                            Intent intent = new Intent(SignUp.this, MainActivity.class);
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.

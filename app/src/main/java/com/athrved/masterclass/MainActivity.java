@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         dataList = findViewById(R.id.dataList);
 
-        getSupportActionBar().setTitle("");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         titles = new ArrayList<>();

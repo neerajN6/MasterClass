@@ -18,7 +18,7 @@
         <activity android:name="com.athrved.masterclass.WebActivity" />
         <activity android:name="com.athrved.masterclass.AiActivity" />
 
-        <activity android:name="com.athrved.masterclass.MainActivity"/>
+        <activity android:name="com.athrved.masterclass.MainActivity"></activity>
         <activity
             android:name=".TermsAndCondition"
             android:exported="true" />
@@ -45,6 +45,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
 
         <activity android:name=".SignUp" />
