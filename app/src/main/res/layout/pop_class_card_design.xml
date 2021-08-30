@@ -25,11 +25,19 @@
             android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"/>
         <Button
+            android:id="@+id/bookmark_border"
             android:layout_width="42dp"
             android:layout_height="68dp"
             android:layout_gravity="right"
             android:background="@drawable/ic_baseline_bookmark_border_24" />
 
+        <Button
+            android:id="@+id/bookmark"
+            android:layout_width="42dp"
+            android:layout_height="62dp"
+            android:layout_gravity="right"
+            android:visibility="gone"
+            android:background="@drawable/ic_baseline_bookmark_24" />
     </androidx.cardview.widget.CardView>
 
 

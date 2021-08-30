@@ -2,18 +2,27 @@ package com.athrved.masterclass;
 
 public class PopHelperClass {
     int imagebig, imagesmall1,imagesmall2;
-    String title, topic,author;
+    String title, topic,author,url;
 
     public PopHelperClass() {
     }
 
-    public PopHelperClass(int imagebig, int imagesmall1, int imagesmall2, String title, String topic, String author) {
+    public PopHelperClass(int imagebig, int imagesmall1, int imagesmall2, String title, String topic, String author, String url) {
         this.imagebig = imagebig;
         this.imagesmall1 = imagesmall1;
         this.imagesmall2 = imagesmall2;
         this.title = title;
         this.topic = topic;
         this.author = author;
+        this.url=url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public int getImagebig() {

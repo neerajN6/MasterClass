@@ -1,5 +1,6 @@
 package com.athrved.masterclass;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -24,8 +25,7 @@ public class ImgAdapter extends RecyclerView.Adapter<ImgAdapter.ViewHolder> {
         this.images = images;
         this.inflater = LayoutInflater.from(ctx);
     }
-
-
+    
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,7 +48,7 @@ public class ImgAdapter extends RecyclerView.Adapter<ImgAdapter.ViewHolder> {
         TextView title;
         ImageView gridIcon;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.textView2);
             gridIcon = itemView.findViewById(R.id.imageView2);
@@ -60,26 +60,38 @@ public class ImgAdapter extends RecyclerView.Adapter<ImgAdapter.ViewHolder> {
                     if(getAdapterPosition()==0){
                         Intent intent = new Intent(itemView.getContext(), AiActivity.class);
                         itemView.getContext().startActivity(intent);
+                        Activity activity = (Activity) itemView.getContext();
+                        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }
                   else if(getAdapterPosition()==1){
                         Intent intent = new Intent(itemView.getContext(), WebActivity.class);
                         itemView.getContext().startActivity(intent);
+                        Activity activity = (Activity) itemView.getContext();
+                        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }
                    else if(getAdapterPosition()==2){
                         Intent intent = new Intent(itemView.getContext(), AppDevActivity.class);
                         itemView.getContext().startActivity(intent);
+                        Activity activity = (Activity) itemView.getContext();
+                        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }
                   else if(getAdapterPosition()==3){
                         Intent intent = new Intent(itemView.getContext(), MachActivity.class);
                         itemView.getContext().startActivity(intent);
+                        Activity activity = (Activity) itemView.getContext();
+                        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }
                    else if(getAdapterPosition()==4){
                         Intent intent = new Intent(itemView.getContext(), UiuxActivity.class);
                         itemView.getContext().startActivity(intent);
+                        Activity activity = (Activity) itemView.getContext();
+                        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }
                    else if(getAdapterPosition()==5){
                         Intent intent = new Intent(itemView.getContext(), IotActivity.class);
                         itemView.getContext().startActivity(intent);
+                        Activity activity = (Activity) itemView.getContext();
+                        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }
 
                 }

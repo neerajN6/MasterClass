@@ -2,8 +2,8 @@ package com.athrved.masterclass;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,18 +13,25 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class UiuxActivity extends AppCompatActivity {
 
-    LinearLayout all_layoutList;
-    ImageView all_imgbig;
-    ImageView all_imgsmall;
-    TextView all_title;
-    TextView all_channel;
-    TextView all_author;
-    TextView abcde;
+    public static TextView abcde;
+    public static TextView ak;
+    public static String tit;
+    String urlname,videoID,tita;
 
     RecyclerView dataList2;
     List<String> titles2;
@@ -40,6 +47,9 @@ public class UiuxActivity extends AppCompatActivity {
     RecyclerView menRecycler;
     RecyclerView.Adapter adapter3;
 
+    RecyclerView allFewRecycler;
+    RecyclerView.Adapter adapter4;
+
     ArrayList<UiuxAllClasses> allCourseList=new ArrayList<>();
 
     @Override
@@ -51,14 +61,24 @@ public class UiuxActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
 
-        popRecycler=findViewById(R.id.r1popclass);
+//        videoID="_vAmKNin0QM";
+//        urlname="https://noembed.com/embed?url=https://www.youtube.com/watch?v="+videoID;
+//        tita= respo(urlname);
+
+
+        popRecycler = findViewById(R.id.r1popclass);
         featuredRecycler();
         freeRecycler=findViewById(R.id.r1freeclass);
-        freeturedRecycler();
+        freeturedRecycler( tit);
         menRecycler=findViewById(R.id.r3menclass);
         mentoredRecycler();
+        allFewRecycler=findViewById(R.id.r4fewalllist);
+        allfewRecycler();
 
         dataList2 = findViewById(R.id.dataList2);
+
+        abcde = findViewById(R.id.tvv1);
+        ak=findViewById(R.id.ak);
 
         titles2 = new ArrayList<>();
         images2 = new ArrayList<>();
@@ -83,68 +103,22 @@ public class UiuxActivity extends AppCompatActivity {
         dataList2.setLayoutManager(gridLayoutManager);
         dataList2.setAdapter(imgAdapter2);
 
-        all_layoutList=findViewById(R.id.layout_list);
-
-        abcde=findViewById(R.id.abcde);
-
-        UiuxAllClasses a1=new UiuxAllClasses();
-        a1.setAuthor("Goutham Naik");
-        a1.setChannel("WEBFLOW");
-        a1.setTitle("Playing with Grid-\nWeb Design Fundamentals");
-        a1.setImagebig(R.drawable.webflow_l);
-        a1.setImagesmall(R.drawable.ai_logo);
-        allCourseList.add(a1);
-
-        UiuxAllClasses a2=new UiuxAllClasses();
-        a2.setAuthor("Abhinav Chikkara");
-        a2.setChannel("PROTOTYPING\n");
-        a2.setTitle("Protopie for Prototyping");
-        a2.setImagebig(R.drawable.protopie_l);
-        a2.setImagesmall(R.drawable.ai_logo);
-        allCourseList.add(a2);
-        UiuxAllClasses a3=new UiuxAllClasses();
-        a3.setAuthor("S.M Sudhanva Acharya");
-        a3.setChannel("MOTION DESIGN");
-        a3.setTitle("Introduction to After Effects\nand Lottie Files");
-        a3.setImagebig(R.drawable.afepluslot_l);
-        a3.setImagesmall(R.drawable.ai_logo);
-        allCourseList.add(a3);
-        
-        for(int i=0;i<allCourseList.size();i++) {
-            addView(allCourseList.get(i).getAuthor(), allCourseList.get(i).getChannel(), allCourseList.get(i).getTitle(), allCourseList.get(i).getImagebig(), allCourseList.get(i).getImagesmall());
-        }
-
     }
 
 
-
-    private void addView(String auth, String channel,String title, int imgbig, int imgsmall) {
-        View allCoursesview = getLayoutInflater().inflate(R.layout.add_all_classes, null, false);
-        all_layoutList.addView(allCoursesview);
-
-        all_imgbig=allCoursesview.findViewById(R.id.add_course_image);
-        all_imgsmall=allCoursesview.findViewById(R.id.allc_image);
-        all_title=allCoursesview.findViewById(R.id.allc_title);
-        all_channel=allCoursesview.findViewById(R.id.allc_topic);
-        all_author=allCoursesview.findViewById(R.id.allc_author);
-
-        all_title.setText(title);
-        all_channel.setText(channel);
-        all_author.setText(auth);
-        all_imgbig.setImageResource(imgbig);
-        all_imgsmall.setImageResource(imgsmall);
-
-
-    }
 
     private void featuredRecycler(){
+
+        FetchData fetchData = new FetchData();
+        fetchData.execute();
+
         popRecycler.setHasFixedSize(true);
         popRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         ArrayList<PopHelperClass> popLocatio = new ArrayList<>();
 
-        popLocatio.add(new PopHelperClass(R.drawable.secndone, R.drawable.ai_logo,0,"Color and Color Theory -\nFundamentals of Visual Design","VISUAL DESIGN","Goutham Naik"));
-        popLocatio.add(new PopHelperClass(R.drawable.firstone, R.drawable.ai_logo, R.drawable.motiond_logo,"Color and Color Theory -\nFundamentals of Visual Design","UX DESIGN","  Goutham Naik, S. M. Sudhanva Acharya"));
+        popLocatio.add(new PopHelperClass(R.drawable.secndone, R.drawable.ai_logo,0,"Color and Color Theory -\nFundamentals of Visual Design","VISUAL DESIGN","Goutham Naik","Um3BhY0oS2c"));
+        popLocatio.add(new PopHelperClass(R.drawable.firstone, R.drawable.ai_logo, R.drawable.motiond_logo,"Color and Color Theory -\nFundamentals of Visual Design","UX DESIGN","  Goutham Naik, S. M. Sudhanva Acharya","_vAmKNin0QM"));
 
 
         adapter1=new PopclassesAdapter(popLocatio);
@@ -152,14 +126,14 @@ public class UiuxActivity extends AppCompatActivity {
 
     }
 
-    private void freeturedRecycler(){
+    private void freeturedRecycler(String tita){
         freeRecycler.setHasFixedSize(true);
         freeRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         ArrayList<FreeHelperClass> freeLocatio = new ArrayList<>();
 
-        freeLocatio.add(new FreeHelperClass(R.drawable.fourthone, R.drawable.ai_logo,0,"Introduction to UI UX Design\nFundamentals and Basics","VISUAL DESIGN","S M Sudhanva Acharya"));
-        freeLocatio.add(new FreeHelperClass(R.drawable.thirdone, R.drawable.ai_logo,0,"White Space in Design","VISUAL DESIGN\n","Abhinav Chikkara"));
+        freeLocatio.add(new FreeHelperClass(R.drawable.ai_logo,0,"Top UX Design Interview Questions","VISUAL DESIGN","S M Sudhanva Acharya"));
+        freeLocatio.add(new FreeHelperClass(R.drawable.ai_logo,0,"White Space in Design","VISUAL DESIGN\n","Abhinav Chikkara"));
 
 
         adapter2=new FreeclassesAdapter(freeLocatio);
@@ -179,6 +153,21 @@ public class UiuxActivity extends AppCompatActivity {
 
         adapter2=new MenAdapter(menLocatio);
         menRecycler.setAdapter(adapter2);
+
+    }
+
+    private void allfewRecycler(){
+        allFewRecycler.setHasFixedSize(true);
+        allFewRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        ArrayList<FewAllHelperClass> fewAllLocatio = new ArrayList<>();
+
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"Playing with Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo,"Protopie for Prototyping","PROTOTYPING\n","Abhinav Chikkara"));
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo,"Introduction to After Effects\nand Lottie Files","MOTION DESIGN","S.M Sudhanva Acharya"));
+
+        adapter4=new FewAllAdapter(fewAllLocatio);
+        allFewRecycler.setAdapter(adapter4);
 
     }
 

@@ -24,10 +24,19 @@
             android:scaleType="centerCrop"/>
 
         <Button
+            android:id="@+id/bookmarkfree_border"
             android:layout_width="42dp"
             android:layout_height="68dp"
             android:layout_gravity="right"
             android:background="@drawable/ic_baseline_bookmark_border_24" />
+
+        <Button
+            android:id="@+id/bookmarkfree"
+            android:layout_width="42dp"
+            android:layout_height="62dp"
+            android:layout_gravity="right"
+            android:visibility="gone"
+            android:background="@drawable/ic_baseline_bookmark_24" />
 
     </androidx.cardview.widget.CardView>
 
@@ -38,7 +47,7 @@
         android:textColor="#FFF"
         android:layout_marginLeft="14dp"
         android:text="Playing with Grid -\nWeb design Fundamentals"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         />
 

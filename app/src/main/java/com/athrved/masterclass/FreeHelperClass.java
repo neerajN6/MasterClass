@@ -1,14 +1,14 @@
 package com.athrved.masterclass;
 
 public class FreeHelperClass {
-    int imagebig, imagesmall1,imagesmall2;
+    int imagesmall1,imagesmall2;
     String title, topic,author;
 
     public FreeHelperClass() {
     }
 
-    public FreeHelperClass(int imagebig, int imagesmall1, int imagesmall2, String title, String topic, String author) {
-        this.imagebig = imagebig;
+    public FreeHelperClass(int imagesmall1, int imagesmall2, String title, String topic, String author) {
+
         this.imagesmall1 = imagesmall1;
         this.imagesmall2 = imagesmall2;
         this.title = title;
@@ -16,13 +16,7 @@ public class FreeHelperClass {
         this.author = author;
     }
 
-    public int getImagebig() {
-        return imagebig;
-    }
 
-    public void setImagebig(int imagebig) {
-        this.imagebig = imagebig;
-    }
 
     public int getImagesmall1() {
         return imagesmall1;
