@@ -125,18 +125,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right"
-                android:layout_marginRight="16dp"
-                android:text="View All"
-                android:textColor="#2b73c9"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -148,7 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4.5dp"
             android:layout_marginRight="14.5dp"
-            android:layout_marginBottom="4.5dp"
+            android:layout_marginBottom="13.5dp"
             app:layout_constraintVertical_bias=".35" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -162,7 +150,7 @@
                 android:textColor="#FFF"
                 android:textSize="20sp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="15dp"
+
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -193,6 +181,10 @@
             android:layout_marginBottom="1.5dp"
             app:layout_constraintVertical_bias=".35" />
 
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -201,10 +193,30 @@
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="16dp"
+
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="16dp"
+                android:text="View All"
+                android:textColor="#2b73c9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/r1freeclass"
             android:layout_width="match_parent"
@@ -222,8 +234,8 @@
             android:textColor="#FFF"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:layout_marginTop="31dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             />
@@ -242,6 +254,10 @@
             app:layout_constraintTop_toBottomOf="@id/tv2"
             app:layout_constraintVertical_bias=".35" />
 
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <TextView
             android:id="@+id/abcde"
             android:layout_width="wrap_content"
@@ -254,7 +270,26 @@
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginRight="16dp"
+                android:text="View All"
+                android:textColor="#2b73c9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/r4fewalllist"
