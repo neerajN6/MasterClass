@@ -11,14 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.athrved.masterclass.FetchData;
-import com.athrved.masterclass.FewAllAdapter;
-import com.athrved.masterclass.FewAllHelperClass;
-import com.athrved.masterclass.FreeHelperClass;
-import com.athrved.masterclass.FreeclassesAdapter;
-import com.athrved.masterclass.MenAdapter;
-import com.athrved.masterclass.MenHelperClass;
-import com.athrved.masterclass.PopHelperClass;
-import com.athrved.masterclass.PopclassesAdapter;
+import com.athrved.masterclass.uiux.FewAllAdapter;
+import com.athrved.masterclass.uiux.FewAllHelperClass;
+import com.athrved.masterclass.uiux.FreeHelperClass;
+import com.athrved.masterclass.uiux.FreeclassesAdapter;
+import com.athrved.masterclass.uiux.MenAdapter;
+import com.athrved.masterclass.uiux.MenHelperClass;
+import com.athrved.masterclass.uiux.PopHelperClass;
+import com.athrved.masterclass.uiux.PopclassesAdapter;
 import com.athrved.masterclass.R;
 
 import java.util.ArrayList;

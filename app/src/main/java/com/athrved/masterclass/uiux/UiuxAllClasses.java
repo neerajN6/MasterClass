@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.uiux;
 
 public class UiuxAllClasses {
     private String title;

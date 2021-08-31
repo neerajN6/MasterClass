@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.uiux.UiuxActivity;
 import com.athrved.masterclass.webdevelopment.WebActivity;
 
 import java.util.List;

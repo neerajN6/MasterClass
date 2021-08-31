@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.uiux;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.athrved.masterclass.R;
 
 import java.util.ArrayList;
 

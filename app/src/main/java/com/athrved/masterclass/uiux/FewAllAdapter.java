@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.uiux;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.athrved.masterclass.PlayerActivity;
+import com.athrved.masterclass.R;
 
 import java.util.ArrayList;
 

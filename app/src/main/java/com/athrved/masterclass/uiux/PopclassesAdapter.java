@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.uiux;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,53 +12,38 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.RequestQueue;
-import com.squareup.picasso.Picasso;
+import com.athrved.masterclass.PlayerActivity;
+import com.athrved.masterclass.R;
 
 import java.util.ArrayList;
 
-public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.FreeViewHolder> {
+public class PopclassesAdapter extends RecyclerView.Adapter<PopclassesAdapter.PopViewHolder> {
 
-    ArrayList<FreeHelperClass> featloc;
-    public static String a,b="FAILED TO LOAD";
+    ArrayList<PopHelperClass> featloc;
 
-    RequestQueue requestQueue;
-
-    public FreeclassesAdapter(ArrayList<FreeHelperClass> featloc) {
+    public PopclassesAdapter(ArrayList<PopHelperClass> featloc) {
         this.featloc = featloc;
     }
 
     @NonNull
 
     @Override
-    public FreeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.free_class_card_design,parent,false);
-        FreeViewHolder freeViewHolder = new FreeViewHolder(view);
+    public PopViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pop_class_card_design,parent,false);
+        PopViewHolder popViewHolder = new PopViewHolder(view);
 
-        return freeViewHolder;
+        return popViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FreeViewHolder holder, int position) {
-        FreeHelperClass freeHelperClass = featloc.get(position);
-
-        holder.imagesmall1.setImageResource(freeHelperClass.getImagesmall1());
-        holder.imagesmall2.setImageResource(freeHelperClass.getImagesmall2());
-        holder.title.setText(freeHelperClass.getTitle());
-        holder.topic.setText(freeHelperClass.getTopic());
-        holder.author.setText(freeHelperClass.getAuthor());
-
-
-
-
-        if(position==0){
-
-            Picasso.get().load("https://img.youtube.com/vi/_vAmKNin0QM/maxresdefault.jpg").into(holder.imagebig);
-        }
-        if(position==1){
-
-            Picasso.get().load("https://img.youtube.com/vi/lrcqt4RelJ4/maxresdefault.jpg").into(holder.imagebig);
-        }
+    public void onBindViewHolder(@NonNull PopViewHolder holder, int position) {
+        PopHelperClass popHelperClass = featloc.get(position);
+        holder.imagebig.setImageResource(popHelperClass.getImagebig());
+        holder.imagesmall1.setImageResource(popHelperClass.getImagesmall1());
+        holder.imagesmall2.setImageResource(popHelperClass.getImagesmall2());
+        holder.title.setText(popHelperClass.getTitle());
+        holder.topic.setText(popHelperClass.getTopic());
+        holder.author.setText(popHelperClass.getAuthor());
     }
 
     @Override
@@ -66,27 +51,24 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
         return featloc.size();
     }
 
-    public static class FreeViewHolder extends RecyclerView.ViewHolder{
+    public static class PopViewHolder extends RecyclerView.ViewHolder{
         ImageView imagebig, imagesmall1,imagesmall2;
-        TextView topic, author;
-        TextView title;
-        Button bookmark, bookmark_border;
+        TextView title, topic, author;
+        Button bookmark_border, bookmark;
 
-        public FreeViewHolder(@NonNull final View itemView){
+        public PopViewHolder(@NonNull final View itemView){
             super(itemView);
 
-            imagebig=itemView.findViewById(R.id.freeimgbig);
-            imagesmall1=itemView.findViewById(R.id.freec1_image);
-            imagesmall2=itemView.findViewById(R.id.freec2_image);
+            imagebig=itemView.findViewById(R.id.popimgbig);
+            imagesmall1=itemView.findViewById(R.id.popc1_image);
+            imagesmall2=itemView.findViewById(R.id.popc2_image);
 
-            bookmark=itemView.findViewById(R.id.bookmarkfree);
-            bookmark_border=itemView.findViewById(R.id.bookmarkfree_border);
+            bookmark=itemView.findViewById(R.id.bookmark);
+            bookmark_border=itemView.findViewById(R.id.bookmark_border);
 
-            title=itemView.findViewById(R.id.freec_title);
-            topic=itemView.findViewById(R.id.freec_topic);
-            author=itemView.findViewById(R.id.freec_author);
-
-
+            title=itemView.findViewById(R.id.popc_title);
+            topic=itemView.findViewById(R.id.popc_topic);
+            author=itemView.findViewById(R.id.popc_author);
 
             bookmark_border.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -138,12 +120,13 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
 
                 }
             });
+        }
 
         }
 
 
 
     }
-    
 
-}
+
+

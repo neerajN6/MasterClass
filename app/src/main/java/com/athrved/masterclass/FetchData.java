@@ -2,6 +2,8 @@ package com.athrved.masterclass;
 
 import android.os.AsyncTask;
 
+import com.athrved.masterclass.uiux.FreeclassesAdapter;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 

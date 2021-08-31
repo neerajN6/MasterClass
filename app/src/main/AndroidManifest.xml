@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AApp">
         <activity android:name="com.athrved.masterclass.IotActivity"></activity>
-        <activity android:name="com.athrved.masterclass.UiuxActivity" />
+        <activity android:name="com.athrved.masterclass.uiux.UiuxActivity" />
         <activity android:name="com.athrved.masterclass.PlayerActivity">
         </activity>
         <activity android:name="com.athrved.masterclass.MachActivity" />

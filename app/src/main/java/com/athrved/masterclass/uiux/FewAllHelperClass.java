@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.uiux;
 
 public class FewAllHelperClass {
     int ImageBig,ImageSmall;
