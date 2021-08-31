@@ -6,29 +6,38 @@
     android:background="#121517"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WebActivity">
+    tools:context=".webdevelopment.WebActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ak_web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/search_web"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_height="50dp"
             android:background="@drawable/rec_feild"
             android:hint="Search"
+            android:drawableEnd="@drawable/ic_baseline_search_24"
             android:layout_below="@+id/cre"
             android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:inputType="textEmailAddress"
-            android:paddingVertical="15dp"
+            android:paddingVertical="12dp"
             android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:textColor="#fff"
-            android:textColorHint="#c0c0c0" />
+            android:textColorHint="#c0c0c0"
+            android:drawableRight="@drawable/ic_baseline_search_24" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="272dp"
@@ -49,7 +58,7 @@
 
 
                 <TextView
-                    android:id="@+id/tvv1"
+                    android:id="@+id/tvv1_web"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -65,7 +74,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tvv2"
+                    android:id="@+id/tvv2_web"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -77,13 +86,13 @@
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvv1" />
+                    app:layout_constraintTop_toBottomOf="@id/tvv1_web" />
 
                 <Button
-                    android:layout_width="232dp"
-                    android:layout_height="40dp"
-                    android:background="#2b73c9"
-                    android:layout_marginTop="21dp"
+                    android:layout_width="242dp"
+                    android:layout_height="45dp"
+                    android:backgroundTint="#2b73c9"
+                    android:layout_marginTop="17dp"
                     android:layout_marginBottom="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
@@ -92,10 +101,219 @@
                     android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvv2" />
+                    app:layout_constraintTop_toBottomOf="@id/tvv2_web" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/popclasses_web"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Popular Classes"
+                android:textColor="#FFF"
+                android:layout_marginLeft="16dp"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/r1popclass_web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginBottom="13.5dp"
+            app:layout_constraintVertical_bias=".35" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mentors"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:layout_marginLeft="16dp"
+
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginRight="16dp"
+                android:text="View All"
+                android:textColor="#2b73c9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/r3menclass_web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginBottom="1.5dp"
+            app:layout_constraintVertical_bias=".35" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Free Classes"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="16dp"
+                android:text="View All"
+                android:textColor="#2b73c9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/r1freeclass_web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginBottom="4.5dp"
+            app:layout_constraintVertical_bias=".35" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Courses"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dataList2_web"
+            android:layout_width="377dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11.5dp"
+
+            android:layout_marginRight="11.5dp"
+            android:layout_marginBottom="14.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv2"
+            app:layout_constraintVertical_bias=".35" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/abcde_web"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Classes"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginRight="16dp"
+                android:text="View All"
+                android:textColor="#2b73c9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/r4fewalllist_web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginBottom="1.5dp"
+            app:layout_constraintVertical_bias=".35" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="#2b73c9"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Learn more"
+            android:textColor="#FFF"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvv2" />
 
     </LinearLayout>
 </ScrollView>

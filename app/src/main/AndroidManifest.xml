@@ -19,7 +19,7 @@
         </activity>
         <activity android:name="com.athrved.masterclass.MachActivity" />
         <activity android:name="com.athrved.masterclass.AppDevActivity" />
-        <activity android:name="com.athrved.masterclass.WebActivity" />
+        <activity android:name="com.athrved.masterclass.webdevelopment.WebActivity" />
         <activity android:name="com.athrved.masterclass.AiActivity" />
 
         <activity android:name="com.athrved.masterclass.MainActivity"></activity>

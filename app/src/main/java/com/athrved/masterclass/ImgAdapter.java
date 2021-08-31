@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.webdevelopment.WebActivity;
+
 import java.util.List;
 
 public class ImgAdapter extends RecyclerView.Adapter<ImgAdapter.ViewHolder> {

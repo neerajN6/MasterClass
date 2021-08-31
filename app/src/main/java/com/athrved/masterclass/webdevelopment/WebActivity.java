@@ -1,11 +1,8 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.webdevelopment;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,20 +10,21 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.athrved.masterclass.FetchData;
+import com.athrved.masterclass.FewAllAdapter;
+import com.athrved.masterclass.FewAllHelperClass;
+import com.athrved.masterclass.FreeHelperClass;
+import com.athrved.masterclass.FreeclassesAdapter;
+import com.athrved.masterclass.MenAdapter;
+import com.athrved.masterclass.MenHelperClass;
+import com.athrved.masterclass.PopHelperClass;
+import com.athrved.masterclass.PopclassesAdapter;
+import com.athrved.masterclass.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UiuxActivity extends AppCompatActivity {
+public class WebActivity extends AppCompatActivity {
 
     TextView abcde;
     TextView ak;
@@ -36,7 +34,7 @@ public class UiuxActivity extends AppCompatActivity {
     RecyclerView dataList2;
     List<String> titles2;
     List<Integer> images2;
-    ImgAdapter2 imgAdapter2;
+    WImgAdapter2 WimgAdapter2;
 
     RecyclerView popRecycler;
     RecyclerView.Adapter adapter1;
@@ -50,35 +48,31 @@ public class UiuxActivity extends AppCompatActivity {
     RecyclerView allFewRecycler;
     RecyclerView.Adapter adapter4;
 
-    ArrayList<UiuxAllClasses> allCourseList=new ArrayList<>();
+//    ArrayList<UiuxAllClasses> allCourseList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uiux);
+        setContentView(R.layout.activity_web);
 
-        getSupportActionBar().setTitle("UI UX Design");
+        getSupportActionBar().setTitle("Web Development");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
 
-//        videoID="_vAmKNin0QM";
-//        urlname="https://noembed.com/embed?url=https://www.youtube.com/watch?v="+videoID;
-//        tita= respo(urlname);
 
-
-        popRecycler = findViewById(R.id.r1popclass);
+        popRecycler = findViewById(R.id.r1popclass_web);
         featuredRecycler();
-        freeRecycler=findViewById(R.id.r1freeclass);
-        freeturedRecycler( tit);
-        menRecycler=findViewById(R.id.r3menclass);
+        freeRecycler=findViewById(R.id.r1freeclass_web);
+        freeturedRecycler();
+        menRecycler=findViewById(R.id.r3menclass_web);
         mentoredRecycler();
-        allFewRecycler=findViewById(R.id.r4fewalllist);
+        allFewRecycler=findViewById(R.id.r4fewalllist_web);
         allfewRecycler();
 
-        dataList2 = findViewById(R.id.dataList2);
+        dataList2 = findViewById(R.id.dataList2_web);
 
-        abcde = findViewById(R.id.tvv1);
-        ak=findViewById(R.id.ak);
+        abcde = findViewById(R.id.tvv1_web);
+        ak=findViewById(R.id.ak_web);
 
         titles2 = new ArrayList<>();
         images2 = new ArrayList<>();
@@ -97,11 +91,11 @@ public class UiuxActivity extends AppCompatActivity {
         images2.add(R.drawable.threed_logo);
         images2.add(R.drawable.iot_logo);
 
-        imgAdapter2 = new ImgAdapter2(this,titles2,images2);
+        WimgAdapter2 = new WImgAdapter2(this,titles2,images2);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false);
         dataList2.setLayoutManager(gridLayoutManager);
-        dataList2.setAdapter(imgAdapter2);
+        dataList2.setAdapter(WimgAdapter2);
 
     }
 
@@ -122,11 +116,11 @@ public class UiuxActivity extends AppCompatActivity {
 
 
         adapter1=new PopclassesAdapter(popLocatio);
-         popRecycler.setAdapter(adapter1);
+        popRecycler.setAdapter(adapter1);
 
     }
 
-    private void freeturedRecycler(String tita){
+    private void freeturedRecycler(){
         freeRecycler.setHasFixedSize(true);
         freeRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
