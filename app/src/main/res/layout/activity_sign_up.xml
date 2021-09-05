@@ -15,7 +15,7 @@
         android:layout_height="88dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:src="@drawable/athrved_logo_white" />
+        android:src="@drawable/athrved_logo_w" />
 
     <TextView
         android:id="@+id/startLearning"

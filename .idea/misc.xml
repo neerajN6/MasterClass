@@ -13,9 +13,12 @@
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/men_class_card_design.xml" value="0.1296875" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/pop_class_card_design.xml" value="0.2536231884057971" />
         <entry key="app/src/main/res/drawable/blue_border.xml" value="0.321025641025641" />
-        <entry key="app/src/main/res/layout/activity_ai.xml" value="0.2875905797101449" />
+        <entry key="app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.30648148148148147" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/layout/activity_ai.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_app_dev.xml" value="0.2875905797101449" />
-        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.1956521739130435" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.27485822451372355" />
+        <entry key="app/src/main/res/layout/activity_database.xml" value="0.13677811550151975" />
         <entry key="app/src/main/res/layout/activity_facebook_auth.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_facebook_profile.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_iot.xml" value="0.2875905797101449" />

@@ -13,27 +13,75 @@
         android:layout_width="150dp"
         android:layout_height="88dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:src="@drawable/athrved_logo_white" />
+        android:layout_marginTop="90dp"
+        android:src="@drawable/athrved_logo_w" />
 
     <Button
         android:id="@+id/logOutBtn"
         android:layout_width="150dp"
         android:layout_height="55dp"
-        android:layout_below="@+id/linearLayout2"
+        android:layout_below="@+id/SaveBtn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
-        android:backgroundTint="#ECE5E5"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#2B73C9"
+        android:textAllCaps="false"
         android:fontFamily="@font/amiko_bold"
         android:text="Log Out"
-        android:textColor="@color/black" />
+        android:textColor="#F2FAFF" />
+
+    <Button
+        android:id="@+id/SaveBtn"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#2B73C9"
+        android:fontFamily="@font/amiko_bold"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="#F2FAFF" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/athrvedLogoInProfile"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mailIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/mail_icon"
+            />
+
+
+        <TextView
+            android:id="@+id/mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/mailIcon"
+            android:fontFamily="@font/amiko_semibold"
+            android:text="Email"
+            android:padding="5dp"
+            android:hint="Underline color change"
+            android:backgroundTint="@android:color/white"
+            android:textColor="#F2FAFF"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/athrvedLogoInProfile"
-        android:layout_marginTop="30dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -44,19 +92,22 @@
             android:src="@drawable/person_icon" />
 
 
-        <TextView
+        <EditText
             android:id="@+id/name"
-            android:layout_width="wrap_content"
+            android:layout_width="289dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/personIcon"
+            android:backgroundTint="#529BF2"
             android:fontFamily="@font/amiko_semibold"
+            android:hint="Underline color change"
             android:text="Name"
-            android:textColor="@color/white"
-            android:textSize="25dp" />
+            android:textColor="#F2FAFF"
+            android:textSize="20dp" />
 
 
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -67,22 +118,71 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/mailIcon"
+            android:id="@+id/phoneIcon"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="50dp"
-            android:src="@drawable/mail_icon" />
+            android:src="@drawable/ic_baseline_local_phone_24" />
 
-        <TextView
-            android:id="@+id/mail"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="289dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/mailIcon"
-            android:text="Mail"
+            android:backgroundTint="#529BF2"
+            android:hint="Enter Phone Number"
+            android:inputType="number"
+            android:text=""
             android:textColor="@color/white"
-            android:textSize="23dp" />
+            android:textColorHint="#575D61"
+            android:textSize="20dp" />
 
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/bioImage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/ic_baseline_info_24" />
+
+        <EditText
+            android:id="@+id/bio"
+            android:layout_width="289dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@+id/mailIcon"
+            android:backgroundTint="#529BF2"
+            android:hint="Enter Your Bio"
+            android:inputType="textMultiLine"
+            android:maxLength="100"
+            android:maxLines="3"
+            android:textColor="@color/white"
+            android:textColorHint="#575D61"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressbarofProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout3"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible">
+
+    </ProgressBar>
+
 </RelativeLayout>
