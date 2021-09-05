@@ -26,7 +26,7 @@ public class VerifyOtp extends AppCompatActivity {
 
     PinView pinFromUser;
     FirebaseAuth mAuth;
-    String codeBySystem;
+    String codeBySystem,PHONENO;
     ImageButton backBtnInVerifyOtp;
 
     @Override
@@ -49,7 +49,8 @@ public class VerifyOtp extends AppCompatActivity {
 
 
         String _phoneNo = getIntent().getStringExtra("phoneNo");
-
+        String _getUserEnteredNumber = getIntent().getStringExtra("phNo");
+        PHONENO = _getUserEnteredNumber;
         sendVerificationCodeToUser(_phoneNo);
     }
 
@@ -103,7 +104,8 @@ public class VerifyOtp extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(VerifyOtp.this, "Verification Completed", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(VerifyOtp.this, MainActivity.class);
+                            Intent intent = new Intent(VerifyOtp.this, Dashboard.class);
+                            intent.putExtra("phNo",PHONENO);
                             startActivity(intent);
                             finish();
                         } else {

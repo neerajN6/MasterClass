@@ -23,7 +23,7 @@
         android:layout_height="88dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:src="@drawable/athrved_logo_white" />
+        android:src="@drawable/athrved_logo_w" />
 
     <TextView
         android:id="@+id/textViewInPhoneNoLogIn"
@@ -56,26 +56,13 @@
             app:ccp_showFullName="false"
             app:ccp_showNameCode="true" />
 
-        <com.google.android.material.textfield.TextInputLayout
+
+        <EditText
             android:id="@+id/phoneNoEditText"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="215dp"
             android:layout_height="wrap_content"
-            android:hint="Mobile Number"
-            android:textColorHint="@color/white"
-            app:boxStrokeColor="#529BF2"
-            app:boxStrokeWidthFocused="2dp"
-            app:endIconMode="clear_text"
-            app:endIconTint="@color/white">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="phone"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:backgroundTint="#2B73C9"
+            android:textColor="@color/white"></EditText>
 
 
     </LinearLayout>

@@ -3,6 +3,7 @@ package com.athrved.masterclass;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -13,7 +14,7 @@ import com.hbb20.CountryCodePicker;
 
 public class PhoneNoLogIn extends AppCompatActivity {
 
-    TextInputLayout phoneNoEditText;
+    EditText phoneNoEditText;
     CountryCodePicker countryCodePicker;
     ImageButton backBtnInPhoneNoLogIn;
     TextView continueWithSocialTextView;
@@ -52,7 +53,7 @@ public class PhoneNoLogIn extends AppCompatActivity {
             return;
         }
 
-        String _getUserEnteredNumber = phoneNoEditText.getEditText().getText().toString().trim();
+        String _getUserEnteredNumber = phoneNoEditText.getText().toString().trim();
         String _phoneNo = "+" + countryCodePicker.getFullNumber() + _getUserEnteredNumber;
 
         Intent intent = new Intent(getApplicationContext(), VerifyOtp.class);
@@ -66,14 +67,13 @@ public class PhoneNoLogIn extends AppCompatActivity {
 
     private boolean validatePhoneNumber() {
 
-        String val = phoneNoEditText.getEditText().getText().toString().trim();
+        String val = phoneNoEditText.getText().toString().trim();
 
         if (val.isEmpty()) {
             phoneNoEditText.setError("Field cannot be empty");
             return false;
         } else {
             phoneNoEditText.setError(null);
-            phoneNoEditText.setErrorEnabled(false);
             return true;
         }
     }
