@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.machdesign;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.FetchData;
+import com.athrved.masterclass.R;
 import com.athrved.masterclass.uiux.FewAllAdapter;
 import com.athrved.masterclass.uiux.FewAllHelperClass;
 import com.athrved.masterclass.uiux.FreeHelperClass;
@@ -18,12 +20,11 @@ import com.athrved.masterclass.uiux.MenAdapter;
 import com.athrved.masterclass.uiux.MenHelperClass;
 import com.athrved.masterclass.uiux.PopHelperClass;
 import com.athrved.masterclass.uiux.PopclassesAdapter;
-import com.athrved.masterclass.webdevelopment.WImgAdapter2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class IotActivity extends AppCompatActivity {
+public class MachActivity extends AppCompatActivity {
 
     TextView abcde;
     TextView ak;
@@ -33,7 +34,7 @@ public class IotActivity extends AppCompatActivity {
     RecyclerView dataList2;
     List<String> titles2;
     List<Integer> images2;
-    IImgAdapter2 IimgAdapter2;
+    MImgAdapter2 MimgAdapter2;
 
     RecyclerView popRecycler;
     RecyclerView.Adapter adapter1;
@@ -52,26 +53,26 @@ public class IotActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
+        setContentView(R.layout.activity_mach);
 
-        getSupportActionBar().setTitle("Internet of things");
+        getSupportActionBar().setTitle("Machine Design");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
 
 
-        popRecycler = findViewById(R.id.r1popclass_iot);
+        popRecycler = (RecyclerView) findViewById(R.id.r1popclass_m);
         featuredRecycler();
-        freeRecycler=findViewById(R.id.r1freeclass_iot);
+        freeRecycler=findViewById(R.id.r1freeclass_m);
         freeturedRecycler();
-        menRecycler=findViewById(R.id.r3menclass_iot);
+        menRecycler=findViewById(R.id.r3menclass_m);
         mentoredRecycler();
-        allFewRecycler=findViewById(R.id.r4fewalllist_iot);
+        allFewRecycler=findViewById(R.id.r4fewalllist_m);
         allfewRecycler();
 
-        dataList2 = findViewById(R.id.dataList2_iot);
+        dataList2 = findViewById(R.id.dataList2_m);
 
-        abcde = findViewById(R.id.tvv1_iot);
-        ak=findViewById(R.id.ak_iot);
+        abcde = findViewById(R.id.tvv1_m);
+        ak=findViewById(R.id.ak_m);
 
         titles2 = new ArrayList<>();
         images2 = new ArrayList<>();
@@ -90,11 +91,11 @@ public class IotActivity extends AppCompatActivity {
         images2.add(R.drawable.threed_logo);
         images2.add(R.drawable.iot_logo);
 
-        IimgAdapter2 = new IImgAdapter2(this,titles2,images2);
+        MimgAdapter2 = new MImgAdapter2(this,titles2,images2);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false);
         dataList2.setLayoutManager(gridLayoutManager);
-        dataList2.setAdapter(IimgAdapter2);
+        dataList2.setAdapter(MimgAdapter2);
 
     }
 
@@ -120,6 +121,7 @@ public class IotActivity extends AppCompatActivity {
     }
 
     private void freeturedRecycler(){
+
         freeRecycler.setHasFixedSize(true);
         freeRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
@@ -127,7 +129,6 @@ public class IotActivity extends AppCompatActivity {
 
         freeLocatio.add(new FreeHelperClass(R.drawable.ai_logo,0,"Top UX Design Interview Questions","VISUAL DESIGN","S M Sudhanva Acharya"));
         freeLocatio.add(new FreeHelperClass(R.drawable.ai_logo,0,"White Space in Design","VISUAL DESIGN","Abhinav Chikkara"));
-
 
         adapter2=new FreeclassesAdapter(freeLocatio);
         freeRecycler.setAdapter(adapter2);
@@ -173,5 +174,4 @@ public class IotActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

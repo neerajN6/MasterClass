@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.appdev;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.uiux.FewAllAdapter;
 import com.athrved.masterclass.uiux.FewAllHelperClass;
 import com.athrved.masterclass.uiux.FreeHelperClass;
@@ -18,12 +19,13 @@ import com.athrved.masterclass.uiux.MenAdapter;
 import com.athrved.masterclass.uiux.MenHelperClass;
 import com.athrved.masterclass.uiux.PopHelperClass;
 import com.athrved.masterclass.uiux.PopclassesAdapter;
-import com.athrved.masterclass.webdevelopment.WImgAdapter2;
+import com.athrved.masterclass.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class IotActivity extends AppCompatActivity {
+
+public class AppDevActivity extends AppCompatActivity {
 
     TextView abcde;
     TextView ak;
@@ -33,7 +35,7 @@ public class IotActivity extends AppCompatActivity {
     RecyclerView dataList2;
     List<String> titles2;
     List<Integer> images2;
-    IImgAdapter2 IimgAdapter2;
+    AImgAdapter2 AimgAdapter2;
 
     RecyclerView popRecycler;
     RecyclerView.Adapter adapter1;
@@ -52,26 +54,26 @@ public class IotActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
+        setContentView(R.layout.activity_app_dev);
 
-        getSupportActionBar().setTitle("Internet of things");
+        getSupportActionBar().setTitle("App Development");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
 
 
-        popRecycler = findViewById(R.id.r1popclass_iot);
+        popRecycler = findViewById(R.id.r1popclass_app);
         featuredRecycler();
-        freeRecycler=findViewById(R.id.r1freeclass_iot);
+        freeRecycler=findViewById(R.id.r1freeclass_app);
         freeturedRecycler();
-        menRecycler=findViewById(R.id.r3menclass_iot);
+        menRecycler=findViewById(R.id.r3menclass_app);
         mentoredRecycler();
-        allFewRecycler=findViewById(R.id.r4fewalllist_iot);
+        allFewRecycler=findViewById(R.id.r4fewalllist_app);
         allfewRecycler();
 
-        dataList2 = findViewById(R.id.dataList2_iot);
+        dataList2 = findViewById(R.id.dataList2_app);
 
-        abcde = findViewById(R.id.tvv1_iot);
-        ak=findViewById(R.id.ak_iot);
+        abcde = findViewById(R.id.tvv1_app);
+        ak=findViewById(R.id.ak_app);
 
         titles2 = new ArrayList<>();
         images2 = new ArrayList<>();
@@ -90,11 +92,11 @@ public class IotActivity extends AppCompatActivity {
         images2.add(R.drawable.threed_logo);
         images2.add(R.drawable.iot_logo);
 
-        IimgAdapter2 = new IImgAdapter2(this,titles2,images2);
+        AimgAdapter2 = new AImgAdapter2(this,titles2,images2);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false);
         dataList2.setLayoutManager(gridLayoutManager);
-        dataList2.setAdapter(IimgAdapter2);
+        dataList2.setAdapter(AimgAdapter2);
 
     }
 
@@ -173,5 +175,4 @@ public class IotActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

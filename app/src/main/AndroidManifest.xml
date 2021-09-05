@@ -17,10 +17,10 @@
         <activity android:name="com.athrved.masterclass.uiux.UiuxActivity" />
         <activity android:name="com.athrved.masterclass.PlayerActivity">
         </activity>
-        <activity android:name="com.athrved.masterclass.MachActivity" />
-        <activity android:name="com.athrved.masterclass.AppDevActivity" />
+        <activity android:name="com.athrved.masterclass.machdesign.MachActivity" />
+        <activity android:name="com.athrved.masterclass.appdev.AppDevActivity" />
         <activity android:name="com.athrved.masterclass.webdevelopment.WebActivity" />
-        <activity android:name="com.athrved.masterclass.AiActivity" />
+        <activity android:name="com.athrved.masterclass.ai.AiActivity" />
 
         <activity android:name="com.athrved.masterclass.MainActivity"></activity>
         <activity

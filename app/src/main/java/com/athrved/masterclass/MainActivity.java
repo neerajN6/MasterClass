@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Database db = new Database();
 
         titles = new ArrayList<>();
         images = new ArrayList<>();

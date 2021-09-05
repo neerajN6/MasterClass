@@ -14,8 +14,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/go_back"
@@ -24,4 +23,78 @@
         android:background="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/you_title_lin"
+        android:paddingTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingBottom="8dp"
+        android:paddingEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/tablayout_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/youplay">
+
+    <TextView
+        android:id="@+id/you_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:fontFamily="@font/amaranth"
+
+        android:text="Visual Design - Learn to get your basics right!"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+         />
+
+        <Button
+            android:id="@+id/bookmark_border"
+            android:layout_width="42dp"
+            android:layout_height="63dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_baseline_bookmark_border_24" />
+
+        <Button
+            android:id="@+id/bookmark"
+            android:layout_width="42dp"
+            android:layout_height="62dp"
+            android:layout_gravity="right"
+            android:visibility="gone"
+            android:background="@drawable/ic_baseline_bookmark_24" />
+    </LinearLayout>
+
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout_1"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/you_title_lin"
+        app:tabIndicatorColor="#057EBD"
+
+        app:tabSelectedTextColor="#FFF"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:tabTextColor="#A3A0A0">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Overview" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Structure" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reviews" />
+    </com.google.android.material.tabs.TabLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

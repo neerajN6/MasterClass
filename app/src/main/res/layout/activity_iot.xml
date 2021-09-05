@@ -1,77 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="#121517"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IotActivity">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="272dp"
-        android:layout_height="167dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:cardBackgroundColor="#222E37"
-        app:cardElevation="10dp"
-        android:layout_gravity="center"
-        app:contentPadding="10dp"
-        app:layout_constraintVertical_bias="0.6">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ak_iot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+
+        <EditText
+            android:id="@+id/search_iot"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rec_feild"
+            android:hint="Search"
+            android:drawableEnd="@drawable/ic_baseline_search_24"
+            android:layout_below="@+id/cre"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="12dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="#fff"
+            android:textColorHint="#c0c0c0"
+            android:drawableRight="@drawable/ic_baseline_search_24" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="272dp"
+            android:layout_height="167dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:cardBackgroundColor="#222E37"
+            app:cardElevation="10dp"
+            android:layout_gravity="center"
+            app:contentPadding="10dp"
+            app:layout_constraintVertical_bias="0.6">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/tvv1_iot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/amaranth"
+                    android:gravity="center"
+                    android:text="Unlock all the courses"
+                    android:layout_marginTop="18dp"
+                    android:textColor="#FFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvv2_iot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/amaranth"
+                    android:gravity="center"
+                    android:text="Get access to all 50+ courses for\na single time payment"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#FFF"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvv1_iot" />
+
+                <Button
+                    android:layout_width="242dp"
+                    android:layout_height="45dp"
+                    android:backgroundTint="#2b73c9"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Learn more"
+                    android:textColor="#FFF"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvv2_iot" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tvv1"
+                android:id="@+id/popclasses_iot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Popular Classes"
+                android:textColor="#FFF"
+                android:layout_marginLeft="16dp"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                android:fontFamily="@font/amaranth"
-                android:gravity="center"
-                android:text="Unlock all the courses"
-                android:layout_marginTop="18dp"
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/r1popclass_iot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginBottom="13.5dp"
+            app:layout_constraintVertical_bias=".35" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mentors"
                 android:textColor="#FFF"
                 android:textSize="20sp"
+                android:layout_marginLeft="16dp"
+
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:fontFamily="@font/amaranth"
-                android:gravity="center"
-                android:text="Get access to all 50+ courses for\na single time payment"
-                android:layout_marginTop="4dp"
-                android:textColor="#FFF"
-                android:textSize="12sp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginRight="16dp"
+                android:text="View All"
+                android:textColor="#2b73c9"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvv1" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:layout_width="232dp"
-                android:layout_height="40dp"
-                android:background="#2b73c9"
-                android:layout_marginTop="21dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="Learn more"
-                android:textColor="#FFF"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvv2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/r3menclass_iot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginBottom="1.5dp"
+            app:layout_constraintVertical_bias=".35" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Free Classes"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="16dp"
+                android:text="View All"
+                android:textColor="#2b73c9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/r1freeclass_iot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginBottom="4.5dp"
+            app:layout_constraintVertical_bias=".35" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Courses"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dataList2_iot"
+            android:layout_width="377dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11.5dp"
+
+            android:layout_marginRight="11.5dp"
+            android:layout_marginBottom="14.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv2"
+            app:layout_constraintVertical_bias=".35" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/abcde_iot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Classes"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginRight="16dp"
+                android:text="View All"
+                android:textColor="#2b73c9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/r4fewalllist_iot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginBottom="1.5dp"
+            app:layout_constraintVertical_bias=".35" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="#2b73c9"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Learn more"
+            android:textColor="#FFF"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvv2" />
+
+    </LinearLayout>
+</ScrollView>
