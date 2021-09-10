@@ -28,7 +28,7 @@
             android:layout_height="88dp"
             android:layout_gravity="center"
             android:layout_marginTop="42dp"
-            android:src="@drawable/athrved_logo_white" />
+            android:src="@drawable/athrved_logo_w" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,6 +38,7 @@
             android:text="Enter the OTP"
             android:textColor="#F2FAFF"
             android:textSize="20dp" />
+
 
         <com.chaos.view.PinView
             android:id="@+id/pinView"
@@ -57,10 +58,18 @@
             app:itemRadius="5dp"
             app:lineColor="#529BF2" />
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="145dp"
+            android:visibility="invisible"
+            android:id="@+id/progressBarInVerifyPhNo"/>
+
         <Button
             android:layout_width="328dp"
             android:layout_height="55dp"
-            android:layout_marginTop="280dp"
+            android:layout_marginTop="150dp"
             android:backgroundTint="#2B73C9"
             android:onClick="callNextActivityFromOtp"
             android:text="VERIFY OTP"

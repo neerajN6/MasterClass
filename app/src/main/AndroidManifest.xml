@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.athrved.masterclass">
-//Git
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,16 +12,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AApp">
-        <activity android:name="com.athrved.masterclass.IotActivity"></activity>
-        <activity android:name="com.athrved.masterclass.uiux.UiuxActivity" />
-        <activity android:name="com.athrved.masterclass.PlayerActivity">
-        </activity>
-        <activity android:name="com.athrved.masterclass.machdesign.MachActivity" />
-        <activity android:name="com.athrved.masterclass.appdev.AppDevActivity" />
-        <activity android:name="com.athrved.masterclass.webdevelopment.WebActivity" />
-        <activity android:name="com.athrved.masterclass.ai.AiActivity" />
-
-        <activity android:name="com.athrved.masterclass.MainActivity"></activity>
+        <activity
+            android:name=".MatchPhoneNo"
+            android:exported="true" />
+        <activity
+            android:name=".MatchFacebookEmail"
+            android:exported="true" />
+        <activity
+            android:name=".MatchEmail"
+            android:exported="true" />
+        <activity android:name=".IotActivity" />
+        <activity android:name=".uiux.UiuxActivity" />
+        <activity android:name=".PlayerActivity" />
+        <activity android:name=".machdesign.MachActivity" />
+        <activity android:name=".appdev.AppDevActivity" />
+        <activity android:name=".webdevelopment.WebActivity" />
+        <activity android:name=".ai.AiActivity" />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".TermsAndCondition"
             android:exported="true" />
@@ -31,7 +37,7 @@
             android:exported="true" />
         <activity
             android:name=".PhoneNoLogIn"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".VerifyOtp"
             android:exported="true" />
@@ -41,18 +47,13 @@
         <activity
             android:name=".Profile"
             android:exported="true" />
-
         <activity android:name=".SplashScreen">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-
         <activity android:name=".SignUp" />
 
         <meta-data
@@ -61,6 +62,7 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -78,6 +80,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

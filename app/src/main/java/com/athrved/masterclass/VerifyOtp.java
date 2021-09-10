@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,11 +29,13 @@ public class VerifyOtp extends AppCompatActivity {
     FirebaseAuth mAuth;
     String codeBySystem,PHONENO;
     ImageButton backBtnInVerifyOtp;
+    ProgressBar progressBarInVerifyPhNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_otp);
+        progressBarInVerifyPhNo = findViewById(R.id.progressBarInVerifyPhNo);
 
         pinFromUser = findViewById(R.id.pinView);
         mAuth = FirebaseAuth.getInstance();
@@ -43,6 +46,7 @@ public class VerifyOtp extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(VerifyOtp.this, SignUp.class);
                 startActivity(intent);
+                finish();
                 finish();
             }
         });
@@ -104,9 +108,10 @@ public class VerifyOtp extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(VerifyOtp.this, "Verification Completed", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(VerifyOtp.this, Dashboard.class);
+                            Intent intent = new Intent(VerifyOtp.this, MatchPhoneNo.class);
                             intent.putExtra("phNo",PHONENO);
                             startActivity(intent);
+                            finish();
                             finish();
                         } else {
 
@@ -119,6 +124,7 @@ public class VerifyOtp extends AppCompatActivity {
     }
 
     public void callNextActivityFromOtp(View view) {
+        progressBarInVerifyPhNo.setVisibility(View.VISIBLE);
         String code = pinFromUser.getText().toString();
         if (!code.isEmpty()) {
             verifyCode(code);

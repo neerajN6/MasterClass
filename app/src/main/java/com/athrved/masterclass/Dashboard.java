@@ -41,8 +41,8 @@ public class Dashboard extends AppCompatActivity {
         saveBtn = findViewById(R.id.SaveBtn);
         progressBarOfProfile = findViewById(R.id.progressbarofProfile);
 
-        String PHONENO = getIntent().getStringExtra("phNo");
-        phone.setText(PHONENO);
+        String phone1 = getIntent().getStringExtra("phNo");
+        phone.setText(phone1);
 
         bio.addTextChangedListener(new TextWatcher() {
             @Override

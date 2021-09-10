@@ -34,6 +34,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Arrays;
 
 public class SignUp extends AppCompatActivity {
@@ -48,8 +52,9 @@ public class SignUp extends AppCompatActivity {
     private AccessTokenTracker accessTokenTracker;
     private static final String TAG = "FacebookAuthentication";
     private static final String EMAIL = "email";
-    Button continueWithPhoneNoBtn;
-    private TextView TermsOfServiceTextView, TermsAndConditionTextView;
+    Button continueWithPhoneNoBtn,googleSignUp;
+    private TextView TermsOfServiceTextView, TermsAndConditionTextView,startLearning;
+    private String Email,email;
 
 
     @Override
@@ -61,6 +66,12 @@ public class SignUp extends AppCompatActivity {
 
         TermsAndConditionTextView = findViewById(R.id.TermsAndConditionTextView);
         TermsOfServiceTextView = findViewById(R.id.TermsOfServiceTextView);
+        startLearning = findViewById(R.id.startLearning);
+
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if (signInAccount != null) {
+            Email = signInAccount.getEmail();
+        }
 
         TermsAndConditionTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,6 +145,8 @@ public class SignUp extends AppCompatActivity {
                 signIn();
             }
         });
+
+
     }
 
 
@@ -199,7 +212,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void openProfile() {
-        startActivity(new Intent(this, FacebookProfile.class));
+        startActivity(new Intent(this, MatchFacebookEmail.class));
         finish();
 
     }
@@ -233,8 +246,9 @@ public class SignUp extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(SignUp.this, Profile.class);
+                            Intent intent = new Intent(SignUp.this, MatchEmail.class);
                             startActivity(intent);
+                            finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(SignUp.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
@@ -242,5 +256,8 @@ public class SignUp extends AppCompatActivity {
                     }
                 });
     }
+
+
+
 
 }
