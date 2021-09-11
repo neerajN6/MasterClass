@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AApp">
         <activity
+            android:name=".UpdateProfile"
+            android:exported="true" />
+        <activity
             android:name=".MatchPhoneNo"
             android:exported="true" />
         <activity

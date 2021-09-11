@@ -1,8 +1,11 @@
 package com.athrved.masterclass.ai;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.R;
+import com.athrved.masterclass.UpdateProfile;
 import com.athrved.masterclass.uiux.FewAllAdapter;
 import com.athrved.masterclass.uiux.FewAllHelperClass;
 import com.athrved.masterclass.uiux.FreeHelperClass;
@@ -30,6 +34,7 @@ public class AiActivity extends AppCompatActivity{
     TextView ak;
     String tit;
     String urlname,videoID,tita;
+    Button learnMoreButton;
 
     RecyclerView dataList2;
     List<String> titles2;
@@ -68,6 +73,14 @@ public class AiActivity extends AppCompatActivity{
         mentoredRecycler();
         allFewRecycler=findViewById(R.id.r4fewalllist_ai);
         allfewRecycler();
+        learnMoreButton = findViewById(R.id.learnMoreBtn);
+        learnMoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AiActivity.this, UpdateProfile.class);
+                startActivity(intent);
+            }
+        });
 
         dataList2 = findViewById(R.id.dataList2_ai);
 
