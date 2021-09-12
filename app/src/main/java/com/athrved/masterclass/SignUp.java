@@ -52,9 +52,9 @@ public class SignUp extends AppCompatActivity {
     private AccessTokenTracker accessTokenTracker;
     private static final String TAG = "FacebookAuthentication";
     private static final String EMAIL = "email";
-    Button continueWithPhoneNoBtn,googleSignUp;
-    private TextView TermsOfServiceTextView, TermsAndConditionTextView,startLearning;
-    private String Email,email;
+    Button continueWithPhoneNoBtn, googleSignUp;
+    private TextView TermsOfServiceTextView, TermsAndConditionTextView, startLearning;
+    private String Email, email;
 
 
     @Override
@@ -256,8 +256,6 @@ public class SignUp extends AppCompatActivity {
                     }
                 });
     }
-
-
 
 
 }

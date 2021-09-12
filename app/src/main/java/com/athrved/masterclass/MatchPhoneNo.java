@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class MatchPhoneNo extends AppCompatActivity {
-    public long Phone,PHONENO;
+    public long Phone, PHONENO;
     String phone1;
 
     @Override
@@ -19,7 +19,7 @@ public class MatchPhoneNo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_phone_no);
         String _getUserEnteredNumber = getIntent().getStringExtra("phNo");
-        PHONENO=Long.parseLong(_getUserEnteredNumber);
+        PHONENO = Long.parseLong(_getUserEnteredNumber);
         phone1 = _getUserEnteredNumber;
         Database db = new Database();
     }
@@ -84,24 +84,23 @@ public class MatchPhoneNo extends AppCompatActivity {
                 System.out.println("Opened database successfully");
 
                 stmt = c.createStatement();
-                ResultSet rs = stmt.executeQuery( "SELECT * FROM USERS;" );
-                while ( rs.next() ) {
+                ResultSet rs = stmt.executeQuery("SELECT * FROM USERS;");
+                while (rs.next()) {
                     Phone = rs.getLong("phone");
                     System.out.print("firstString.equals(secondString) : ");
-                    System.out.println(PHONENO==Phone);
-                    if(PHONENO == Phone)
-                    {
-                        System.out.println( "PHONE = " + Phone );
-                        System.out.println( "PHONE1 = " + PHONENO );
+                    System.out.println(PHONENO == Phone);
+                    if (PHONENO == Phone) {
+                        System.out.println("PHONE = " + Phone);
+                        System.out.println("PHONE1 = " + PHONENO);
                         Intent intent = new Intent(MatchPhoneNo.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                         break;
-                    }else{
+                    } else {
                         System.out.println("False wrong = " + PHONENO);
-                        System.out.println( "PHONE = " + Phone );
+                        System.out.println("PHONE = " + Phone);
                         Intent intent = new Intent(MatchPhoneNo.this, Dashboard.class);
-                        intent.putExtra("phNo",phone1);
+                        intent.putExtra("phNo", phone1);
                         startActivity(intent);
                         finish();
                     }

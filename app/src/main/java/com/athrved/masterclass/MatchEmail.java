@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class MatchEmail extends AppCompatActivity {
-    String email,EMAIL;
+    String email, EMAIL;
     private ProgressBar progressBar;
 
     @Override
@@ -32,6 +32,7 @@ public class MatchEmail extends AppCompatActivity {
         }
         Database db = new Database();
     }
+
     class Database {
 
         private Connection connection;
@@ -92,22 +93,21 @@ public class MatchEmail extends AppCompatActivity {
                 System.out.println("Opened database successfully");
 
                 stmt = c.createStatement();
-                ResultSet rs = stmt.executeQuery( "SELECT * FROM USERS;" );
-                while ( rs.next() ) {
+                ResultSet rs = stmt.executeQuery("SELECT * FROM USERS;");
+                while (rs.next()) {
                     email = rs.getString("email");
                     System.out.print("firstString.equals(secondString) : ");
                     System.out.println(email.compareTo(EMAIL));
-                    if(email.compareTo(EMAIL) == 0)
-                    {
-                    System.out.println( "EMAIL = " + email );
-                    System.out.println( "EMAIL1 = " + EMAIL );
+                    if (email.compareTo(EMAIL) == 0) {
+                        System.out.println("EMAIL = " + email);
+                        System.out.println("EMAIL1 = " + EMAIL);
                         Intent intent3 = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent3);
                         progressBar.setVisibility(View.VISIBLE);
                         finish();
                         finish();
                         break;
-                    }else{
+                    } else {
                         System.out.println("False wrong" + EMAIL);
                         Intent intent4 = new Intent(getApplicationContext(), Profile.class);
                         startActivity(intent4);

@@ -48,7 +48,7 @@ public class Database {
         }
     }
 
-    public Connection getExtraConnection(){
+    public Connection getExtraConnection() {
         Connection c = null;
         try {
             Class.forName("org.postgresql.Driver");

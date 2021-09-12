@@ -25,8 +25,8 @@ import java.sql.Statement;
 public class Profile extends AppCompatActivity {
 
     private TextView mail;
-    private EditText name,phone,bio;
-    Button logOut,saveBtn;
+    private EditText name, phone, bio;
+    Button logOut, saveBtn;
     public String Name;
     public String Email;
     public String Bio;
@@ -69,7 +69,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (!validatePhoneNo() | !validateName()){
+                if (!validatePhoneNo() | !validateName()) {
                     return;
                 } else {
                     progressBarOfProfile.setVisibility(View.VISIBLE);
@@ -95,7 +95,6 @@ public class Profile extends AppCompatActivity {
         }
 
 
-
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,9 +117,7 @@ public class Profile extends AppCompatActivity {
         private String url = "jdbc:postgresql://ec2-54-158-232-223.compute-1.amazonaws.com:5432/ddgaguv61p4m63?sslmode=require&user=jfeitasqnyuanh&password=d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
         private boolean status;
 
-        public Database()
-
-        {
+        public Database() {
 
             this.url = String.format(this.url, this.host, this.port, this.database);
             connect();
@@ -155,7 +152,7 @@ public class Profile extends AppCompatActivity {
             }
         }
 
-        public Connection getExtraConnection(){
+        public Connection getExtraConnection() {
             Connection c = null;
             Statement stmt = null;
             try {
@@ -166,7 +163,7 @@ public class Profile extends AppCompatActivity {
 
                 stmt = c.createStatement();
                 String sql = "INSERT INTO USERS (EMAIL,USERNAME,PHONE,BIO) "
-                        + "VALUES ('"+Email+"','"+Name+"',"+Phone+",'"+Bio+"')";
+                        + "VALUES ('" + Email + "','" + Name + "'," + Phone + ",'" + Bio + "')";
                 stmt.executeUpdate(sql);
 
 

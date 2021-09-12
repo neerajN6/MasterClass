@@ -23,15 +23,15 @@ import java.sql.Statement;
 public class UpdateProfile extends AppCompatActivity {
 
     private TextView mail;
-    private EditText name,phone,bio;
+    private EditText name, phone, bio;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseUser user = mAuth.getCurrentUser();
-    Button logOutBtn,updateBtn;
+    Button logOutBtn, updateBtn;
     private String Name;
     private String Email;
     private String Bio;
     private long PHONE;
-    String PHONENO,MAIL,Phone,getnumber,NAME,EMAIL,BIO;
+    String PHONENO, MAIL, Phone, getnumber, NAME, EMAIL, BIO;
     private ProgressBar progressBarOfUpdateProfile;
 
     @Override
@@ -55,7 +55,7 @@ public class UpdateProfile extends AppCompatActivity {
             MAIL = user.getEmail();
         }
 
-        if(PHONENO!=null) {
+        if (PHONENO != null) {
             if (PHONENO.length() > 10) {
                 int startidx = PHONENO.length() - 10;
                 getnumber = PHONENO.substring(startidx, PHONENO.length());
@@ -71,8 +71,6 @@ public class UpdateProfile extends AppCompatActivity {
         bio.setText(Bio);
         phone.setText(Phone);
         mail.setText(Email);
-
-
 
 
         logOutBtn.setOnClickListener(new View.OnClickListener() {
@@ -115,9 +113,7 @@ public class UpdateProfile extends AppCompatActivity {
         private String url = "jdbc:postgresql://ec2-54-158-232-223.compute-1.amazonaws.com:5432/ddgaguv61p4m63?sslmode=require&user=jfeitasqnyuanh&password=d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
         private boolean status;
 
-        public Database()
-
-        {
+        public Database() {
 
             this.url = String.format(this.url, this.host, this.port, this.database);
             connect();
@@ -152,7 +148,7 @@ public class UpdateProfile extends AppCompatActivity {
             }
         }
 
-        public Connection getExtraConnection(){
+        public Connection getExtraConnection() {
             Connection c = null;
             Statement stmt = null;
             try {
@@ -162,22 +158,22 @@ public class UpdateProfile extends AppCompatActivity {
                 System.out.println("Opened database successfully");
 
                 stmt = c.createStatement();
-                ResultSet rs = stmt.executeQuery( "SELECT * FROM USERS WHERE EMAIL = '"+MAIL+"' OR PHONE = "+getnumber+";" );
-                while ( rs.next() ) {
+                ResultSet rs = stmt.executeQuery("SELECT * FROM USERS WHERE EMAIL = '" + MAIL + "' OR PHONE = " + getnumber + ";");
+                while (rs.next()) {
                     Name = rs.getString("USERNAME");
                     Bio = rs.getString("BIO");
                     Phone = String.valueOf(rs.getLong("PHONE"));
                     Email = rs.getString("EMAIL");
-                    System.out.println( "NAME = " + Name );
-                    System.out.println( "BIO = " + Bio );
-                    System.out.println( "PHONE = " + Phone );
+                    System.out.println("NAME = " + Name);
+                    System.out.println("BIO = " + Bio);
+                    System.out.println("PHONE = " + Phone);
                     System.out.println();
                 }
                 rs.close();
                 stmt.close();
                 c.close();
-            } catch ( Exception e ) {
-                System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+            } catch (Exception e) {
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
                 System.exit(0);
             }
             System.out.println("Records created successfully");
@@ -198,9 +194,7 @@ public class UpdateProfile extends AppCompatActivity {
         private String url = "jdbc:postgresql://ec2-54-158-232-223.compute-1.amazonaws.com:5432/ddgaguv61p4m63?sslmode=require&user=jfeitasqnyuanh&password=d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
         private boolean status;
 
-        public Database2()
-
-        {
+        public Database2() {
 
             this.url = String.format(this.url, this.host, this.port, this.database);
             progressBarOfUpdateProfile.setVisibility(View.VISIBLE);
@@ -236,7 +230,7 @@ public class UpdateProfile extends AppCompatActivity {
             }
         }
 
-        public Connection getExtraConnection(){
+        public Connection getExtraConnection() {
             Connection c = null;
             Statement stmt = null;
             try {
@@ -246,26 +240,26 @@ public class UpdateProfile extends AppCompatActivity {
                 System.out.println("Opened database successfully");
 
                 stmt = c.createStatement();
-                String sql = "UPDATE USERS set USERNAME = '"+NAME+"' , PHONE = "+PHONE+" , BIO = '"+BIO+"' where EMAIL = '"+EMAIL+"';";
+                String sql = "UPDATE USERS set USERNAME = '" + NAME + "' , PHONE = " + PHONE + " , BIO = '" + BIO + "' where EMAIL = '" + EMAIL + "';";
                 stmt.executeUpdate(sql);
                 c.commit();
 
-                ResultSet rs = stmt.executeQuery( "SELECT * FROM USERS WHERE EMAIL = '"+MAIL+"' OR PHONE = "+getnumber+";" );
-                while ( rs.next() ) {
+                ResultSet rs = stmt.executeQuery("SELECT * FROM USERS WHERE EMAIL = '" + MAIL + "' OR PHONE = " + getnumber + ";");
+                while (rs.next()) {
                     Name = rs.getString("USERNAME");
                     Bio = rs.getString("BIO");
                     Phone = String.valueOf(rs.getLong("PHONE"));
                     Email = rs.getString("EMAIL");
-                    System.out.println( "NAME = " + Name );
-                    System.out.println( "BIO = " + Bio );
-                    System.out.println( "PHONE = " + Phone );
+                    System.out.println("NAME = " + Name);
+                    System.out.println("BIO = " + Bio);
+                    System.out.println("PHONE = " + Phone);
                     System.out.println();
                 }
                 rs.close();
                 stmt.close();
                 c.close();
-            } catch ( Exception e ) {
-                System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+            } catch (Exception e) {
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
                 System.exit(0);
             }
             System.out.println("Records created successfully");

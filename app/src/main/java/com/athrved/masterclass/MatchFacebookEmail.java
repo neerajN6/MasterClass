@@ -15,7 +15,7 @@ import java.sql.Statement;
 
 
 public class MatchFacebookEmail extends AppCompatActivity {
-    String email,EMAIL;
+    String email, EMAIL;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseUser user = mAuth.getCurrentUser();
 
@@ -89,22 +89,21 @@ public class MatchFacebookEmail extends AppCompatActivity {
                 System.out.println("Opened database successfully");
 
                 stmt = c.createStatement();
-                ResultSet rs = stmt.executeQuery( "SELECT * FROM USERS;" );
-                while ( rs.next() ) {
+                ResultSet rs = stmt.executeQuery("SELECT * FROM USERS;");
+                while (rs.next()) {
                     email = rs.getString("email");
                     System.out.print("firstString.equals(secondString) : ");
                     System.out.println(email.compareTo(EMAIL));
-                    if(email.compareTo(EMAIL) == 0)
-                    {
-                        System.out.println( "EMAIL = " + email );
-                        System.out.println( "EMAIL1 = " + EMAIL );
+                    if (email.compareTo(EMAIL) == 0) {
+                        System.out.println("EMAIL = " + email);
+                        System.out.println("EMAIL1 = " + EMAIL);
                         Intent intent1 = new Intent(MatchFacebookEmail.this, MainActivity.class);
                         startActivity(intent1);
                         finish();
                         break;
-                    }else{
+                    } else {
                         System.out.println("False wrong = " + EMAIL);
-                        System.out.println( "EMAIL = " + email );
+                        System.out.println("EMAIL = " + email);
                         Intent intent2 = new Intent(MatchFacebookEmail.this, FacebookProfile.class);
                         startActivity(intent2);
                         finish();

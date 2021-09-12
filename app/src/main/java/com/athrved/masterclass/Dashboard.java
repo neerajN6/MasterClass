@@ -22,12 +22,12 @@ import java.sql.Statement;
 
 public class Dashboard extends AppCompatActivity {
 
-    private Button logOutBtnInDashboard,saveBtn;
+    private Button logOutBtnInDashboard, saveBtn;
     FirebaseAuth mAuth;
-    private String Name,Email,Bio;
+    private String Name, Email, Bio;
     public long Phone;
     private TextView phone;
-    private EditText name,mail,bio;
+    private EditText name, mail, bio;
     private ProgressBar progressBarOfProfile;
 
     @Override
@@ -67,7 +67,7 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (!validateEmail() | !validateName()){
+                if (!validateEmail() | !validateName()) {
                     return;
                 } else {
                     progressBarOfProfile.setVisibility(View.VISIBLE);
@@ -89,7 +89,6 @@ public class Dashboard extends AppCompatActivity {
 
         logOutBtnInDashboard = findViewById(R.id.logOutBtnInDashboard);
         mAuth = FirebaseAuth.getInstance();
-
 
 
         logOutBtnInDashboard.setOnClickListener(new View.OnClickListener() {
@@ -119,9 +118,7 @@ public class Dashboard extends AppCompatActivity {
         private String url = "jdbc:postgresql://ec2-54-158-232-223.compute-1.amazonaws.com:5432/ddgaguv61p4m63?sslmode=require&user=jfeitasqnyuanh&password=d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
         private boolean status;
 
-        public Database()
-
-        {
+        public Database() {
 
             this.url = String.format(this.url, this.host, this.port, this.database);
             connect();
@@ -156,7 +153,7 @@ public class Dashboard extends AppCompatActivity {
             }
         }
 
-        public Connection getExtraConnection(){
+        public Connection getExtraConnection() {
             Connection c = null;
             Statement stmt = null;
             try {
@@ -167,7 +164,7 @@ public class Dashboard extends AppCompatActivity {
 
                 stmt = c.createStatement();
                 String sql = "INSERT INTO USERS (EMAIL,USERNAME,PHONE,BIO) "
-                        + "VALUES ('"+Email+"','"+Name+"',"+Phone+",'"+Bio+"')";
+                        + "VALUES ('" + Email + "','" + Name + "'," + Phone + ",'" + Bio + "')";
                 stmt.executeUpdate(sql);
 
 

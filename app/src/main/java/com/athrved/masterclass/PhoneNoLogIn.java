@@ -59,7 +59,7 @@ public class PhoneNoLogIn extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), VerifyOtp.class);
 
         intent.putExtra("phoneNo", _phoneNo);
-        intent.putExtra("phNo",_getUserEnteredNumber);
+        intent.putExtra("phNo", _getUserEnteredNumber);
 
         startActivity(intent);
         finish();
