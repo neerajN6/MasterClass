@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Update Profile" />
+    <item
+        android:id="@+id/nav_bookmark"
+        android:icon="@drawable/ic_baseline_bookmarks_24"
+        android:title="Bookmarked Video" />
+
+    <item
+        android:id="@+id/nav_mentorprofile"
+        android:icon="@drawable/ic_baseline_person_outline_24"
+        android:title="Mentor Profile" />
+
+    <item
+        android:id="@+id/nav_MyCourse"
+        android:icon="@drawable/course_icon"
+        android:title="My Course" />
+
+    </group>
+
+
+
+<item android:title="Log Out">
+
+<menu>
+
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_baseline_login_24"
+        android:title="Log Out"/>
+
+</menu>
+
+</item>
+
+</menu>

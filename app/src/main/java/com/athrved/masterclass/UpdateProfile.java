@@ -250,9 +250,6 @@ public class UpdateProfile extends AppCompatActivity {
                     Bio = rs.getString("BIO");
                     Phone = String.valueOf(rs.getLong("PHONE"));
                     Email = rs.getString("EMAIL");
-                    System.out.println("NAME = " + Name);
-                    System.out.println("BIO = " + Bio);
-                    System.out.println("PHONE = " + Phone);
                     System.out.println();
                 }
                 rs.close();

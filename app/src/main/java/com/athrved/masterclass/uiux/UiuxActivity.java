@@ -1,22 +1,34 @@
 package com.athrved.masterclass.uiux;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
+import com.athrved.masterclass.LogOut;
 import com.athrved.masterclass.R;
+import com.athrved.masterclass.UpdateProfile;
+import com.athrved.masterclass.ai.AiCourseDesc;
+import com.athrved.masterclass.appdev.AppDevActivity;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UiuxActivity extends AppCompatActivity {
+public class UiuxActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView abcde;
     TextView ak;
@@ -27,6 +39,9 @@ public class UiuxActivity extends AppCompatActivity {
     List<String> titles2;
     List<Integer> images2;
     ImgAdapter2 imgAdapter2;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
     RecyclerView popRecycler;
     RecyclerView.Adapter adapter1;
@@ -47,9 +62,23 @@ public class UiuxActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uiux);
 
-        getSupportActionBar().setTitle("UI UX Design");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+
+        navigationView.bringToFront();
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+        //getSupportActionBar().setTitle("UI UX Design");
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
 
 //        videoID="_vAmKNin0QM";
 //        urlname="https://noembed.com/embed?url=https://www.youtube.com/watch?v="+videoID;
@@ -169,5 +198,46 @@ public class UiuxActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch(menuItem.getItemId()){
+            case R.id.nav_profile:
+                Intent intent = new Intent(UiuxActivity.this, UpdateProfile.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_logout:
+                Intent intent1 = new Intent(UiuxActivity.this, LogOut.class);
+                startActivity(intent1);
+                break;
+
+            case R.id.nav_MyCourse:
+                Intent intent2 = new Intent(UiuxActivity.this, AiCourseDesc.class);
+                startActivity(intent2);
+                break;
+
+            case R.id.nav_bookmark:
+                Intent intent3 = new Intent(UiuxActivity.this, BookmarkedVideos.class);
+                startActivity(intent3);
+                break;
+
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

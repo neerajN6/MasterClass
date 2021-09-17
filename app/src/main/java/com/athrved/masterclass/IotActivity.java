@@ -1,15 +1,23 @@
 package com.athrved.masterclass;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.ai.AiCourseDesc;
+import com.athrved.masterclass.machdesign.MachActivity;
 import com.athrved.masterclass.uiux.FewAllAdapter;
 import com.athrved.masterclass.uiux.FewAllHelperClass;
 import com.athrved.masterclass.uiux.FreeHelperClass;
@@ -19,11 +27,12 @@ import com.athrved.masterclass.uiux.MenHelperClass;
 import com.athrved.masterclass.uiux.PopHelperClass;
 import com.athrved.masterclass.uiux.PopclassesAdapter;
 import com.athrved.masterclass.webdevelopment.WImgAdapter2;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class IotActivity extends AppCompatActivity {
+public class IotActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView abcde;
     TextView ak;
@@ -34,6 +43,9 @@ public class IotActivity extends AppCompatActivity {
     List<String> titles2;
     List<Integer> images2;
     IImgAdapter2 IimgAdapter2;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
     RecyclerView popRecycler;
     RecyclerView.Adapter adapter1;
@@ -54,9 +66,23 @@ public class IotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
 
-        getSupportActionBar().setTitle("Internet of things");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+
+        navigationView.bringToFront();
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+        //getSupportActionBar().setTitle("Internet of things");
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
 
 
         popRecycler = findViewById(R.id.r1popclass_iot);
@@ -164,6 +190,7 @@ public class IotActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -172,6 +199,47 @@ public class IotActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch(menuItem.getItemId()){
+            case R.id.nav_profile:
+                Intent intent = new Intent(IotActivity.this, UpdateProfile.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_logout:
+                Intent intent1 = new Intent(IotActivity.this, LogOut.class);
+                startActivity(intent1);
+                break;
+
+            case R.id.nav_MyCourse:
+                Intent intent2 = new Intent(IotActivity.this, AiCourseDesc.class);
+                startActivity(intent2);
+                break;
+
+            case R.id.nav_bookmark:
+                Intent intent3 = new Intent(IotActivity.this, BookmarkedVideos.class);
+                startActivity(intent3);
+                break;
+
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 
 }

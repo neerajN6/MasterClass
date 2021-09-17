@@ -1,19 +1,25 @@
 package com.athrved.masterclass.ai;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
+import com.athrved.masterclass.LogOut;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.UpdateProfile;
 import com.athrved.masterclass.uiux.FewAllAdapter;
@@ -24,17 +30,21 @@ import com.athrved.masterclass.uiux.MenAdapter;
 import com.athrved.masterclass.uiux.MenHelperClass;
 import com.athrved.masterclass.uiux.PopHelperClass;
 import com.athrved.masterclass.uiux.PopclassesAdapter;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AiActivity extends AppCompatActivity{
+public class AiActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView abcde;
     TextView ak;
     String tit;
     String urlname,videoID,tita;
     Button learnMoreButton;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
     RecyclerView dataList2;
     List<String> titles2;
@@ -60,9 +70,23 @@ public class AiActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ai);
 
-        getSupportActionBar().setTitle("Artificial Intelligence");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+
+        navigationView.bringToFront();
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+        //getSupportActionBar().setTitle("Artificial Intelligence");
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
 
 
         popRecycler = findViewById(R.id.r1popclass_ai);
@@ -188,5 +212,45 @@ public class AiActivity extends AppCompatActivity{
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch(menuItem.getItemId()){
+            case R.id.nav_profile:
+                Intent intent = new Intent(AiActivity.this, UpdateProfile.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_logout:
+                Intent intent1 = new Intent(AiActivity.this, LogOut.class);
+                startActivity(intent1);
+                break;
+
+            case R.id.nav_MyCourse:
+                Intent intent2 = new Intent(AiActivity.this, AiCourseDesc.class);
+                startActivity(intent2);
+                break;
+
+            case R.id.nav_bookmark:
+                Intent intent3 = new Intent(AiActivity.this, BookmarkedVideos.class);
+                startActivity(intent3);
+                break;
+
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
