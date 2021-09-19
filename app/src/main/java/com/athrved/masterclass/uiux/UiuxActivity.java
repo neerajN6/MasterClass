@@ -21,9 +21,12 @@ import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.LogOut;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.UpdateProfile;
+import com.athrved.masterclass.VideoData;
 import com.athrved.masterclass.ai.AiCourseDesc;
 import com.athrved.masterclass.appdev.AppDevActivity;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +41,13 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView dataList2;
     List<String> titles2;
     List<Integer> images2;
+
+
+    List<String> videoid;
+    List<String> titlev;
+    List<Integer> courseidv;
+    List<Integer> paid;
+
     ImgAdapter2 imgAdapter2;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -55,6 +65,9 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView allFewRecycler;
     RecyclerView.Adapter adapter4;
 
+    FirebaseDatabase rootnode;
+    DatabaseReference reference;
+
     ArrayList<UiuxAllClasses> allCourseList=new ArrayList<>();
 
     @Override
@@ -67,6 +80,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
+
 
         navigationView.bringToFront();
 
@@ -240,4 +254,9 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
+
 }

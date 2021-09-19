@@ -15,6 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.RequestQueue;
 import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -23,8 +28,12 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
 
     ArrayList<FreeHelperClass> featloc;
     public static String a,b="FAILED TO LOAD";
-    public static String v_id1 = "_vAmKNin0QM";
-    public static String v_id2 = "lrcqt4RelJ4";
+    public static String v_id1 ;
+    public static String v_id2 ;
+    public static String vtitle1 ;
+    public static String vtitle2 ;
+
+    DatabaseReference reff;
 
     RequestQueue requestQueue;
 
@@ -52,15 +61,42 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
         holder.topic.setText(freeHelperClass.getTopic());
         holder.author.setText(freeHelperClass.getAuthor());
 
+        for(int k =1;k<=2;k++){
+            String ka=String.valueOf(k);
+            reff= FirebaseDatabase.getInstance().getReference("video").child("uiux").child("free").child(ka);
+            int finalK = k;
+            reff.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(finalK ==1) {
+                        v_id1 = snapshot.child("video_Id").getValue().toString();
+                        vtitle1=snapshot.child("title_video").getValue().toString();
+                    }
+                    if(finalK ==2) {
+                        v_id2 = snapshot.child("video_Id").getValue().toString();
+                        vtitle2=snapshot.child("title_video").getValue().toString();
 
-        if (position == 0) {
+                    }
 
-            Picasso.get().load("https://img.youtube.com/vi/" + v_id1 + "/maxresdefault.jpg").into(holder.imagebig);
+                    if (holder.getAdapterPosition() == 0) {
+                        holder.title.setText(vtitle1);
+                        Picasso.get().load("https://img.youtube.com/vi/" + v_id1 + "/maxresdefault.jpg").into(holder.imagebig);
+                    }
+                    if (holder.getAdapterPosition() == 1) {
+                        holder.title.setText(vtitle2);
+                        Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.imagebig);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         }
-        if (position == 1) {
 
-            Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.imagebig);
-        }
+
+
     }
 
     @Override
@@ -118,28 +154,67 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                 }
             });
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (getAdapterPosition() == 0) {
-                        Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", v_id1);
-                        itemView.getContext().startActivity(intent);
-                        Activity activity = (Activity) itemView.getContext();
-                        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
+            for(int k =1;k<=2;k++){
+                String ka=String.valueOf(k);
+                DatabaseReference reff= FirebaseDatabase.getInstance().getReference("video").child("uiux").child("free").child(ka);
+                int finalK = k;
+                reff.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(finalK ==1) {
+                            v_id1 = snapshot.child("video_Id").getValue().toString();
+                            vtitle1=snapshot.child("title_video").getValue().toString();
+                        }
+                        if(finalK ==2) {
+                            v_id2 = snapshot.child("video_Id").getValue().toString();
+                            vtitle2=snapshot.child("title_video").getValue().toString();
+
+                        }
+
+                        itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if (getAdapterPosition() == 0) {
+                                    Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
+                                    intent.putExtra("VIDEOID", v_id1);
+                                    itemView.getContext().startActivity(intent);
+                                    Activity activity = (Activity) itemView.getContext();
+                                    activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
+                                }
+
+                                if (getAdapterPosition() == 1) {
+                                    Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
+                                    intent.putExtra("VIDEOID", v_id2);
+                                    itemView.getContext().startActivity(intent);
+                                    Activity activity = (Activity) itemView.getContext();
+                                    activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                                }
+
+                            }
+                        });
 
                     }
 
-                    if (getAdapterPosition() == 1) {
-                        Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", v_id2);
-                        itemView.getContext().startActivity(intent);
-                        Activity activity = (Activity) itemView.getContext();
-                        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                }
-            });
+                    }
+                });
+            }
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
 

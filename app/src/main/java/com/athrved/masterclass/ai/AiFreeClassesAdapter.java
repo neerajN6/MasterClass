@@ -23,6 +23,9 @@ public class AiFreeClassesAdapter extends RecyclerView.Adapter<AiFreeClassesAdap
 
     ArrayList<AiFreeHelperClass> featloc;
     public static String a,b="FAILED TO LOAD";
+    public static String v_id1 = "5RluSnRPRbI";
+    public static String v_id2 = "lrcqt4RelJ4";
+
 
     RequestQueue requestQueue;
 
@@ -43,23 +46,19 @@ public class AiFreeClassesAdapter extends RecyclerView.Adapter<AiFreeClassesAdap
     @Override
     public void onBindViewHolder(@NonNull AiFreeClassesAdapter.AiFreeViewHolder holder, int position) {
         AiFreeHelperClass AifreeHelperClass = featloc.get(position);
-
         holder.aiimagesmall1.setImageResource(AifreeHelperClass.getAiimagesmall1());
         holder.aiimagesmall2.setImageResource(AifreeHelperClass.getAiimagesmall2());
         holder.aititle.setText(AifreeHelperClass.getAititle());
         holder.aitopic.setText(AifreeHelperClass.getAitopic());
         holder.aiauthor.setText(AifreeHelperClass.getAiauthor());
 
-
-
-
         if(position==0){
 
-            Picasso.get().load("https://img.youtube.com/vi/_vAmKNin0QM/maxresdefault.jpg").into(holder.aiimagebig);
+            Picasso.get().load("https://img.youtube.com/vi/"+v_id1+"/maxresdefault.jpg").into(holder.aiimagebig);
         }
         if(position==1){
 
-            Picasso.get().load("https://img.youtube.com/vi/lrcqt4RelJ4/maxresdefault.jpg").into(holder.aiimagebig);
+            Picasso.get().load("https://img.youtube.com/vi/"+v_id2+"/maxresdefault.jpg").into(holder.aiimagebig);
         }
     }
 
@@ -123,7 +122,8 @@ public class AiFreeClassesAdapter extends RecyclerView.Adapter<AiFreeClassesAdap
                 public void onClick(View v) {
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "_vAmKNin0QM");
+
+                        intent.putExtra("VIDEOID", v_id1);
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -132,7 +132,7 @@ public class AiFreeClassesAdapter extends RecyclerView.Adapter<AiFreeClassesAdap
 
                     if (getAdapterPosition() == 1) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "lrcqt4RelJ4");
+                        intent.putExtra("VIDEOID", v_id2);
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

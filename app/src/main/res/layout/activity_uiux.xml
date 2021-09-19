@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/rec_feild"
-            android:hint="Search"
+            android:hint="Search_bar"
             android:drawableEnd="@drawable/ic_baseline_search_24"
             android:layout_below="@+id/cre"
             android:layout_marginTop="70dp"

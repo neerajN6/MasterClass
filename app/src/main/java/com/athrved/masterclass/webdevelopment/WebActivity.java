@@ -138,13 +138,13 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
         popRecycler.setHasFixedSize(true);
         popRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        ArrayList<PopHelperClass> popLocatio = new ArrayList<>();
+        ArrayList<WPopHelperClass> popLocatio = new ArrayList<>();
 
-        popLocatio.add(new PopHelperClass(R.drawable.secndone, R.drawable.ai_logo,0,"Color and Color Theory -\nFundamentals of Visual Design","VISUAL DESIGN","Goutham Naik","Um3BhY0oS2c"));
-        popLocatio.add(new PopHelperClass(R.drawable.firstone, R.drawable.ai_logo, R.drawable.motiond_logo,"Color and Color Theory -\nFundamentals of Visual Design","UX DESIGN","  Goutham Naik, S. M. Sudhanva Acharya","_vAmKNin0QM"));
+        popLocatio.add(new WPopHelperClass(R.drawable.secndone, R.drawable.ai_logo,0,"Color and Color Theory -\nFundamentals of Visual Design","VISUAL DESIGN","Goutham Naik","Um3BhY0oS2c"));
+        popLocatio.add(new WPopHelperClass(R.drawable.firstone, R.drawable.ai_logo, R.drawable.motiond_logo,"Color and Color Theory -\nFundamentals of Visual Design","UX DESIGN","  Goutham Naik, S. M. Sudhanva Acharya","_vAmKNin0QM"));
 
 
-        adapter1=new PopclassesAdapter(popLocatio);
+        adapter1=new WPopclassesAdapter(popLocatio);
         popRecycler.setAdapter(adapter1);
 
     }
@@ -153,13 +153,13 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
         freeRecycler.setHasFixedSize(true);
         freeRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        ArrayList<FreeHelperClass> freeLocatio = new ArrayList<>();
+        ArrayList<WFreeHelperClass> freeLocatio = new ArrayList<>();
 
-        freeLocatio.add(new FreeHelperClass(R.drawable.ai_logo,0,"Top UX Design Interview Questions","VISUAL DESIGN","S M Sudhanva Acharya"));
-        freeLocatio.add(new FreeHelperClass(R.drawable.ai_logo,0,"White Space in Design","VISUAL DESIGN","Abhinav Chikkara"));
+        freeLocatio.add(new WFreeHelperClass(R.drawable.ai_logo,0,"Top UX Design Interview Questions","VISUAL DESIGN","S M Sudhanva Acharya"));
+        freeLocatio.add(new WFreeHelperClass(R.drawable.ai_logo,0,"White Space in Design","VISUAL DESIGN","Abhinav Chikkara"));
 
 
-        adapter2=new FreeclassesAdapter(freeLocatio);
+        adapter2=new WFreeClassesAdapter(freeLocatio);
         freeRecycler.setAdapter(adapter2);
 
     }
@@ -168,13 +168,13 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
         menRecycler.setHasFixedSize(true);
         menRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        ArrayList<MenHelperClass> menLocatio = new ArrayList<>();
+        ArrayList<WMenHelperClass> menLocatio = new ArrayList<>();
 
-        menLocatio.add(new MenHelperClass(R.drawable.oneman,"Goutam Naik","CEO, AthrV-Ed"));
-        menLocatio.add(new MenHelperClass(R.drawable.twoman,"S M Sudhanva Acharya", "Product Designer, AthrV-Ed"));
-        menLocatio.add(new MenHelperClass(R.drawable.threeman,"Abhinav Chikkara", "Founder, 10kilogram"));
+        menLocatio.add(new WMenHelperClass(R.drawable.oneman,"Goutam Naik","CEO, AthrV-Ed"));
+        menLocatio.add(new WMenHelperClass(R.drawable.twoman,"S M Sudhanva Acharya", "Product Designer, AthrV-Ed"));
+        menLocatio.add(new WMenHelperClass(R.drawable.threeman,"Abhinav Chikkara", "Founder, 10kilogram"));
 
-        adapter2=new MenAdapter(menLocatio);
+        adapter2=new WMenAdapter(menLocatio);
         menRecycler.setAdapter(adapter2);
 
     }
