@@ -22,7 +22,9 @@ import java.util.ArrayList;
 public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapter.WFreeViewHolder> {
 
     ArrayList<WFreeHelperClass> featloc;
-    public static String a,b="FAILED TO LOAD";
+    public static String a, b = "FAILED TO LOAD";
+    public static String v_id1 = "_vAmKNin0QM";
+    public static String v_id2 = "lrcqt4RelJ4";
 
     RequestQueue requestQueue;
 
@@ -34,7 +36,7 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
 
     @Override
     public WFreeClassesAdapter.WFreeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.free_class_card_design,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.free_class_card_design, parent, false);
         WFreeClassesAdapter.WFreeViewHolder WfreeViewHolder = new WFreeClassesAdapter.WFreeViewHolder(view);
 
         return WfreeViewHolder;
@@ -51,15 +53,13 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
         holder.wauthor.setText(WfreeHelperClass.getWauthor());
 
 
+        if (position == 0) {
 
-
-        if(position==0){
-
-            Picasso.get().load("https://img.youtube.com/vi/_vAmKNin0QM/maxresdefault.jpg").into(holder.wimagebig);
+            Picasso.get().load("https://img.youtube.com/vi/" + v_id1 + "/maxresdefault.jpg").into(holder.wimagebig);
         }
-        if(position==1){
+        if (position == 1) {
 
-            Picasso.get().load("https://img.youtube.com/vi/lrcqt4RelJ4/maxresdefault.jpg").into(holder.wimagebig);
+            Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.wimagebig);
         }
     }
 
@@ -68,36 +68,35 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
         return featloc.size();
     }
 
-    public static class WFreeViewHolder extends RecyclerView.ViewHolder{
-        ImageView wimagebig, wimagesmall1,wimagesmall2;
+    public static class WFreeViewHolder extends RecyclerView.ViewHolder {
+        ImageView wimagebig, wimagesmall1, wimagesmall2;
         TextView wtopic, wauthor;
         TextView wtitle;
         Button wbookmark, wbookmark_border;
 
-        public WFreeViewHolder(@NonNull final View itemView){
+        public WFreeViewHolder(@NonNull final View itemView) {
             super(itemView);
 
-            wimagebig=itemView.findViewById(R.id.freeimgbig);
-            wimagesmall1=itemView.findViewById(R.id.freec1_image);
-            wimagesmall2=itemView.findViewById(R.id.freec2_image);
+            wimagebig = itemView.findViewById(R.id.freeimgbig);
+            wimagesmall1 = itemView.findViewById(R.id.freec1_image);
+            wimagesmall2 = itemView.findViewById(R.id.freec2_image);
 
-            wbookmark=itemView.findViewById(R.id.bookmarkfree);
-            wbookmark_border=itemView.findViewById(R.id.bookmarkfree_border);
+            wbookmark = itemView.findViewById(R.id.bookmarkfree);
+            wbookmark_border = itemView.findViewById(R.id.bookmarkfree_border);
 
-            wtitle=itemView.findViewById(R.id.freec_title);
-            wtopic=itemView.findViewById(R.id.freec_topic);
-            wauthor=itemView.findViewById(R.id.freec_author);
-
+            wtitle = itemView.findViewById(R.id.freec_title);
+            wtopic = itemView.findViewById(R.id.freec_topic);
+            wauthor = itemView.findViewById(R.id.freec_author);
 
 
             wbookmark_border.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(getAdapterPosition()==0){
+                    if (getAdapterPosition() == 0) {
                         wbookmark_border.setVisibility(View.GONE);
                         wbookmark.setVisibility(View.VISIBLE);
                     }
-                    if(getAdapterPosition()==1){
+                    if (getAdapterPosition() == 1) {
                         wbookmark_border.setVisibility(View.GONE);
                         wbookmark.setVisibility(View.VISIBLE);
                     }
@@ -107,11 +106,11 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
             wbookmark.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(getAdapterPosition()==0){
+                    if (getAdapterPosition() == 0) {
                         wbookmark_border.setVisibility(View.VISIBLE);
                         wbookmark.setVisibility(View.GONE);
                     }
-                    if(getAdapterPosition()==1){
+                    if (getAdapterPosition() == 1) {
                         wbookmark_border.setVisibility(View.VISIBLE);
                         wbookmark.setVisibility(View.GONE);
                     }
@@ -123,7 +122,7 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
                 public void onClick(View v) {
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "_vAmKNin0QM");
+                        intent.putExtra("VIDEOID", v_id1);
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -132,7 +131,7 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
 
                     if (getAdapterPosition() == 1) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "lrcqt4RelJ4");
+                        intent.putExtra("VIDEOID", v_id2);
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -142,7 +141,6 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
             });
 
         }
-
 
 
     }

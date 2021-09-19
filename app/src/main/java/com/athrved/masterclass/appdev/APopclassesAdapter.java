@@ -14,12 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.APopViewHolder> {
 
     ArrayList<APopHelperClass> featloc;
+    public static String v_id1 = "_vAmKNin0QM";
+    public static String v_id2 = "lrcqt4RelJ4";
 
     public APopclassesAdapter(ArrayList<APopHelperClass> featloc) {
         this.featloc = featloc;
@@ -29,7 +32,7 @@ public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.
 
     @Override
     public APopclassesAdapter.APopViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pop_class_card_design,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pop_class_card_design, parent, false);
         APopclassesAdapter.APopViewHolder APopViewHolder = new APopclassesAdapter.APopViewHolder(view);
 
         return APopViewHolder;
@@ -44,6 +47,15 @@ public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.
         holder.atitle.setText(APopHelperClass.getAtitle());
         holder.atopic.setText(APopHelperClass.getAtopic());
         holder.aauthor.setText(APopHelperClass.getAauthor());
+
+        if (position == 0) {
+
+            Picasso.get().load("https://img.youtube.com/vi/" + v_id1 + "/maxresdefault.jpg").into(holder.aimagebig);
+        }
+        if (position == 1) {
+
+            Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.aimagebig);
+        }
     }
 
     @Override
@@ -51,33 +63,33 @@ public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.
         return featloc.size();
     }
 
-    public static class APopViewHolder extends RecyclerView.ViewHolder{
-        ImageView aimagebig, aimagesmall1,aimagesmall2;
+    public static class APopViewHolder extends RecyclerView.ViewHolder {
+        ImageView aimagebig, aimagesmall1, aimagesmall2;
         TextView atitle, atopic, aauthor;
         Button abookmark_border, abookmark;
 
-        public APopViewHolder(@NonNull final View itemView){
+        public APopViewHolder(@NonNull final View itemView) {
             super(itemView);
 
-            aimagebig=itemView.findViewById(R.id.popimgbig);
-            aimagesmall1=itemView.findViewById(R.id.popc1_image);
-            aimagesmall2=itemView.findViewById(R.id.popc2_image);
+            aimagebig = itemView.findViewById(R.id.popimgbig);
+            aimagesmall1 = itemView.findViewById(R.id.popc1_image);
+            aimagesmall2 = itemView.findViewById(R.id.popc2_image);
 
-            abookmark=itemView.findViewById(R.id.bookmark);
-            abookmark_border=itemView.findViewById(R.id.bookmark_border);
+            abookmark = itemView.findViewById(R.id.bookmark);
+            abookmark_border = itemView.findViewById(R.id.bookmark_border);
 
-            atitle=itemView.findViewById(R.id.popc_title);
-            atopic=itemView.findViewById(R.id.popc_topic);
-            aauthor=itemView.findViewById(R.id.popc_author);
+            atitle = itemView.findViewById(R.id.popc_title);
+            atopic = itemView.findViewById(R.id.popc_topic);
+            aauthor = itemView.findViewById(R.id.popc_author);
 
             abookmark_border.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(getAdapterPosition()==0){
+                    if (getAdapterPosition() == 0) {
                         abookmark_border.setVisibility(View.GONE);
                         abookmark.setVisibility(View.VISIBLE);
                     }
-                    if(getAdapterPosition()==1){
+                    if (getAdapterPosition() == 1) {
                         abookmark_border.setVisibility(View.GONE);
                         abookmark.setVisibility(View.VISIBLE);
                     }
@@ -87,11 +99,11 @@ public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.
             abookmark.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(getAdapterPosition()==0){
+                    if (getAdapterPosition() == 0) {
                         abookmark_border.setVisibility(View.VISIBLE);
                         abookmark.setVisibility(View.GONE);
                     }
-                    if(getAdapterPosition()==1){
+                    if (getAdapterPosition() == 1) {
                         abookmark_border.setVisibility(View.VISIBLE);
                         abookmark.setVisibility(View.GONE);
                     }
@@ -103,7 +115,7 @@ public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.
                 public void onClick(View v) {
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "_vAmKNin0QM");
+                        intent.putExtra("VIDEOID", v_id1);
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -112,7 +124,7 @@ public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.
 
                     if (getAdapterPosition() == 1) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "lrcqt4RelJ4");
+                        intent.putExtra("VIDEOID", v_id2);
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -123,7 +135,6 @@ public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.
         }
 
     }
-
 
 
 }

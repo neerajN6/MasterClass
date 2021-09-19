@@ -14,12 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class WPopclassesAdapter extends RecyclerView.Adapter<WPopclassesAdapter.WPopViewHolder> {
 
     ArrayList<WPopHelperClass> featloc;
+    public static String v_id1 = "_vAmKNin0QM";
+    public static String v_id2 = "lrcqt4RelJ4";
 
     public WPopclassesAdapter(ArrayList<WPopHelperClass> featloc) {
         this.featloc = featloc;
@@ -29,7 +32,7 @@ public class WPopclassesAdapter extends RecyclerView.Adapter<WPopclassesAdapter.
 
     @Override
     public WPopclassesAdapter.WPopViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pop_class_card_design,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pop_class_card_design, parent, false);
         WPopclassesAdapter.WPopViewHolder wpopViewHolder = new WPopclassesAdapter.WPopViewHolder(view);
 
         return wpopViewHolder;
@@ -44,6 +47,15 @@ public class WPopclassesAdapter extends RecyclerView.Adapter<WPopclassesAdapter.
         holder.wtitle.setText(wpopHelperClass.getWtitle());
         holder.wtopic.setText(wpopHelperClass.getWtopic());
         holder.wauthor.setText(wpopHelperClass.getWauthor());
+
+        if (position == 0) {
+
+            Picasso.get().load("https://img.youtube.com/vi/" + v_id1 + "/maxresdefault.jpg").into(holder.wimagebig);
+        }
+        if (position == 1) {
+
+            Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.wimagebig);
+        }
     }
 
     @Override
@@ -51,33 +63,33 @@ public class WPopclassesAdapter extends RecyclerView.Adapter<WPopclassesAdapter.
         return featloc.size();
     }
 
-    public static class WPopViewHolder extends RecyclerView.ViewHolder{
-        ImageView wimagebig, wimagesmall1,wimagesmall2;
+    public static class WPopViewHolder extends RecyclerView.ViewHolder {
+        ImageView wimagebig, wimagesmall1, wimagesmall2;
         TextView wtitle, wtopic, wauthor;
         Button wbookmark_border, wbookmark;
 
-        public WPopViewHolder(@NonNull final View itemView){
+        public WPopViewHolder(@NonNull final View itemView) {
             super(itemView);
 
-            wimagebig=itemView.findViewById(R.id.popimgbig);
-            wimagesmall1=itemView.findViewById(R.id.popc1_image);
-            wimagesmall2=itemView.findViewById(R.id.popc2_image);
+            wimagebig = itemView.findViewById(R.id.popimgbig);
+            wimagesmall1 = itemView.findViewById(R.id.popc1_image);
+            wimagesmall2 = itemView.findViewById(R.id.popc2_image);
 
-            wbookmark=itemView.findViewById(R.id.bookmark);
-            wbookmark_border=itemView.findViewById(R.id.bookmark_border);
+            wbookmark = itemView.findViewById(R.id.bookmark);
+            wbookmark_border = itemView.findViewById(R.id.bookmark_border);
 
-            wtitle=itemView.findViewById(R.id.popc_title);
-            wtopic=itemView.findViewById(R.id.popc_topic);
-            wauthor=itemView.findViewById(R.id.popc_author);
+            wtitle = itemView.findViewById(R.id.popc_title);
+            wtopic = itemView.findViewById(R.id.popc_topic);
+            wauthor = itemView.findViewById(R.id.popc_author);
 
             wbookmark_border.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(getAdapterPosition()==0){
+                    if (getAdapterPosition() == 0) {
                         wbookmark_border.setVisibility(View.GONE);
                         wbookmark.setVisibility(View.VISIBLE);
                     }
-                    if(getAdapterPosition()==1){
+                    if (getAdapterPosition() == 1) {
                         wbookmark_border.setVisibility(View.GONE);
                         wbookmark.setVisibility(View.VISIBLE);
                     }
@@ -87,11 +99,11 @@ public class WPopclassesAdapter extends RecyclerView.Adapter<WPopclassesAdapter.
             wbookmark.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(getAdapterPosition()==0){
+                    if (getAdapterPosition() == 0) {
                         wbookmark_border.setVisibility(View.VISIBLE);
                         wbookmark.setVisibility(View.GONE);
                     }
-                    if(getAdapterPosition()==1){
+                    if (getAdapterPosition() == 1) {
                         wbookmark_border.setVisibility(View.VISIBLE);
                         wbookmark.setVisibility(View.GONE);
                     }
@@ -103,7 +115,7 @@ public class WPopclassesAdapter extends RecyclerView.Adapter<WPopclassesAdapter.
                 public void onClick(View v) {
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "_vAmKNin0QM");
+                        intent.putExtra("VIDEOID", v_id1);
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -112,7 +124,7 @@ public class WPopclassesAdapter extends RecyclerView.Adapter<WPopclassesAdapter.
 
                     if (getAdapterPosition() == 1) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "lrcqt4RelJ4");
+                        intent.putExtra("VIDEOID", v_id2);
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -123,7 +135,6 @@ public class WPopclassesAdapter extends RecyclerView.Adapter<WPopclassesAdapter.
         }
 
     }
-
 
 
 }

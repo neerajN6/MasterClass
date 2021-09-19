@@ -23,6 +23,8 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
 
     ArrayList<FreeHelperClass> featloc;
     public static String a,b="FAILED TO LOAD";
+    public static String v_id1 = "_vAmKNin0QM";
+    public static String v_id2 = "lrcqt4RelJ4";
 
     RequestQueue requestQueue;
 
@@ -51,15 +53,13 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
         holder.author.setText(freeHelperClass.getAuthor());
 
 
+        if (position == 0) {
 
-
-        if(position==0){
-
-            Picasso.get().load("https://img.youtube.com/vi/_vAmKNin0QM/maxresdefault.jpg").into(holder.imagebig);
+            Picasso.get().load("https://img.youtube.com/vi/" + v_id1 + "/maxresdefault.jpg").into(holder.imagebig);
         }
-        if(position==1){
+        if (position == 1) {
 
-            Picasso.get().load("https://img.youtube.com/vi/lrcqt4RelJ4/maxresdefault.jpg").into(holder.imagebig);
+            Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.imagebig);
         }
     }
 
@@ -123,7 +123,7 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                 public void onClick(View v) {
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "_vAmKNin0QM");
+                        intent.putExtra("VIDEOID", v_id1);
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -132,7 +132,7 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
 
                     if (getAdapterPosition() == 1) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "lrcqt4RelJ4");
+                        intent.putExtra("VIDEOID", v_id2);
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
