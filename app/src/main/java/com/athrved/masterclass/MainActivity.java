@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     List<String> videoIds;
     List<String> vtitle;
+    List<Integer> topic;
     List<Integer> course_id;
     List<Integer> paid;
     List<Integer> slno;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         getdatatotop();
         gettheFirebaseData();
+        uploadNumbersData();
 
         titles.add("Artificial\nIntelligence");
         titles.add("Web\nDevelopment");
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             if(course_id.get(i)==5) {
                 if(paid.get(i)==0) {
                     reference = rootNode.getReference("video").child("uiux").child("free");
-                    videoData = new VideoData(videoIds.get(i), vtitle.get(i), course_id.get(i), paid.get(i),slno.get(i));
+                    videoData = new VideoData(videoIds.get(i), vtitle.get(i), course_id.get(i), paid.get(i),slno.get(i),topic.get(i));
                     reference.child(String.valueOf(slno.get(i))).setValue(videoData);
                 }
             }
@@ -91,13 +93,82 @@ public class MainActivity extends AppCompatActivity {
             if(course_id.get(i)==3) {
                 if(paid.get(i)==0) {
                     reference = rootNode.getReference("video").child("app").child("free");
-                    videoData = new VideoData(videoIds.get(i), vtitle.get(i), course_id.get(i), paid.get(i),slno.get(i));
+                    videoData = new VideoData(videoIds.get(i), vtitle.get(i), course_id.get(i), paid.get(i),slno.get(i),topic.get(i));
+                    reference.child(String.valueOf(slno.get(i))).setValue(videoData);
+                }
+            }
+
+            if(course_id.get(i)==1) {
+                if(paid.get(i)==0) {
+                    reference = rootNode.getReference("video").child("ai").child("free");
+                    videoData = new VideoData(videoIds.get(i), vtitle.get(i), course_id.get(i), paid.get(i),slno.get(i),topic.get(i));
+                    reference.child(String.valueOf(slno.get(i))).setValue(videoData);
+                }
+            }
+
+            if(course_id.get(i)==2) {
+                if(paid.get(i)==0) {
+                    reference = rootNode.getReference("video").child("web").child("free");
+                    videoData = new VideoData(videoIds.get(i), vtitle.get(i), course_id.get(i), paid.get(i),slno.get(i),topic.get(i));
+                    reference.child(String.valueOf(slno.get(i))).setValue(videoData);
+                }
+            }
+
+            if(course_id.get(i)==4) {
+                if(paid.get(i)==0) {
+                    reference = rootNode.getReference("video").child("mech").child("free");
+                    videoData = new VideoData(videoIds.get(i), vtitle.get(i), course_id.get(i), paid.get(i),slno.get(i),topic.get(i));
+                    reference.child(String.valueOf(slno.get(i))).setValue(videoData);
+                }
+            }
+
+            if(course_id.get(i)==6) {
+                if(paid.get(i)==0) {
+                    reference = rootNode.getReference("video").child("iot").child("free");
+                    videoData = new VideoData(videoIds.get(i), vtitle.get(i), course_id.get(i), paid.get(i),slno.get(i),topic.get(i));
                     reference.child(String.valueOf(slno.get(i))).setValue(videoData);
                 }
             }
 
 
         }
+    }
+
+    public void uploadNumbersData(){
+        rootNode = FirebaseDatabase.getInstance();
+        VideoData videoData;
+        int ucount=0;
+        int wcount=0;
+        int appcount=0;
+        int aicount=0;
+        int mcount=0;
+        int iotcount=0;
+        for(int i=0;i<videoIds.size();i++) {
+            if (course_id.get(i)==5)
+                ucount+=1;
+            if (course_id.get(i)==1)
+                aicount+=1;
+            if (course_id.get(i)==2)
+                wcount+=1;
+            if (course_id.get(i)==3)
+                appcount+=1;
+            if (course_id.get(i)==4)
+                mcount+=1;
+            if (course_id.get(i)==6)
+                iotcount+=1;
+
+        }
+        reference = rootNode.getReference("video").child("numbers");
+        reference.child(String.valueOf(course_id.get(5))).setValue(ucount);
+        reference.child(String.valueOf(course_id.get(1))).setValue(aicount);
+        reference.child(String.valueOf(course_id.get(2))).setValue(wcount);
+        reference.child(String.valueOf(course_id.get(3))).setValue(appcount);
+        reference.child(String.valueOf(course_id.get(4))).setValue(mcount);
+        reference.child(String.valueOf(course_id.get(6))).setValue(iotcount);
+
+
+
+
     }
 
     //VIDEO DATA:
@@ -107,15 +178,66 @@ public class MainActivity extends AppCompatActivity {
         paid = new ArrayList<>();
         vtitle = new ArrayList<>();
         slno = new ArrayList<>();
+        topic = new ArrayList<>();
+
+
 
 //  videoIds.add("");   course_id.add();    paid.add();     vtitle.add("");
+
 //UIUX
-    slno.add(1);    videoIds.add("SRec90j6lTY");    course_id.add(5);   paid.add(0);    vtitle.add("Adobe XD Tutorial | Login/Signup Page | Basic Course of UI/UX Design");
-    slno.add(2);    videoIds.add("EBCn1btfX68");    course_id.add(5);   paid.add(0);    vtitle.add("How to Learn UI/UX DESIGN online for FREE? (Explanation by a Designer");
+    slno.add(1);    videoIds.add("SRec90j6lTY");    course_id.add(5);   paid.add(0);    topic.add(0);    vtitle.add("Adobe XD Tutorial | Login/Signup Page | Basic Course of UI/UX Design");
+    slno.add(2);    videoIds.add("EBCn1btfX68");    course_id.add(5);   paid.add(0);    topic.add(0);    vtitle.add("How to Learn UI/UX DESIGN online for FREE? (Explanation by a Designer");
+    slno.add(3);    videoIds.add("SbS1jwm4U4o");    course_id.add(5);   paid.add(0);    topic.add(5);    vtitle.add("What is User Experience (UX)");
+    slno.add(4);    videoIds.add("OdSgDir6XKs");    course_id.add(5);   paid.add(0);    topic.add(0);    vtitle.add("User Experience Research");
+    slno.add(5);    videoIds.add("JDMXgPCN-BM");    course_id.add(5);   paid.add(0);    topic.add(1);    vtitle.add("User Research Interviews");
+    slno.add(6);    videoIds.add("UnAuwhu2C9Q");    course_id.add(5);   paid.add(0);    topic.add(2);    vtitle.add("User Persona for UX");
+    slno.add(7);    videoIds.add("6C2Ye1makdY");    course_id.add(5);   paid.add(0);    topic.add(3);    vtitle.add("Adobe XD how to Download and Install");
+    slno.add(8);    videoIds.add("n7-atYzJKTA");    course_id.add(5);   paid.add(0);    topic.add(4);    vtitle.add("Adobe XD User Interface and Artboards");
+
 
 //APP
-    slno.add(1);    videoIds.add("TnTn6e4Pfn8");   course_id.add(3);    paid.add(0);      vtitle.add("How to become an Android Developer | Step by Step | Freelancing and Placement");
-    slno.add(2);    videoIds.add("5soHbJrzuok");   course_id.add(3);    paid.add(0);      vtitle.add("How Applications Are Made? | Android Development for Beginners | Basics of Android Development");
+    slno.add(1);    videoIds.add("TnTn6e4Pfn8");   course_id.add(3);    paid.add(0);      topic.add(0);    vtitle.add("How to become an Android Developer | Step by Step | Freelancing and Placement");
+    slno.add(2);    videoIds.add("5soHbJrzuok");   course_id.add(3);    paid.add(0);      topic.add(0);    vtitle.add("How Applications Are Made? | Android Development for Beginners | Basics of Android Development");
+    slno.add(3);    videoIds.add("InigFUSiPl8");   course_id.add(3);    paid.add(0);      topic.add(0);    vtitle.add("Installing Android Studio & Setup | Android Tutorials in Hindi #1");
+    slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(3);    paid.add(0);      topic.add(0);    vtitle.add("Creating Our First Android App (with APK) | Android Tutorials in Hindi #2");
+    slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(3);    paid.add(0);      topic.add(0);    vtitle.add("Linear Layout & Relative Layout In Android | Android Tutorials in Hindi #3");
+    slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(3);    paid.add(0);      topic.add(0);    vtitle.add("Android activity & Activity Lifecycle | Android Tutorials in Hindi #4");
+    slno.add(7);    videoIds.add("WVjqX1BoQeM");   course_id.add(3);    paid.add(0);      topic.add(0);    vtitle.add("Project 1: Tic Tac Toe Game Android Game Development | Android Tutorials in Hindi #5");
+
+//MECH
+    slno.add(1);    videoIds.add("TnTn6e4Pfn8");   course_id.add(4);    paid.add(0);      topic.add(0);    vtitle.add("How to become an Android Developer | Step by Step | Freelancing and Placement");
+    slno.add(2);    videoIds.add("5soHbJrzuok");   course_id.add(4);    paid.add(0);      topic.add(0);    vtitle.add("How Applications Are Made? | Android Development for Beginners | Basics of Android Development");
+    slno.add(3);    videoIds.add("InigFUSiPl8");   course_id.add(4);    paid.add(0);      topic.add(0);    vtitle.add("Installing Android Studio & Setup | Android Tutorials in Hindi #1");
+    slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(4);    paid.add(0);      topic.add(0);    vtitle.add("Creating Our First Android App (with APK) | Android Tutorials in Hindi #2");
+    slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(4);    paid.add(0);      topic.add(0);    vtitle.add("Linear Layout & Relative Layout In Android | Android Tutorials in Hindi #3");
+    slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(4);    paid.add(0);      topic.add(0);    vtitle.add("Android activity & Activity Lifecycle | Android Tutorials in Hindi #4");
+    slno.add(7);    videoIds.add("WVjqX1BoQeM");   course_id.add(4);    paid.add(0);      topic.add(0);    vtitle.add("Project 1: Tic Tac Toe Game Android Game Development | Android Tutorials in Hindi #5");
+//AI
+        slno.add(1);    videoIds.add("TnTn6e4Pfn8");   course_id.add(1);    paid.add(0);      topic.add(0);    vtitle.add("How to become an Android Developer | Step by Step | Freelancing and Placement");
+        slno.add(2);    videoIds.add("5soHbJrzuok");   course_id.add(1);    paid.add(0);      topic.add(0);    vtitle.add("How Applications Are Made? | Android Development for Beginners | Basics of Android Development");
+        slno.add(3);    videoIds.add("InigFUSiPl8");   course_id.add(1);    paid.add(0);      topic.add(0);    vtitle.add("Installing Android Studio & Setup | Android Tutorials in Hindi #1");
+        slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(1);    paid.add(0);      topic.add(0);    vtitle.add("Creating Our First Android App (with APK) | Android Tutorials in Hindi #2");
+        slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(1);    paid.add(0);      topic.add(0);    vtitle.add("Linear Layout & Relative Layout In Android | Android Tutorials in Hindi #3");
+        slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(1);    paid.add(0);      topic.add(0);    vtitle.add("Android activity & Activity Lifecycle | Android Tutorials in Hindi #4");
+        slno.add(7);    videoIds.add("WVjqX1BoQeM");   course_id.add(1);    paid.add(0);      topic.add(0);    vtitle.add("Project 1: Tic Tac Toe Game Android Game Development | Android Tutorials in Hindi #5");
+
+//WEB
+        slno.add(1);    videoIds.add("TnTn6e4Pfn8");   course_id.add(2);    paid.add(0);      topic.add(0);    vtitle.add("How to become an Android Developer | Step by Step | Freelancing and Placement");
+        slno.add(2);    videoIds.add("5soHbJrzuok");   course_id.add(2);    paid.add(0);      topic.add(0);    vtitle.add("How Applications Are Made? | Android Development for Beginners | Basics of Android Development");
+        slno.add(3);    videoIds.add("InigFUSiPl8");   course_id.add(2);    paid.add(0);      topic.add(0);    vtitle.add("Installing Android Studio & Setup | Android Tutorials in Hindi #1");
+        slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(2);    paid.add(0);      topic.add(0);    vtitle.add("Creating Our First Android App (with APK) | Android Tutorials in Hindi #2");
+        slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(2);    paid.add(0);      topic.add(0);    vtitle.add("Linear Layout & Relative Layout In Android | Android Tutorials in Hindi #3");
+        slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(2);    paid.add(0);      topic.add(0);    vtitle.add("Android activity & Activity Lifecycle | Android Tutorials in Hindi #4");
+        slno.add(7);    videoIds.add("WVjqX1BoQeM");   course_id.add(2);    paid.add(0);      topic.add(0);    vtitle.add("Project 1: Tic Tac Toe Game Android Game Development | Android Tutorials in Hindi #5");
+
+//IOT
+        slno.add(1);    videoIds.add("TnTn6e4Pfn8");   course_id.add(6);    paid.add(0);      topic.add(0);    vtitle.add("How to become an Android Developer | Step by Step | Freelancing and Placement");
+        slno.add(2);    videoIds.add("5soHbJrzuok");   course_id.add(6);    paid.add(0);      topic.add(0);    vtitle.add("How Applications Are Made? | Android Development for Beginners | Basics of Android Development");
+        slno.add(3);    videoIds.add("InigFUSiPl8");   course_id.add(6);    paid.add(0);      topic.add(0);    vtitle.add("Installing Android Studio & Setup | Android Tutorials in Hindi #1");
+        slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(6);    paid.add(0);      topic.add(0);    vtitle.add("Creating Our First Android App (with APK) | Android Tutorials in Hindi #2");
+        slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(6);    paid.add(0);      topic.add(0);    vtitle.add("Linear Layout & Relative Layout In Android | Android Tutorials in Hindi #3");
+        slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(6);    paid.add(0);      topic.add(0);    vtitle.add("Android activity & Activity Lifecycle | Android Tutorials in Hindi #4");
+        slno.add(7);    videoIds.add("WVjqX1BoQeM");   course_id.add(6);    paid.add(0);      topic.add(0);    vtitle.add("Project 1: Tic Tac Toe Game Android Game Development | Android Tutorials in Hindi #5");
 
     }
 }

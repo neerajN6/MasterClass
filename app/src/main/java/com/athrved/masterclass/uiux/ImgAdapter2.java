@@ -1,6 +1,7 @@
 package com.athrved.masterclass.uiux;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.athrved.masterclass.R;
+import com.athrved.masterclass.TopicsActivity;
 
 import java.util.List;
 
@@ -58,32 +60,31 @@ public class ImgAdapter2 extends RecyclerView.Adapter<ImgAdapter2.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                       Toast.makeText(v.getContext(), "Clicked -> " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
-//                    if(getAdapterPosition()==0){
-//                        Intent intent = new Intent(itemView.getContext(), AiActivity.class);
-//                        itemView.getContext().startActivity(intent);
-//                    }
-//                    else if(getAdapterPosition()==1){
-//                        Intent intent = new Intent(itemView.getContext(), WebActivity.class);
-//                        itemView.getContext().startActivity(intent);
-//                    }
-//                    else if(getAdapterPosition()==2){
-//                        Intent intent = new Intent(itemView.getContext(), AppDevActivity.class);
-//                        itemView.getContext().startActivity(intent);
-//                    }
-//                    else if(getAdapterPosition()==3){
-//                        Intent intent = new Intent(itemView.getContext(), MachActivity.class);
-//                        itemView.getContext().startActivity(intent);
-//                    }
-//                    else if(getAdapterPosition()==4){
-//                        Intent intent = new Intent(itemView.getContext(), UiuxActivity.class);
-//                        itemView.getContext().startActivity(intent);
-//                    }
-//                    else if(getAdapterPosition()==5){
-//                        Intent intent = new Intent(itemView.getContext(), IotActivity.class);
-//                        itemView.getContext().startActivity(intent);
-//                    }
-
+                    Toast.makeText(v.getContext(), "Clicked -> " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    if(getAdapterPosition()==0){
+                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        itemView.getContext().startActivity(intent);
+                    }
+                    else if(getAdapterPosition()==1){
+                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        itemView.getContext().startActivity(intent);
+                    }
+                    else if(getAdapterPosition()==2){
+                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        itemView.getContext().startActivity(intent);
+                    }
+                    else if(getAdapterPosition()==3){
+                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        itemView.getContext().startActivity(intent);
+                    }
+                    else if(getAdapterPosition()==4){
+                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        itemView.getContext().startActivity(intent);
+                    }
+                    else if(getAdapterPosition()==5){
+                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        itemView.getContext().startActivity(intent);
+                    }
                 }
             });
         }

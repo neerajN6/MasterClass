@@ -23,13 +23,13 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 public class PlayerActivity extends AppCompatActivity {
 
     YouTubePlayerView youTubePlayerView;
-    String a,b;
+    String a,b,titl;
     Button goback;
     TabLayout tabLayout;
     TabItem tabItem1, tabItem2, tabItem3;
     WrapContentHeightViewPager viewPager;
     PageAdapter pageAdapter;
-    TextView l;
+    TextView l,youtitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class PlayerActivity extends AppCompatActivity {
         tabItem2= (TabItem) findViewById(R.id.structtab);
         tabItem3= (TabItem) findViewById(R.id.reviewtab);
         viewPager = (WrapContentHeightViewPager) findViewById(R.id.vpager);
+        youtitle=findViewById(R.id.you_title);
 
         pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pageAdapter);
@@ -73,6 +74,10 @@ public class PlayerActivity extends AppCompatActivity {
         youTubePlayerView=findViewById(R.id.youplay);
 
         a=getIntent().getStringExtra("VIDEOID");
+        titl=getIntent().getStringExtra("VTITLE");
+        if(titl!=null){
+            youtitle.setText(titl);
+        }
 
         // below method will provides us the youtube player
         // ui controller such as to play and pause a video

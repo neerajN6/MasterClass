@@ -183,13 +183,13 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
         allFewRecycler.setHasFixedSize(true);
         allFewRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        ArrayList<FewAllHelperClass> fewAllLocatio = new ArrayList<>();
+        ArrayList<WebFewAllHelperClass> fewAllLocatio = new ArrayList<>();
 
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"Playing with Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo,"Protopie for Prototyping","PROTOTYPING\n","Abhinav Chikkara"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo,"Introduction to After Effects\nand Lottie Files","MOTION DESIGN","S.M Sudhanva Acharya"));
+        fewAllLocatio.add(new WebFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"Playing  Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
+        fewAllLocatio.add(new WebFewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo," for Prototyping","PROTOTYPING\n","Abhinav Chikkara"));
+        fewAllLocatio.add(new WebFewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo," to After Effects\nand Lottie Files","MOTION DESIGN","S.M Sudhanva Acharya"));
 
-        adapter4=new FewAllAdapter(fewAllLocatio);
+        adapter4=new WebFewAllAdapter(fewAllLocatio);
         allFewRecycler.setAdapter(adapter4);
 
     }

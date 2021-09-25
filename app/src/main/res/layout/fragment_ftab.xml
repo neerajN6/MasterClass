@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#121517"
+
+    tools:context=".ftab">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="13dp"
+            android:text="In this course, you are going to learn about everything you need to know about Visual Design. We will take you through the absolute basics like spacing, typography and walk you through some advanced topics like constraints, gravity, visual tension and many more"
+            android:textColor="@color/white"
+            android:textSize="17dp" />
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#24282b"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="19dp"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:text="What you'll get"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="19dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:src="@drawable/a"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="19dp"
+            android:textSize="16dp"
+            android:textColor="#FFF"
+            android:gravity="center_vertical"
+            android:text="20+ resources to boost your learning"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="19dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:src="@drawable/b"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:layout_marginRight="13dp"
+                android:textSize="16dp"
+                android:textColor="#FFF"
+                android:gravity="center_vertical"
+                android:text="25 hours+ content for you to learn and download to watch even when you are offline"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="19dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/c"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:textSize="17dp"
+                android:textColor="#FFF"
+                android:gravity="center_vertical"
+                android:text="The course will updated according to the industry demands and updates will be available for free"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:text="Meet your mentor"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="130dp"
+            android:layout_height="180dp"
+            app:cardCornerRadius="6dp"
+            android:layout_margin="13dp"
+            app:cardElevation="8dp">
+
+        <ImageView
+            android:id="@+id/men_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/oneman" />
+
+        </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Goutham Naik"
+                        android:textColor="#FFF"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="90dp"
+                        android:layout_height="23dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="11dp"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="8dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#057EBD"
+                            android:gravity="center"
+                            android:text="Top Mentor"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginBottom="19dp"
+                    android:gravity="center_vertical"
+                    android:text="CEO, AthrV-ED"
+                    android:textColor="#A3A7A8"
+                    android:textSize="12dp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="13dp"
+                    android:text="Goutam is an entrepreneur from Udupi, who currently heads the team at AthrV-Ed. He has studied design at 10k Designers chort."
+                    android:textColor="@color/white"
+                    android:textSize="16.5dp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:text="Frequently Asked Questions"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/faq_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#24282b"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp">
+
+            <LinearLayout
+                android:id="@+id/q_exp_lay1"
+                android:background="#24282b"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/text_q_exp_lay1"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:background="#24282b"
+                    android:padding="13dp"
+                    android:text="Q1  What do you mean by - get full access?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/but_q_exp_lay1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:id="@+id/expanded_lay1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+        <View
+            android:id="@+id/view_q_exp_lay1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFF"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/ans_q_exp_lay1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please contact your mentor"
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            android:background="#24282b"
+            android:padding="13dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/faq_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#24282b"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp">
+
+            <LinearLayout
+                android:id="@+id/q_exp_lay2"
+                android:background="#24282b"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/text_q_exp_lay2"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:background="#24282b"
+                    android:padding="13dp"
+                    android:text="Q2  Are all the future updates made to this course completely free?"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+
+                <Button
+                    android:id="@+id/but_q_exp_lay2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:id="@+id/expanded_lay2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <View
+                android:id="@+id/view_q_exp_lay2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FFF"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/ans_q_exp_lay2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please contact your mentor"
+                android:textColor="#FFF"
+                android:textSize="16sp"
+                android:background="#24282b"
+                android:padding="13dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                />
+        </LinearLayout>
+
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/faq_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#24282b"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp">
+
+            <LinearLayout
+                android:id="@+id/q_exp_lay3"
+                android:background="#24282b"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/text_q_exp_lay3"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:background="#24282b"
+                    android:padding="13dp"
+                    android:text="Q3  How do you help me, if I am stuck?"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+               />
+
+                <Button
+                    android:id="@+id/but_q_exp_lay3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:id="@+id/expanded_lay3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <View
+                android:id="@+id/view_q_exp_lay3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FFF"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/ans_q_exp_lay3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="By purchasing the “Get full Access”, you would be invited to join a private discord community. If you are stuck at any chapter or with any question, your mentor and the community will be glad to help you out."
+                android:textColor="#FFF"
+                android:textSize="16sp"
+                android:background="#24282b"
+                android:padding="13dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                />
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

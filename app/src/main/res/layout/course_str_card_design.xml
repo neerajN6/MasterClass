@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:background="#24282b"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/expanded_lay3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:orientation="vertical">
+        <View
+            android:id="@+id/view_q_exp_lay3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFF"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#24282b"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp"
+            android:paddingTop="4dp">
+
+            <ImageView
+                android:id="@+id/fffimage"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:src="@drawable/secndone"/>
+
+            <TextView
+                android:id="@+id/ffftitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Colour and Colour Theory - Fundamentals of Visual Design"
+                android:textSize="16sp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:textStyle="bold"
+                android:textColor="#FFF"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/fffdesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="In this lesson, goutam explains everything you need to know about colours in UI/UX design. At the end he would also explain about the process of creating a colour palette."
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            android:background="#24282b"
+            android:paddingBottom="13dp"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp"
+            android:paddingTop="4dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+
+            >
+            <LinearLayout
+                android:id="@+id/save_layout"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/save"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/greyyic_baseline_bookmark_border_24"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#bfbfbf"
+                    android:text="Save"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/saved_layout"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/save_done"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/greyyic_baseline_bookmark_24"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#bfbfbf"
+                android:text="Saved"
+                android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <LinearLayout
+                android:id="@+id/share_layout"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/share_but"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/greyyic_baseline_share_24"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#bfbfbf"
+                    android:text="Share"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

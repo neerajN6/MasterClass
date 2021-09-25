@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AApp">
         <activity
+            android:name=".TopicsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".UiuxSubCourse1Activity"
+            android:exported="true" />
+        <activity
             android:name=".ai.AiCourseDesc"
             android:exported="true" />
         <activity
@@ -33,17 +39,22 @@
         <activity
             android:name=".MatchEmail"
             android:exported="true" />
-        <activity android:name=".IotActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".uiux.UiuxActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".IotActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".uiux.UiuxActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".PlayerActivity" />
-        <activity android:name=".machdesign.MachActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".appdev.AppDevActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".webdevelopment.WebActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".machdesign.MachActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".appdev.AppDevActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".webdevelopment.WebActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".ai.AiActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

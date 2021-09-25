@@ -1,7 +1,6 @@
 package com.athrved.masterclass.uiux;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -21,9 +20,7 @@ import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.LogOut;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.UpdateProfile;
-import com.athrved.masterclass.VideoData;
 import com.athrved.masterclass.ai.AiCourseDesc;
-import com.athrved.masterclass.appdev.AppDevActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -68,7 +65,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
     FirebaseDatabase rootnode;
     DatabaseReference reference;
 
-    ArrayList<UiuxAllClasses> allCourseList=new ArrayList<>();
+    ArrayList<UiuxFewAllClasses> allCourseList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

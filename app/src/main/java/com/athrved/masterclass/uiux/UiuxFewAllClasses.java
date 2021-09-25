@@ -1,16 +1,16 @@
 package com.athrved.masterclass.uiux;
 
-public class UiuxAllClasses {
+public class UiuxFewAllClasses {
     private String title;
     private String channel;
     private String author;
     private int imagebig;
     private int imagesmall;
 
-    public UiuxAllClasses() {
+    public UiuxFewAllClasses() {
     }
 
-    public UiuxAllClasses(String title, String channel, String author, int imagebig, int imagesmall) {
+    public UiuxFewAllClasses(String title, String channel, String author, int imagebig, int imagesmall) {
         this.title = title;
         this.channel = channel;
         this.author = author;

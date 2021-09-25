@@ -1,5 +1,4 @@
-package com.athrved.masterclass.uiux;
-
+package com.athrved.masterclass.webdevelopment;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.RequestQueue;
 import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
 import com.google.firebase.database.DataSnapshot;
@@ -23,47 +21,44 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+public class WebFewAllAdapter extends RecyclerView.Adapter<WebFewAllAdapter.WebFewAllViewHolder> {
 
-public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.FreeViewHolder> {
-
-    ArrayList<FreeHelperClass> featloc;
-    public static String a,b="FAILED TO LOAD";
-    public static String v_id1 ;
-    public static String v_id2 ;
-    public static String vtitle1 ;
-    public static String vtitle2 ;
+    ArrayList<WebFewAllHelperClass> featloc;
+     static String v_id1 ;
+     static String v_id2 ;
+     static String v_id3 ;
+     static String vtitle1 ;
+     static String vtitle2 ;
+     static String vtitle3 ;
 
     DatabaseReference reff;
 
-    RequestQueue requestQueue;
-
-    public FreeclassesAdapter(ArrayList<FreeHelperClass> featloc) {
+    public WebFewAllAdapter(ArrayList<WebFewAllHelperClass> featloc) {
         this.featloc = featloc;
     }
 
     @NonNull
 
     @Override
-    public FreeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.free_class_card_design,parent,false);
-        FreeViewHolder freeViewHolder = new FreeViewHolder(view);
+    public WebFewAllViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_all_classes,parent,false);
+        WebFewAllViewHolder WebFewAllViewHolder = new WebFewAllViewHolder(view);
 
-        return freeViewHolder;
+        return WebFewAllViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FreeViewHolder holder, int position) {
-        FreeHelperClass freeHelperClass = featloc.get(position);
+    public void onBindViewHolder(@NonNull WebFewAllViewHolder holder, int position) {
+        WebFewAllHelperClass WebFewAllHelperClass = featloc.get(position);
+        holder.wimagebig.setImageResource(WebFewAllHelperClass.getWimagebig());
+        holder.wimagesmall.setImageResource(WebFewAllHelperClass.getWimagesmall());
+        holder.wtitle.setText(WebFewAllHelperClass.getWtitle());
+        holder.wtopic.setText(WebFewAllHelperClass.getWchannel());
+        holder.wauthor.setText(WebFewAllHelperClass.getWauthor());
 
-        holder.imagesmall1.setImageResource(freeHelperClass.getImagesmall1());
-        holder.imagesmall2.setImageResource(freeHelperClass.getImagesmall2());
-        holder.title.setText(freeHelperClass.getTitle());
-        holder.topic.setText(freeHelperClass.getTopic());
-        holder.author.setText(freeHelperClass.getAuthor());
-
-        for(int k =1;k<=2;k++){
+        for(int k =1;k<=3;k++){
             String ka=String.valueOf(k);
-            reff= FirebaseDatabase.getInstance().getReference("video").child("uiux").child("free").child(ka);
+            reff= FirebaseDatabase.getInstance().getReference("video").child("web").child("free").child(ka);
             int finalK = k;
             reff.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -77,14 +72,23 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                         vtitle2=snapshot.child("title_video").getValue().toString();
 
                     }
+                    if(finalK ==3) {
+                        v_id3 = snapshot.child("video_Id").getValue().toString();
+                        vtitle3=snapshot.child("title_video").getValue().toString();
+
+                    }
 
                     if (holder.getAdapterPosition() == 0) {
-                        holder.title.setText(vtitle1);
-                        Picasso.get().load("https://img.youtube.com/vi/" + v_id1 + "/maxresdefault.jpg").into(holder.imagebig);
+                        holder.wtitle.setText(vtitle1);
+                        Picasso.get().load("https://img.youtube.com/vi/" + v_id1 + "/maxresdefault.jpg").into(holder.wimagebig);
                     }
                     if (holder.getAdapterPosition() == 1) {
-                        holder.title.setText(vtitle2);
-                        Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.imagebig);
+                        holder.wtitle.setText(vtitle2);
+                        Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.wimagebig);
+                    }
+                    if (holder.getAdapterPosition() == 2) {
+                        holder.wtitle.setText(vtitle3);
+                        Picasso.get().load("https://img.youtube.com/vi/" + v_id3 + "/maxresdefault.jpg").into(holder.wimagebig);
                     }
                 }
 
@@ -94,68 +98,32 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                 }
             });
         }
-
-
-
     }
+
+
 
     @Override
     public int getItemCount() {
         return featloc.size();
     }
 
-    public static class FreeViewHolder extends RecyclerView.ViewHolder{
-        ImageView imagebig, imagesmall1,imagesmall2;
-        TextView topic, author;
-        TextView title;
-        Button bookmark, bookmark_border;
+    public static class WebFewAllViewHolder extends RecyclerView.ViewHolder{
+        ImageView wimagebig, wimagesmall;
+        TextView wtitle, wtopic, wauthor;
 
-        public FreeViewHolder(@NonNull final View itemView){
+
+        public WebFewAllViewHolder(@NonNull final View itemView){
             super(itemView);
 
-            imagebig=itemView.findViewById(R.id.freeimgbig);
-            imagesmall1=itemView.findViewById(R.id.freec1_image);
-            imagesmall2=itemView.findViewById(R.id.freec2_image);
+            wimagebig=itemView.findViewById(R.id.add_course_image);
+            wimagesmall=itemView.findViewById(R.id.allc_image);
 
-            bookmark=itemView.findViewById(R.id.bookmarkfree);
-            bookmark_border=itemView.findViewById(R.id.bookmarkfree_border);
-
-            title=itemView.findViewById(R.id.freec_title);
-            topic=itemView.findViewById(R.id.freec_topic);
-            author=itemView.findViewById(R.id.freec_author);
+            wtitle=itemView.findViewById(R.id.allc_title);
+            wtopic=itemView.findViewById(R.id.allc_topic);
+            wauthor=itemView.findViewById(R.id.allc_author);
 
 
-
-            bookmark_border.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(getAdapterPosition()==0){
-                        bookmark_border.setVisibility(View.GONE);
-                        bookmark.setVisibility(View.VISIBLE);
-                    }
-                    if(getAdapterPosition()==1){
-                        bookmark_border.setVisibility(View.GONE);
-                        bookmark.setVisibility(View.VISIBLE);
-                    }
-                }
-            });
-
-            bookmark.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(getAdapterPosition()==0){
-                        bookmark_border.setVisibility(View.VISIBLE);
-                        bookmark.setVisibility(View.GONE);
-                    }
-                    if(getAdapterPosition()==1){
-                        bookmark_border.setVisibility(View.VISIBLE);
-                        bookmark.setVisibility(View.GONE);
-                    }
-                }
-            });
-
-
-            for(int k =1;k<=2;k++){
+            for(int k =1;k<=3;k++){
                 String ka=String.valueOf(k);
                 DatabaseReference reff= FirebaseDatabase.getInstance().getReference("video").child("uiux").child("free").child(ka);
                 int finalK = k;
@@ -169,6 +137,11 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                         if(finalK ==2) {
                             v_id2 = snapshot.child("video_Id").getValue().toString();
                             vtitle2=snapshot.child("title_video").getValue().toString();
+
+                        }
+                        if(finalK ==3) {
+                            v_id3 = snapshot.child("video_Id").getValue().toString();
+                            vtitle3=snapshot.child("title_video").getValue().toString();
                         }
 
                         itemView.setOnClickListener(new View.OnClickListener() {
@@ -177,6 +150,7 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                                 if (getAdapterPosition() == 0) {
                                     Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                                     intent.putExtra("VIDEOID", v_id1);
+                                    intent.putExtra("VTITLE",vtitle1);
                                     itemView.getContext().startActivity(intent);
                                     Activity activity = (Activity) itemView.getContext();
                                     activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -186,6 +160,16 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                                 if (getAdapterPosition() == 1) {
                                     Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                                     intent.putExtra("VIDEOID", v_id2);
+                                    intent.putExtra("VTITLE",vtitle2);
+                                    itemView.getContext().startActivity(intent);
+                                    Activity activity = (Activity) itemView.getContext();
+                                    activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                                }
+
+                                if (getAdapterPosition() == 2) {
+                                    Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
+                                    intent.putExtra("VIDEOID", v_id3);
+                                    intent.putExtra("VTITLE",vtitle3);
                                     itemView.getContext().startActivity(intent);
                                     Activity activity = (Activity) itemView.getContext();
                                     activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -215,11 +199,24 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
 
 
     }
-    
+
 
 }
