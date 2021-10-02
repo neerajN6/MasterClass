@@ -22,12 +22,15 @@ public class ImgAdapter2 extends RecyclerView.Adapter<ImgAdapter2.ViewHolder> {
     List<String> titles2;
     List<Integer> images2;
     LayoutInflater inflater2;
+    public static int top;
+
 
     public ImgAdapter2(Context ctx2, List<String> titles2, List<Integer> images2){
         this.titles2 = titles2;
         this.images2 = images2;
         this.inflater2 = LayoutInflater.from(ctx2);
     }
+
 
 
     @NonNull
@@ -51,6 +54,7 @@ public class ImgAdapter2 extends RecyclerView.Adapter<ImgAdapter2.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView title2;
         ImageView gridIcon2;
+        ;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,33 +64,50 @@ public class ImgAdapter2 extends RecyclerView.Adapter<ImgAdapter2.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    top = getAdapterPosition();
                     Toast.makeText(v.getContext(), "Clicked -> " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
                     if(getAdapterPosition()==0){
                         Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        intent.putExtra("topic",String.valueOf(getAdapterPosition()));
+                        intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                     else if(getAdapterPosition()==1){
                         Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        intent.putExtra("topic",String.valueOf(getAdapterPosition()));
+                        intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                     else if(getAdapterPosition()==2){
                         Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        intent.putExtra("topic",String.valueOf(getAdapterPosition()));
+                        intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                     else if(getAdapterPosition()==3){
                         Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        intent.putExtra("topic",String.valueOf(getAdapterPosition()));
+                        intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                     else if(getAdapterPosition()==4){
                         Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        intent.putExtra("topic",String.valueOf(getAdapterPosition()));
+                        intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                     else if(getAdapterPosition()==5){
                         Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        intent.putExtra("topic",String.valueOf(getAdapterPosition()));
+                        intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                 }
             });
+        }
+
+        public int topp(){
+            return top;
         }
     }
 }

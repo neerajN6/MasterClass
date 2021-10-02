@@ -302,6 +302,7 @@
             app:layout_constraintTop_toTopOf="parent"
             />
             <TextView
+                android:id="@+id/viewall_allclass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -312,7 +313,9 @@
                 android:textColor="#2b73c9"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:onClick="viewallallclasses"
+                />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

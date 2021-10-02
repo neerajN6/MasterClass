@@ -62,6 +62,7 @@ public class ImgAdapter extends RecyclerView.Adapter<ImgAdapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                  //   Toast.makeText(v.getContext(), "Clicked -> " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
                     if(getAdapterPosition()==0){
                         Intent intent = new Intent(itemView.getContext(), AiActivity.class);
@@ -90,6 +91,9 @@ public class ImgAdapter extends RecyclerView.Adapter<ImgAdapter.ViewHolder> {
                    else if(getAdapterPosition()==4){
                         Intent intent = new Intent(itemView.getContext(), UiuxActivity.class);
                         itemView.getContext().startActivity(intent);
+
+
+
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }

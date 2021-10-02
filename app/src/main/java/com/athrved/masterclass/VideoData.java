@@ -1,19 +1,28 @@
 package com.athrved.masterclass;
 
 public class VideoData {
-    String video_Id, title_video;
+    String video_Id, title_video, authors;
     int courseId_v,paid,slno,topicid;
 
     public VideoData() {
     }
 
-    public VideoData(String video_Id, String title_video, int courseId_v,int paid,int slno, int topicid) {
+    public VideoData(String video_Id, String title_video, int courseId_v,int paid,int slno, int topicid, String authors) {
         this.video_Id = video_Id;
         this.title_video = title_video;
         this.courseId_v = courseId_v;
         this.paid = paid;
         this.slno=slno;
         this.topicid=topicid;
+        this.authors=authors;
+    }
+
+    public String getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(String authors) {
+        this.authors = authors;
     }
 
     public int getTopicid() {

@@ -1,8 +1,6 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.webdevelopment;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,18 +8,18 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.athrved.masterclass.uiux.FewAllAdapter;
-import com.athrved.masterclass.uiux.FewAllHelperClass;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.athrved.masterclass.MainActivity;
+import com.athrved.masterclass.R;
+import com.athrved.masterclass.TopicAdapter;
+import com.athrved.masterclass.TopicHelperClass;
+import com.athrved.masterclass.VideoData;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TopicsActivity extends AppCompatActivity {
+public class WebTopicsActivity extends AppCompatActivity {
     List<String> uiuxtopics;
     List<String> apptopics;
     List<String> aitopics;
@@ -43,12 +41,12 @@ public class TopicsActivity extends AppCompatActivity {
     RecyclerView topicfewRecycler;
     RecyclerView.Adapter adapter4t;
 
-    List <Integer> uiuxslno;
-    List <Integer> appslno;
-    List <Integer> aislno;
-    List <Integer> webslno;
-    List <Integer> mechslno;
-    List <Integer> iotslno;
+    List<Integer> uiuxslno;
+    List<Integer> appslno;
+    List<Integer> aislno;
+    List<Integer> webslno;
+    List<Integer> mechslno;
+    List<Integer> iotslno;
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -95,7 +93,7 @@ public class TopicsActivity extends AppCompatActivity {
 
         p = findViewById(R.id.p);
 
-        calll= getIntent().getStringExtra("vacuiux");
+        calll = getIntent().getStringExtra("vacweb");
 
         getDataFromBottom();
         rootNode = FirebaseDatabase.getInstance();
@@ -112,28 +110,23 @@ public class TopicsActivity extends AppCompatActivity {
 
         fewAllLocatio = new ArrayList<>();
 
-        if (calll!=null && calll.equals("vac")){
-            for (int i=0;i<k.videoIds.size();i++){
-                if(k.course_id.get(i)==5)
-                    fewAllLocatio.add(new TopicHelperClass(uiuxtopics.get(k.topic.get(i)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
+        if (calll != null && calll.equals("vac")) {
+            for (int i = 0; i < k.videoIds.size(); i++) {
+                if (k.course_id.get(i) == 2)
+                    fewAllLocatio.add(new TopicHelperClass(webtopics.get(k.topic.get(i)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
             }
         }
-        if(getcoursepos!=null && getcoursepos.equals(String.valueOf(5))) {
+        if (getcoursepos != null && getcoursepos.equals(String.valueOf(2))) {
             for (int i = 0; i < k.videoIds.size(); i++) {
                 if (k.topic.get(i) == Integer.parseInt(getadaptpos) && k.course_id.get(i) == Integer.parseInt(getcoursepos))
-                    fewAllLocatio.add(new TopicHelperClass(uiuxtopics.get(Integer.parseInt(getadaptpos)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
+                    fewAllLocatio.add(new TopicHelperClass(webtopics.get(Integer.parseInt(getadaptpos)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
             }
         }
 
-        adapter4t=new TopicAdapter(fewAllLocatio);
+        adapter4t = new TopicAdapter(fewAllLocatio);
         topicfewRecycler.setAdapter(adapter4t);
-    }
-
-    private void addrecycler(){
-
 
     }
-
     private void getDataFromBottom() {
         uiuxtopics = new ArrayList<>();
         aitopics = new ArrayList<>();
@@ -196,8 +189,4 @@ public class TopicsActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
 }

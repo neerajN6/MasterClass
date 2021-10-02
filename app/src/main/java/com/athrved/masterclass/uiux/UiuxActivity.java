@@ -3,6 +3,7 @@ package com.athrved.masterclass.uiux;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.LogOut;
+import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.R;
+import com.athrved.masterclass.TopicsActivity;
 import com.athrved.masterclass.UpdateProfile;
 import com.athrved.masterclass.ai.AiCourseDesc;
 import com.google.android.material.navigation.NavigationView;
@@ -32,6 +35,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
 
     TextView abcde;
     TextView ak;
+    TextView viewAllClasses;
     String tit;
     String urlname,videoID,tita;
 
@@ -64,6 +68,10 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
 
     FirebaseDatabase rootnode;
     DatabaseReference reference;
+
+    ArrayList uiuxtopics;
+
+    public int callla=0;
 
     ArrayList<UiuxFewAllClasses> allCourseList=new ArrayList<>();
 
@@ -106,6 +114,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         allfewRecycler();
 
         dataList2 = findViewById(R.id.dataList2);
+        viewAllClasses=findViewById(R.id.viewall_allclass);
 
         abcde = findViewById(R.id.tvv1);
         ak=findViewById(R.id.ak);
@@ -119,6 +128,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         titles2.add("Prototyping");
         titles2.add("3D Design");
         titles2.add("Webflow");
+
 
         images2.add(R.drawable.visuald_logo);
         images2.add(R.drawable.uiux_logo);
@@ -135,7 +145,12 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-
+    public void viewallallclasses(View v){
+        Intent vac=new Intent(UiuxActivity.this, TopicsActivity.class);
+        callla=1;
+        vac.putExtra("vacuiux", "vac");
+        startActivity(vac);
+    }
 
     private void featuredRecycler(){
 
@@ -187,14 +202,25 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void allfewRecycler(){
+        MainActivity k = new MainActivity();
+        k.getdatatotop();
+
         allFewRecycler.setHasFixedSize(true);
         allFewRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         ArrayList<FewAllHelperClass> fewAllLocatio = new ArrayList<>();
 
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"Playing with Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo,"Protopie for Prototyping","PROTOTYPING\n","Abhinav Chikkara"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo,"Introduction to After Effects\nand Lottie Files","MOTION DESIGN","S.M Sudhanva Acharya"));
+        uiuxtopics = new ArrayList();
+        uiuxtopics.add("VISUAL DESIGN");
+        uiuxtopics.add("UX DESIGN");
+        uiuxtopics.add("MOTION DESIGN");
+        uiuxtopics.add("PROTOTYPING");
+        uiuxtopics.add("3D DESIGN");
+        uiuxtopics.add("WEBFLOW");
+
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(0),uiuxtopics.get((k.topic.get(0))).toString(),k.authorr.get(0)));
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(1),uiuxtopics.get((k.topic.get(1))).toString(),k.authorr.get(1)));
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(2),uiuxtopics.get((k.topic.get(2))).toString(),k.authorr.get(2)));
 
         adapter4=new FewAllAdapter(fewAllLocatio);
         allFewRecycler.setAdapter(adapter4);

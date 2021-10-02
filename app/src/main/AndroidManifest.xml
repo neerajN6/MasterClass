@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AApp">
         <activity
+            android:name=".webdevelopment.WebTopicsActivity"
+            android:exported="true" />
+        <activity
             android:name=".TopicsActivity"
             android:exported="true" />
         <activity

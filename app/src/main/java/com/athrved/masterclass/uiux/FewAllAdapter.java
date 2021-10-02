@@ -12,14 +12,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class FewAllAdapter extends RecyclerView.Adapter<FewAllAdapter.FewAllViewHolder> {
 
     ArrayList<FewAllHelperClass> featloc;
+    public String v_id1;
+    public String v_id2;
+    public String v_id3;
+
+    ArrayList<String> videoIds;
+    ArrayList<String> vtitle;
+    ArrayList<String> authorr;
+    ArrayList<Integer> topic;
+    ArrayList<Integer> course_id;
+    ArrayList<Integer> paid;
+    ArrayList<Integer> slno;
 
     public FewAllAdapter(ArrayList<FewAllHelperClass> featloc) {
         this.featloc = featloc;
@@ -41,8 +54,35 @@ public class FewAllAdapter extends RecyclerView.Adapter<FewAllAdapter.FewAllView
         holder.imagebig.setImageResource(fewAllHelperClass.getImageBig());
         holder.imagesmall.setImageResource(fewAllHelperClass.getImageSmall());
         holder.title.setText(fewAllHelperClass.getTitle());
-        holder.topic.setText(fewAllHelperClass.getChannel());
+        holder.ttopic.setText(fewAllHelperClass.getChannel());
         holder.author.setText(fewAllHelperClass.getAuthor());
+
+        videoIds = new ArrayList<>();
+        course_id = new ArrayList<>();
+        paid = new ArrayList<>();
+        vtitle = new ArrayList<>();
+        slno = new ArrayList<>();
+        topic = new ArrayList<>();
+        authorr = new ArrayList<>();
+        ArrayList vnv = new ArrayList<>();
+        MainActivity k =new MainActivity();
+        k.getdatatotop();
+
+        for (int i = 0; i < 3; i++) {
+            for (int ki = 0; ki < k.videoIds.size(); ki++) {
+                if (k.course_id.get(ki) == 5) {
+                    vnv.add(k.videoIds.get(ki));
+
+                    System.out.println("This is" + k.videoIds.get(ki));
+                }
+            }
+
+                    if (position == i) {
+                        Picasso.get().load("https://img.youtube.com/vi/" + vnv.get(i) + "/maxresdefault.jpg").into(holder.imagebig);
+                    }
+
+
+                }
     }
 
     @Override
@@ -52,7 +92,7 @@ public class FewAllAdapter extends RecyclerView.Adapter<FewAllAdapter.FewAllView
 
     public static class FewAllViewHolder extends RecyclerView.ViewHolder{
         ImageView imagebig, imagesmall;
-        TextView title, topic, author;
+        TextView title, ttopic, author;
         Button bookmark, bookmark_border;
 
         public FewAllViewHolder(@NonNull final View itemView){
@@ -62,17 +102,37 @@ public class FewAllAdapter extends RecyclerView.Adapter<FewAllAdapter.FewAllView
             imagesmall=itemView.findViewById(R.id.allc_image);
 
             title=itemView.findViewById(R.id.allc_title);
-            topic=itemView.findViewById(R.id.allc_topic);
+            ttopic=itemView.findViewById(R.id.allc_topic);
             author=itemView.findViewById(R.id.allc_author);
 
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
+
+
                 @Override
                 public void onClick(View v) {
+                    ArrayList<String> videoIds;
+                    ArrayList<String> vtitle;
+                    ArrayList<String> authorr;
+                    ArrayList<String> topic;
+                    ArrayList<Integer> course_id;
+                    ArrayList<Integer> paid;
+                    ArrayList<Integer> slno;
+
+                    MainActivity k =new MainActivity();
+                    k.getdatatotop();
+                    videoIds = new ArrayList<>();
+                    course_id = new ArrayList<>();
+                    paid = new ArrayList<>();
+                    vtitle = new ArrayList<>();
+                    topic = new ArrayList<>();
+                    slno = new ArrayList<>();
+
+                    authorr = new ArrayList<>();
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "_vAmKNin0QM");
+                        intent.putExtra("VIDEOID", k.videoIds.get(getAdapterPosition()));
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -81,7 +141,7 @@ public class FewAllAdapter extends RecyclerView.Adapter<FewAllAdapter.FewAllView
 
                     if (getAdapterPosition() == 1) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "lrcqt4RelJ4");
+                        intent.putExtra("VIDEOID", k.videoIds.get(getAdapterPosition()));
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -89,7 +149,7 @@ public class FewAllAdapter extends RecyclerView.Adapter<FewAllAdapter.FewAllView
 
                     if (getAdapterPosition() == 2) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "GhbuUctZiTg");
+                        intent.putExtra("VIDEOID", k.videoIds.get(getAdapterPosition()));
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
