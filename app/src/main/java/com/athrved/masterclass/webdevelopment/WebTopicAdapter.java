@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
-import com.athrved.masterclass.TopicHelperClass;
-import com.athrved.masterclass.TopicsActivity;
 import com.athrved.masterclass.VideoData;
 import com.squareup.picasso.Picasso;
 
@@ -24,9 +22,9 @@ public class WebTopicAdapter extends RecyclerView.Adapter<WebTopicAdapter.WebTop
 
     VideoData vv;
 
-    ArrayList<TopicHelperClass> featloc;
+    ArrayList<WebTopicHelperClass> featloc;
 
-    public WebTopicAdapter(ArrayList<TopicHelperClass> featloc) {
+    public WebTopicAdapter(ArrayList<WebTopicHelperClass> featloc) {
         this.featloc = featloc;
     }
 
@@ -42,21 +40,21 @@ public class WebTopicAdapter extends RecyclerView.Adapter<WebTopicAdapter.WebTop
 
     @Override
     public void onBindViewHolder(@NonNull WebTopicViewHolder holder, int position) {
-        TopicHelperClass TopicHelperClass = featloc.get(position);
-        holder.ffimagebig.setImageResource(TopicHelperClass.getTimagebig());
-        holder.ffimagesmall.setImageResource(TopicHelperClass.getTimagesmall());
-        holder.fftitle.setText(TopicHelperClass.getTtitle());
-        holder.fftopic.setText(TopicHelperClass.getTopicname());
-        holder.ffauthor.setText(TopicHelperClass.getTauthor());
+        WebTopicHelperClass WebTopicHelperClass = featloc.get(position);
+        holder.ffimagebig.setImageResource(WebTopicHelperClass.getWtimagebig());
+        holder.ffimagesmall.setImageResource(WebTopicHelperClass.getWtimagesmall());
+        holder.fftitle.setText(WebTopicHelperClass.getWttitle());
+        holder.fftopic.setText(WebTopicHelperClass.getWtopicname());
+        holder.ffauthor.setText(WebTopicHelperClass.getWtauthor());
 
         MainActivity k = new MainActivity();
         k.getdatatotop();
         WebActivity g = new WebActivity();
         int gh = g.callla;
-        TopicsActivity ta = new TopicsActivity();
+        WebTopicsActivity ta = new WebTopicsActivity();
 
         ArrayList vnv = new ArrayList<>();
-        int ll = WImgAdapter2.top;
+        int ll = WImgAdapter2.webtop;
 
         int count1 = 0;
         int countw = 0;
@@ -145,7 +143,7 @@ public class WebTopicAdapter extends RecyclerView.Adapter<WebTopicAdapter.WebTop
             ArrayList<Integer> paid;
             ArrayList<Integer> slno;
 
-            ArrayList<String> vv;
+            ArrayList<String> webvv;
 
             videoIds = new ArrayList<>();
             course_id = new ArrayList<>();
@@ -155,7 +153,7 @@ public class WebTopicAdapter extends RecyclerView.Adapter<WebTopicAdapter.WebTop
             topic = new ArrayList<>();
             authorr = new ArrayList<>();
 
-            vv = new ArrayList<>();
+            webvv = new ArrayList<>();
 
             ffimagebig=itemView.findViewById(R.id.add_course_image);
             ffimagesmall=itemView.findViewById(R.id.allc_image);
@@ -169,9 +167,9 @@ public class WebTopicAdapter extends RecyclerView.Adapter<WebTopicAdapter.WebTop
             MainActivity k = new MainActivity();
             k.getdatatotop();
 
-            int  ll= WImgAdapter2.top;
+            int  ll= WImgAdapter2.webtop;
 
-            TopicsActivity l = new TopicsActivity();
+            WebTopicsActivity l = new WebTopicsActivity();
             //           int prevtopic = Integer.parseInt(l.getadaptpos);
 
 
@@ -182,11 +180,13 @@ public class WebTopicAdapter extends RecyclerView.Adapter<WebTopicAdapter.WebTop
                 @Override
                 public void onClick(View v) {
                     for(int ki=0;ki<k.videoIds.size();ki++)
-                        if(k.course_id.get(ki)==2 && k.topic.get(ki)==ll)
-                            vv.add(k.videoIds.get(ki));
+                        if(k.course_id.get(ki)==2) {
+                            webvv.add(k.videoIds.get(ki));
+                            System.out.println("ki is this = " +ki  +"\n video "+k.vtitle.get(ki));
+                        }
 
 //                            videoid[0] = k.videoIds.get(ki);
-                    String ji= vv.get(getAdapterPosition());
+                    String ji= webvv.get(getAdapterPosition());
                     int ij=getAdapterPosition();
                     System.out.println("this is prev "+ll);
                     System.out.println("This is the" +videoid[0]);

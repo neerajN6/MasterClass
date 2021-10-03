@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.R;
-import com.athrved.masterclass.TopicAdapter;
-import com.athrved.masterclass.TopicHelperClass;
 import com.athrved.masterclass.VideoData;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -71,7 +69,7 @@ public class WebTopicsActivity extends AppCompatActivity {
     ArrayList<Integer> slno;
     MainActivity k;
     String calll;
-    ArrayList<TopicHelperClass> fewAllLocatio;
+    ArrayList<WebTopicHelperClass> fewAllLocatio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,17 +111,17 @@ public class WebTopicsActivity extends AppCompatActivity {
         if (calll != null && calll.equals("vac")) {
             for (int i = 0; i < k.videoIds.size(); i++) {
                 if (k.course_id.get(i) == 2)
-                    fewAllLocatio.add(new TopicHelperClass(webtopics.get(k.topic.get(i)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
+                    fewAllLocatio.add(new WebTopicHelperClass(webtopics.get(k.topic.get(i)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
             }
         }
         if (getcoursepos != null && getcoursepos.equals(String.valueOf(2))) {
             for (int i = 0; i < k.videoIds.size(); i++) {
                 if (k.topic.get(i) == Integer.parseInt(getadaptpos) && k.course_id.get(i) == Integer.parseInt(getcoursepos))
-                    fewAllLocatio.add(new TopicHelperClass(webtopics.get(Integer.parseInt(getadaptpos)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
+                    fewAllLocatio.add(new WebTopicHelperClass(webtopics.get(Integer.parseInt(getadaptpos)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
             }
         }
 
-        adapter4t = new TopicAdapter(fewAllLocatio);
+        adapter4t = new WebTopicAdapter(fewAllLocatio);
         topicfewRecycler.setAdapter(adapter4t);
 
     }

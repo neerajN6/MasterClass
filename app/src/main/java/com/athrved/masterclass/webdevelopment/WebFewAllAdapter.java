@@ -125,7 +125,7 @@ public class WebFewAllAdapter extends RecyclerView.Adapter<WebFewAllAdapter.WebF
 
             for(int k =1;k<=3;k++){
                 String ka=String.valueOf(k);
-                DatabaseReference reff= FirebaseDatabase.getInstance().getReference("video").child("uiux").child("free").child(ka);
+                DatabaseReference reff= FirebaseDatabase.getInstance().getReference("video").child("web").child("free").child(ka);
                 int finalK = k;
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -186,30 +186,6 @@ public class WebFewAllAdapter extends RecyclerView.Adapter<WebFewAllAdapter.WebF
                     }
                 });
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         }
