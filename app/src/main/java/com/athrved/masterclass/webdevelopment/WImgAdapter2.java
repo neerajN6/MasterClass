@@ -21,7 +21,7 @@ public class WImgAdapter2 extends RecyclerView.Adapter<WImgAdapter2.ViewHolder> 
     List<String> titles2;
     List<Integer> images2;
     LayoutInflater inflater2;
-    public static int top;
+    public static int webtop;
 
 
     public WImgAdapter2(Context ctx2, List<String> titles2, List<Integer> images2){
@@ -57,7 +57,7 @@ public class WImgAdapter2 extends RecyclerView.Adapter<WImgAdapter2.ViewHolder> 
             super(itemView);
             title2 = itemView.findViewById(R.id.textView3);
             gridIcon2 = itemView.findViewById(R.id.imageView3);
-            top = getAdapterPosition();
+            webtop = getAdapterPosition();
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
