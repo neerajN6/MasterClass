@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.iot;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.athrved.masterclass.webdevelopment.WImgAdapter2;
+import com.athrved.masterclass.R;
 
 import java.util.List;
 

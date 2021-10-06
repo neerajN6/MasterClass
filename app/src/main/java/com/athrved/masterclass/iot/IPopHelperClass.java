@@ -1,18 +1,28 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.iot;
 
-public class IFreeHelperClass {
-    int iimagesmall1,iimagesmall2;
-    String ititle, itopic,iauthor;
+public class IPopHelperClass {
+    int iimagebig, iimagesmall1,iimagesmall2;
+    String ititle, itopic,iauthor,iurl;
 
-    public IFreeHelperClass() {
+    public IPopHelperClass() {
     }
 
-    public IFreeHelperClass(int iimagesmall1, int iimagesmall2, String ititle, String itopic, String iauthor) {
+    public IPopHelperClass(int iimagebig, int iimagesmall1, int iimagesmall2, String ititle, String itopic, String iauthor, String iurl) {
+        this.iimagebig = iimagebig;
         this.iimagesmall1 = iimagesmall1;
         this.iimagesmall2 = iimagesmall2;
         this.ititle = ititle;
         this.itopic = itopic;
         this.iauthor = iauthor;
+        this.iurl = iurl;
+    }
+
+    public int getIimagebig() {
+        return iimagebig;
+    }
+
+    public void setIimagebig(int iimagebig) {
+        this.iimagebig = iimagebig;
     }
 
     public int getIimagesmall1() {
@@ -53,5 +63,13 @@ public class IFreeHelperClass {
 
     public void setIauthor(String iauthor) {
         this.iauthor = iauthor;
+    }
+
+    public String getIurl() {
+        return iurl;
+    }
+
+    public void setIurl(String iurl) {
+        this.iurl = iurl;
     }
 }

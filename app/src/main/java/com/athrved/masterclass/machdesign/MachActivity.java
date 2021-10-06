@@ -1,9 +1,9 @@
 package com.athrved.masterclass.machdesign;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,18 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.LogOut;
+import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.UpdateProfile;
 import com.athrved.masterclass.ai.AiCourseDesc;
-import com.athrved.masterclass.uiux.FewAllAdapter;
-import com.athrved.masterclass.uiux.FewAllHelperClass;
-import com.athrved.masterclass.uiux.FreeHelperClass;
-import com.athrved.masterclass.uiux.FreeclassesAdapter;
-import com.athrved.masterclass.uiux.MenAdapter;
-import com.athrved.masterclass.uiux.MenHelperClass;
-import com.athrved.masterclass.uiux.PopHelperClass;
-import com.athrved.masterclass.uiux.PopclassesAdapter;
-import com.athrved.masterclass.uiux.UiuxActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -63,6 +55,9 @@ public class MachActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView allFewRecycler;
     RecyclerView.Adapter adapter4;
 
+    ArrayList uiuxtopics;
+
+    public int callla=0;
 //    ArrayList<UiuxAllClasses> allCourseList=new ArrayList<>();
 
     @Override
@@ -128,7 +123,12 @@ public class MachActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-
+    public void viewallallclasses_mach(View v){
+        Intent vac=new Intent(MachActivity.this, MachTopicsActivity.class);
+        callla=1;
+        vac.putExtra("vacmach", "vac");
+        startActivity(vac);
+    }
 
     private void featuredRecycler(){
 
@@ -179,19 +179,28 @@ public class MachActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void allfewRecycler(){
+    private void allfewRecycler(){ // Get the code from WebActivity.java
+        MainActivity k = new MainActivity();
+        k.getdatatotop();
         allFewRecycler.setHasFixedSize(true);
         allFewRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        ArrayList<FewAllHelperClass> fewAllLocatio = new ArrayList<>();
+        ArrayList<MachFewAllHelperClass> fewAllLocatio = new ArrayList<>();
 
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"Playing with Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo,"Protopie for Prototyping","PROTOTYPING\n","Abhinav Chikkara"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo,"Introduction to After Effects\nand Lottie Files","MOTION DESIGN","S.M Sudhanva Acharya"));
+        uiuxtopics = new ArrayList();
+        uiuxtopics.add("VISUAL DESIGN");
+        uiuxtopics.add("UX DESIGN");
+        uiuxtopics.add("MOTION DESIGN");
+        uiuxtopics.add("PROTOTYPING");
+        uiuxtopics.add("3D DESIGN");
+        uiuxtopics.add("WEBFLOW");
 
-        adapter4=new FewAllAdapter(fewAllLocatio);
+        fewAllLocatio.add(new MachFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(0),uiuxtopics.get((k.topic.get(0))).toString(),k.authorr.get(0)));
+        fewAllLocatio.add(new MachFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(1),uiuxtopics.get((k.topic.get(1))).toString(),k.authorr.get(1)));
+        fewAllLocatio.add(new MachFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(2),uiuxtopics.get((k.topic.get(2))).toString(),k.authorr.get(2)));
+
+        adapter4=new MachFewAllAdapter(fewAllLocatio);
         allFewRecycler.setAdapter(adapter4);
-
     }
 
 

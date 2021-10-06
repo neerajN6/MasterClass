@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.iot;
 
 public class IotAllClasses {
     private String ititle;

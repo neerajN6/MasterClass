@@ -13,7 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AApp">
         <activity
+            android:name=".machdesign.MachTopicsActivity"
+            android:exported="true" />
+        <activity
             android:name=".webdevelopment.WebTopicsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".webdevelopment.WebTopicsActivity2"
             android:exported="true" />
         <activity
             android:name=".TopicsActivity"
@@ -43,7 +49,7 @@
             android:name=".MatchEmail"
             android:exported="true" />
         <activity
-            android:name=".IotActivity"
+            android:name=".iot.IotActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".uiux.UiuxActivity"

@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.iot;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;

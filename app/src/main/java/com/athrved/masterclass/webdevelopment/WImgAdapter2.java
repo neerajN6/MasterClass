@@ -57,10 +57,11 @@ public class WImgAdapter2 extends RecyclerView.Adapter<WImgAdapter2.ViewHolder> 
             super(itemView);
             title2 = itemView.findViewById(R.id.textView3);
             gridIcon2 = itemView.findViewById(R.id.imageView3);
-            webtop = getAdapterPosition();
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    webtop = getAdapterPosition();
                     Toast.makeText(v.getContext(), "Clicked -> " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
                    if(getAdapterPosition()==0){
                         Intent intent = new Intent(itemView.getContext(), WebTopicsActivity.class);

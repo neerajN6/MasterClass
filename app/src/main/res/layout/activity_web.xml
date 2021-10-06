@@ -311,7 +311,7 @@
                 android:layout_marginRight="16dp"
                 android:text="View All"
                 android:textColor="#2b73c9"
-                android:onClick="viewallallclasses_web"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

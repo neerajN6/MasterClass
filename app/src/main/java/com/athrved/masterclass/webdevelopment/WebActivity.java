@@ -55,6 +55,7 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
     RecyclerView allFewRecycler;
     RecyclerView.Adapter adapter4;
 
+    TextView viewall;
     ArrayList uiuxtopics;
 
     public int callla=0;
@@ -64,6 +65,17 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
+
+        viewall = findViewById(R.id.viewall_allclass_web);
+        viewall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vac = new Intent(WebActivity.this, WebTopicsActivity2.class);
+                callla=1;
+                vac.putExtra("vacweb", "vac");
+                startActivity(vac);
+            }
+        });
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -124,9 +136,9 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
     }
 
     public void viewallallclasses_web(View v){
-        Intent vac=new Intent(WebActivity.this, WebTopicsActivity.class);
-        callla=1;
-        vac.putExtra("vacweb", "vac");
+        Intent vac=new Intent(WebActivity.this, WebTopicsActivity2.class);
+       // callla=1;
+        //vac.putExtra("vacweb", "vac");
         startActivity(vac);
     }
 

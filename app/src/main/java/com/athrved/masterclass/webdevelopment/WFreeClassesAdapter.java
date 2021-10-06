@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.RequestQueue;
+import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
 import com.squareup.picasso.Picasso;
@@ -53,13 +54,43 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
         holder.wauthor.setText(WfreeHelperClass.getWauthor());
 
 
-        if (position == 0) {
+        ArrayList<String> videoIds;
+        ArrayList<String> vtitle;
+        ArrayList<String> authorr;
+        ArrayList<Integer> topic;
+        ArrayList<Integer> course_id;
+        ArrayList<Integer> paid;
+        ArrayList<Integer> slno;
 
-            Picasso.get().load("https://img.youtube.com/vi/" + v_id1 + "/maxresdefault.jpg").into(holder.wimagebig);
-        }
-        if (position == 1) {
+        ArrayList<String> webvv;
 
-            Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.wimagebig);
+        videoIds = new ArrayList<>();
+        course_id = new ArrayList<>();
+        paid = new ArrayList<>();
+        vtitle = new ArrayList<>();
+        slno = new ArrayList<>();
+        topic = new ArrayList<>();
+        authorr = new ArrayList<>();
+
+        MainActivity k = new MainActivity();
+        k.getdatatotop();
+        int jj=0;
+
+        int pl=2;
+        for (int kk=0;kk<k.videoIds.size();kk++) {
+            if (k.course_id.get(kk) == pl-1)
+                jj = kk + 3;
+
+
+            if (position == 0) {
+                holder.wtitle.setText(k.vtitle.get(jj));
+                Picasso.get().load("https://img.youtube.com/vi/" + k.videoIds.get(jj) + "/maxresdefault.jpg").into(holder.wimagebig);
+            }
+            if (position == 1) {
+                holder.wtitle.setText(k.vtitle.get(jj + 1));
+                Picasso.get().load("https://img.youtube.com/vi/" + k.videoIds.get(jj + 1) + "/maxresdefault.jpg").into(holder.wimagebig);
+            }
+
         }
     }
 
@@ -120,22 +151,53 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (getAdapterPosition() == 0) {
-                        Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", v_id1);
-                        itemView.getContext().startActivity(intent);
-                        Activity activity = (Activity) itemView.getContext();
-                        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    ArrayList<String> videoIds;
+                    ArrayList<String> vtitle;
+                    ArrayList<String> authorr;
+                    ArrayList<Integer> topic;
+                    ArrayList<Integer> course_id;
+                    ArrayList<Integer> paid;
+                    ArrayList<Integer> slno;
 
-                    }
+                    ArrayList<String> webvv;
 
-                    if (getAdapterPosition() == 1) {
-                        Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", v_id2);
-                        itemView.getContext().startActivity(intent);
-                        Activity activity = (Activity) itemView.getContext();
-                        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    videoIds = new ArrayList<>();
+                    course_id = new ArrayList<>();
+                    paid = new ArrayList<>();
+                    vtitle = new ArrayList<>();
+                    slno = new ArrayList<>();
+                    topic = new ArrayList<>();
+                    authorr = new ArrayList<>();
+
+                    MainActivity k = new MainActivity();
+                    k.getdatatotop();
+                    int jj=0;
+
+                    int pl=2;
+                    for (int kk=0;kk<k.videoIds.size();kk++) {
+                        if (k.course_id.get(kk) == pl - 1)
+                            break;
+                        jj = kk + 3;
                     }
+                            if (getAdapterPosition() == 0) {
+                                Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
+                                intent.putExtra("VIDEOID", k.videoIds.get(jj));
+                                itemView.getContext().startActivity(intent);
+                                Activity activity = (Activity) itemView.getContext();
+                                activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
+                            }
+
+                        if (getAdapterPosition() == 1) {
+                            Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
+                            intent.putExtra("VIDEOID", k.videoIds.get(jj+1));
+                            itemView.getContext().startActivity(intent);
+                            Activity activity = (Activity) itemView.getContext();
+                            activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                        }
+
+
+
 
                 }
             });

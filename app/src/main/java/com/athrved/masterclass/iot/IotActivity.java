@@ -1,7 +1,6 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.iot;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -16,8 +15,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.BookmarkedVideos;
+import com.athrved.masterclass.FetchData;
+import com.athrved.masterclass.LogOut;
+import com.athrved.masterclass.R;
+import com.athrved.masterclass.UpdateProfile;
 import com.athrved.masterclass.ai.AiCourseDesc;
-import com.athrved.masterclass.machdesign.MachActivity;
 import com.athrved.masterclass.uiux.FewAllAdapter;
 import com.athrved.masterclass.uiux.FewAllHelperClass;
 import com.athrved.masterclass.uiux.FreeHelperClass;
@@ -26,7 +29,6 @@ import com.athrved.masterclass.uiux.MenAdapter;
 import com.athrved.masterclass.uiux.MenHelperClass;
 import com.athrved.masterclass.uiux.PopHelperClass;
 import com.athrved.masterclass.uiux.PopclassesAdapter;
-import com.athrved.masterclass.webdevelopment.WImgAdapter2;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -64,7 +66,7 @@ public class IotActivity extends AppCompatActivity implements NavigationView.OnN
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
+        setContentView(R.layout.activity_iot);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -85,7 +87,7 @@ public class IotActivity extends AppCompatActivity implements NavigationView.OnN
         //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greyy)));
 
 
-        popRecycler = findViewById(R.id.r1popclass_iot);
+        popRecycler =(RecyclerView) findViewById(R.id.r1popclass_iot);
         featuredRecycler();
         freeRecycler=findViewById(R.id.r1freeclass_iot);
         freeturedRecycler();

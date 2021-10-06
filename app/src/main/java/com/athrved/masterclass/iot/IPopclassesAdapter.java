@@ -1,4 +1,4 @@
-package com.athrved.masterclass;
+package com.athrved.masterclass.iot;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.athrved.masterclass.PlayerActivity;
+import com.athrved.masterclass.R;
 
 import java.util.ArrayList;
 public class IPopclassesAdapter extends RecyclerView.Adapter<IPopclassesAdapter.IPopViewHolder> {

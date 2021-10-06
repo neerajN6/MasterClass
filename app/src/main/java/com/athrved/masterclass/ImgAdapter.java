@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.athrved.masterclass.ai.AiActivity;
 import com.athrved.masterclass.appdev.AppDevActivity;
+import com.athrved.masterclass.iot.IotActivity;
 import com.athrved.masterclass.machdesign.MachActivity;
 import com.athrved.masterclass.uiux.UiuxActivity;
 import com.athrved.masterclass.webdevelopment.WebActivity;

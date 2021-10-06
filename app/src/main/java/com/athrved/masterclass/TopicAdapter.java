@@ -17,7 +17,6 @@ import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.uiux.ImgAdapter2;
 import com.athrved.masterclass.uiux.UiuxActivity;
-import com.athrved.masterclass.webdevelopment.WebActivity;
 import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Array;
@@ -53,7 +52,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
 
         MainActivity k = new MainActivity();
         k.getdatatotop();
-        WebActivity g = new WebActivity();
+        UiuxActivity g = new UiuxActivity();
         int gh = g.callla;
         TopicsActivity ta = new TopicsActivity();
         String ca = ta.calll;
@@ -64,7 +63,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
         System.out.println("This is ca " + ca);
 
         for (int pk = 0; pk < k.videoIds.size(); pk++)
-            if (k.course_id.get(pk) == 2 && k.topic.get(pk) == ll)
+            if (k.course_id.get(pk) == 5 && k.topic.get(pk) == ll)
                 count1++;
 
 
@@ -75,7 +74,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
                 if (holder.getAdapterPosition() == i) {
 
                     for (int ki = 0; ki < k.videoIds.size(); ki++) {
-                        if (k.course_id.get(ki) == 2 && k.topic.get(ki) == ll) {
+                        if (k.course_id.get(ki) == 5 && k.topic.get(ki) == ll) {
                             vnv.add(k.videoIds.get(ki));
                             System.out.println("This is" + k.videoIds.get(ki));
                         }
@@ -91,7 +90,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
         int count2 = 0;
         vnv.clear();
         for (int pk = 0; pk < k.videoIds.size(); pk++)
-            if (k.course_id.get(pk) == 2)
+            if (k.course_id.get(pk) == 5)
                 count2++;
 
         if (getItemCount() == count2) {
@@ -104,7 +103,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
                 if (holder.getAdapterPosition() == i) {
 
                     for (int ki = 0; ki < k.videoIds.size(); ki++) {
-                        if (k.course_id.get(ki) == 2) {
+                        if (k.course_id.get(ki) == 5) {
                             vnv.add(k.videoIds.get(ki));
                             System.out.println("This is" + k.videoIds.get(ki));
                         }
@@ -183,12 +182,13 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
                 @Override
                 public void onClick(View v) {
                     for(int ki=0;ki<k.videoIds.size();ki++)
-                        if(k.course_id.get(ki)==2 && k.topic.get(ki)==ll)
+                        if(k.course_id.get(ki)==5 )
                             vv.add(k.videoIds.get(ki));
 
 //                            videoid[0] = k.videoIds.get(ki);
                     String ji= vv.get(getAdapterPosition());
                     int ij=getAdapterPosition();
+
                     System.out.println("this is prev "+ll);
                     System.out.println("This is the" +videoid[0]);
                     System.out.println("This is the pos" +getAdapterPosition());

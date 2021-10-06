@@ -11,13 +11,17 @@ import android.widget.TextView;
 import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.VideoData;
+import com.athrved.masterclass.webdevelopment.WebTopicAdapter;
+import com.athrved.masterclass.webdevelopment.WebTopicAdapter2;
+import com.athrved.masterclass.webdevelopment.WebTopicHelperClass;
+import com.athrved.masterclass.webdevelopment.WebTopicHelperClass2;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WebTopicsActivity extends AppCompatActivity {
+public class WebTopicsActivity2 extends AppCompatActivity {
     List<String> uiuxtopics;
     List<String> apptopics;
     List<String> aitopics;
@@ -69,7 +73,7 @@ public class WebTopicsActivity extends AppCompatActivity {
     ArrayList<Integer> slno;
     MainActivity k;
     String calll;
-    ArrayList<WebTopicHelperClass> fewAllLocatio;
+    ArrayList<WebTopicHelperClass2> fewAllLocatio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,20 +112,20 @@ public class WebTopicsActivity extends AppCompatActivity {
 
         fewAllLocatio = new ArrayList<>();
 
-//        if (calll != null && calll.equals("vac")) {
-//            for (int i = 0; i < k.videoIds.size(); i++) {
-//                if (k.course_id.get(i) == 2)
-//                    fewAllLocatio.add(new WebTopicHelperClass(webtopics.get(k.topic.get(i)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
-//            }
-//        }
-        if (getcoursepos != null && getcoursepos.equals(String.valueOf(2))) {
+        if (calll != null && calll.equals("vac")) {
             for (int i = 0; i < k.videoIds.size(); i++) {
-                if (k.topic.get(i) == Integer.parseInt(getadaptpos) && k.course_id.get(i) == Integer.parseInt(getcoursepos))
-                    fewAllLocatio.add(new WebTopicHelperClass(webtopics.get(Integer.parseInt(getadaptpos)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
+                if (k.course_id.get(i) == 2)
+                    fewAllLocatio.add(new WebTopicHelperClass2(webtopics.get(k.topic.get(i)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
             }
         }
+//        if (getcoursepos != null && getcoursepos.equals(String.valueOf(2))) {
+//            for (int i = 0; i < k.videoIds.size(); i++) {
+//                if (k.topic.get(i) == Integer.parseInt(getadaptpos) && k.course_id.get(i) == Integer.parseInt(getcoursepos))
+//                    fewAllLocatio.add(new WebTopicHelperClass(webtopics.get(Integer.parseInt(getadaptpos)), k.vtitle.get(i), k.authorr.get(i), R.drawable.ai_logo, R.drawable.afepluslot_l));
+//            }
+//        }
 
-        adapter4t = new WebTopicAdapter(fewAllLocatio);
+        adapter4t = new WebTopicAdapter2(fewAllLocatio);
         topicfewRecycler.setAdapter(adapter4t);
 
     }

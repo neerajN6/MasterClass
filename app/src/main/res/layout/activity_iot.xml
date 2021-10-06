@@ -6,7 +6,7 @@
     android:background="#121517"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IotActivity"
+    tools:context=".iot.IotActivity"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
