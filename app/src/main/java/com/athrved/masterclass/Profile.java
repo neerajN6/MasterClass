@@ -1,9 +1,12 @@
 package com.athrved.masterclass;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,15 +15,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Profile extends AppCompatActivity {
 
@@ -28,9 +33,11 @@ public class Profile extends AppCompatActivity {
     private EditText name, phone, bio;
     Button logOut, saveBtn;
     public String Name;
-    public String Email;
+    public String Email, emailTv;
     public String Bio;
     public long Phone;
+    int childCount;
+    private DatabaseReference mDatabaseRef;
     private ProgressBar progressBarOfProfile;
 
     @Override
@@ -65,6 +72,7 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,13 +81,15 @@ public class Profile extends AppCompatActivity {
                     return;
                 } else {
                     progressBarOfProfile.setVisibility(View.VISIBLE);
+                    emailTv = mail.getText().toString();
 
                     Name = name.getText().toString();
                     Email = mail.getText().toString();
                     Phone = new Long(phone.getText().toString()).longValue();
                     Bio = bio.getText().toString();
 
-                    Database db = new Database();
+                    getDataToFirebase();
+
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -103,81 +113,10 @@ public class Profile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
-    class Database {
-
-        private Connection connection;
-
-        private final String host = "ec2-54-158-232-223.compute-1.amazonaws.com";
-        private final String database = "ddgaguv61p4m63";
-        private final int port = 5432;
-        private final String user = "jfeitasqnyuanh";
-        private final String pass = "d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
-        private String url = "jdbc:postgresql://ec2-54-158-232-223.compute-1.amazonaws.com:5432/ddgaguv61p4m63?sslmode=require&user=jfeitasqnyuanh&password=d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
-        private boolean status;
-
-        public Database() {
-
-            this.url = String.format(this.url, this.host, this.port, this.database);
-            connect();
-            //this.disconnect();
-            System.out.println("connection status:" + status);
-        }
-
-
-        private void connect() {
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Class.forName("org.postgresql.Driver");
-                        connection = DriverManager.getConnection(url, user, pass);
-                        status = true;
-                        getExtraConnection();
-                        System.out.println("connected:" + status);
-                    } catch (Exception e) {
-                        status = false;
-                        System.out.print(e.getMessage());
-                        e.printStackTrace();
-                    }
-                }
-            });
-            thread.start();
-            try {
-                thread.join();
-            } catch (Exception e) {
-                e.printStackTrace();
-                this.status = false;
-            }
-        }
-
-        public Connection getExtraConnection() {
-            Connection c = null;
-            Statement stmt = null;
-            try {
-                Class.forName("org.postgresql.Driver");
-                c = DriverManager.getConnection(url, user, pass);
-                c.setAutoCommit(false);
-                System.out.println("Opened database successfully");
-
-                stmt = c.createStatement();
-                String sql = "INSERT INTO USERS (EMAIL,USERNAME,PHONE,BIO) "
-                        + "VALUES ('" + Email + "','" + Name + "'," + Phone + ",'" + Bio + "')";
-                stmt.executeUpdate(sql);
-
-
-                stmt.close();
-                c.commit();
-                c.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            System.out.println("Records created successfully");
-            return c;
-
-        }
-    }
 
     private Boolean validatePhoneNo() {
         String val = phone.getText().toString();
@@ -203,6 +142,31 @@ public class Profile extends AppCompatActivity {
             return true;
         }
 
+    }
+
+    private void getDataToFirebase() {
+        Log.d(TAG, "Email1 : " + emailTv);
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                childCount = (int) dataSnapshot.getChildrenCount();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String free = ds.getKey();
+                    Log.d(TAG, free);
+
+                    ProfileHelper profileHelper = new ProfileHelper(Name, Email, Phone, Bio);
+                    mDatabaseRef.child(String.valueOf(childCount + 1)).setValue(profileHelper);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d(TAG, databaseError.getMessage()); //Don't ignore errors!
+            }
+        };
+        mDatabaseRef.addListenerForSingleValueEvent(valueEventListener);
     }
 
 }

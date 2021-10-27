@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.2962962962962963" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.13703703703703704" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/drawable/ic_baseline_bookmark_border_24.xml" value="0.13703703703703704" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.13703703703703704" />
@@ -10,14 +11,12 @@
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_app_dev.xml" value="0.1403985507246377" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_iot.xml" value="0.1296875" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_mach.xml" value="0.1296875" />
-        <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_mach_topics.xml" value="0.1296875" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_player.xml" value="0.264" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_topics.xml" value="0.20652173913043478" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_uiux.xml" value="0.2" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_uiux_sub_course1.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_web.xml" value="0.1296875" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_web_topics.xml" value="0.18342391304347827" />
-        <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/activity_web_topics2.xml" value="0.20380434782608695" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/add_all_classes.xml" value="0.24954710144927536" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/course_str_card_design.xml" value="0.264" />
         <entry key="..\:/Users/HP/OneDrive/Documents/GitHub/Athrved-MasterClass-App/app/src/main/res/layout/fragment_ftab.xml" value="0.264" />
@@ -30,36 +29,75 @@
         <entry key="app/src/main/res/drawable/blue_border.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.30648148148148147" />
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/layout/activity_add_mentors.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/activity_admin_access_page.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/activity_admin_sign_in.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_admin_sign_up.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/activity_ai.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_ai_course_desc.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_ai_course_desc.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_ai_images.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/layout/activity_ai_main.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/layout/activity_ai_topics.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/activity_aimages.xml" value="0.259963768115942" />
+        <entry key="app/src/main/res/layout/activity_amain.xml" value="0.259963768115942" />
         <entry key="app/src/main/res/layout/activity_app_dev.xml" value="0.2875905797101449" />
+        <entry key="app/src/main/res/layout/activity_app_dev_desc.xml" value="0.29981884057971014" />
+        <entry key="app/src/main/res/layout/activity_atopics.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/activity_bookmarked_videos.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.27485822451372355" />
         <entry key="app/src/main/res/layout/activity_database.xml" value="0.13677811550151975" />
         <entry key="app/src/main/res/layout/activity_facebook_auth.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_facebook_profile.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_images.xml" value="0.28396739130434784" />
         <entry key="app/src/main/res/layout/activity_iot.xml" value="0.2875905797101449" />
+        <entry key="app/src/main/res/layout/activity_iot_desc.xml" value="0.29483695652173914" />
+        <entry key="app/src/main/res/layout/activity_iot_images.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/activity_iot_main.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/activity_log_out.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_mach.xml" value="0.2875905797101449" />
+        <entry key="app/src/main/res/layout/activity_mach_design_desc.xml" value="0.29981884057971014" />
+        <entry key="app/src/main/res/layout/activity_mach_topics.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2875905797101449" />
         <entry key="app/src/main/res/layout/activity_match_email.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_match_facebook_email.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_match_phone_no.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_mimages.xml" value="0.2545289855072464" />
+        <entry key="app/src/main/res/layout/activity_mmain.xml" value="0.2545289855072464" />
+        <entry key="app/src/main/res/layout/activity_new_mentor.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_phone_no_log_in.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_phone_no_profile_helper.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/activity_player.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.15833333333333333" />
         <entry key="app/src/main/res/layout/activity_terms_and_condition.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_testing.xml" value="0.2427536231884058" />
+        <entry key="app/src/main/res/layout/activity_testing2.xml" value="0.2427536231884058" />
+        <entry key="app/src/main/res/layout/activity_topics.xml" value="0.2427536231884058" />
         <entry key="app/src/main/res/layout/activity_uiux.xml" value="0.2875905797101449" />
+        <entry key="app/src/main/res/layout/activity_uiux_desc.xml" value="0.29981884057971014" />
+        <entry key="app/src/main/res/layout/activity_uiux_images.xml" value="0.2545289855072464" />
+        <entry key="app/src/main/res/layout/activity_uiux_main.xml" value="0.2545289855072464" />
+        <entry key="app/src/main/res/layout/activity_uiux_sub_course1.xml" value="0.22282608695652173" />
         <entry key="app/src/main/res/layout/activity_update_profile.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_verify_otp.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_web.xml" value="0.2875905797101449" />
+        <entry key="app/src/main/res/layout/activity_web_dev_desc.xml" value="0.29981884057971014" />
+        <entry key="app/src/main/res/layout/activity_web_topics.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/activity_web_topics2.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/activity_wimages.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/activity_wmain.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/add_all_classes.xml" value="0.2875905797101449" />
+        <entry key="app/src/main/res/layout/course_str_card_design.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/custom_grid_layout.xml" value="0.2875905797101449" />
         <entry key="app/src/main/res/layout/custom_grid_layout2.xml" value="0.2875905797101449" />
+        <entry key="app/src/main/res/layout/fragment_ftab.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/fragment_ftab2.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/fragment_ftab3.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/free_class_card_design.xml" value="0.2875905797101449" />
+        <entry key="app/src/main/res/layout/free_class_card_design_app.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/header.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/image_item.xml" value="0.2708333333333333" />
         <entry key="app/src/main/res/layout/men_class_card_design.xml" value="0.2875905797101449" />
         <entry key="app/src/main/res/layout/pop_class_card_design.xml" value="0.2875905797101449" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.15070921985815602" />

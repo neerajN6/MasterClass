@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".machdesign.MachDesignDesc">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/amaranth"
+            android:text="Machine Design"
+            android:textAlignment="center"
+            android:textColor="#F2FAFF"
+            android:textSize="40dp" />
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/mach_logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/amaranth"
+            android:text="Mechanical Design or Machine Design is one of the important branches of Engineering Design.\n\nTo understand what exactly machine design or mechanical design is let us consider the example of the gear box of the car.\nThe gear box transmits the motion and the power of the engine to the wheels of the vehicle.\n\nThe gearbox comprises group of gears which are subjected to not only motion but also the load of the vehicle.\nFor the gears to run at desired speeds and take desired loads it is important that they should be designed.\n\nDuring designing various calculations are performed considering desired speeds and loads and finally the gear of particular material and specific dimensions that can take all loads and that can be manufactured at least possible cost giving optimum performance is designed.\nIn similar fashion all the components of the car, including engine, have to be designed so that they optimally meet all the functional requirements at lowest possible cost.\n\nThis whole process of designing is called as machine design or mechanical design."
+            android:textColor="#F2FAFF"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+</ScrollView>

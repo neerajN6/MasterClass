@@ -116,6 +116,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tvv1_m" />
 
                 <Button
+                    android:id="@+id/learnMoreInMach"
                     android:layout_width="242dp"
                     android:layout_height="45dp"
                     android:backgroundTint="#2b73c9"

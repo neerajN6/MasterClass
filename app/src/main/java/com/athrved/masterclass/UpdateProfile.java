@@ -1,9 +1,15 @@
 package com.athrved.masterclass;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,11 +20,11 @@ import android.widget.Toast;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class UpdateProfile extends AppCompatActivity {
 
@@ -27,11 +33,13 @@ public class UpdateProfile extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseUser user = mAuth.getCurrentUser();
     Button logOutBtn, updateBtn;
-    private String Name;
-    private String Email;
+    private String Name, phoneNo2 = "";
+    private String Email, email1, Email2 = "", Email3 = "", emailTv;
     private String Bio;
-    private long PHONE;
-    String PHONENO, MAIL, Phone, getnumber, NAME, EMAIL, BIO;
+    private long Ph;
+    DatabaseReference mDatabaseRef;
+    int childCount, i;
+    String PHONENO, MAIL, Phone, getnumber = "", parent;
     private ProgressBar progressBarOfUpdateProfile;
 
     @Override
@@ -47,11 +55,36 @@ public class UpdateProfile extends AppCompatActivity {
         updateBtn = findViewById(R.id.updateBtn);
         progressBarOfUpdateProfile = findViewById(R.id.progressbarofUpdateProfile);
 
+        bio.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // If line account is higher than MAX_LINES, set text to lastText
+                // and notify user (by Toast)
+                if (bio.length() > 99) {
+                    Toast.makeText(getApplicationContext(), "Maximum characters exceeded", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        if (user != null) {
+            email1 = user.getEmail();
+            Log.d(TAG, "email1" + email1);
+        }
+
         if (user != null) {
             name.setText(user.getDisplayName());
             mail.setText(user.getEmail());
             phone.setText(user.getPhoneNumber());
             PHONENO = user.getPhoneNumber();
+            Log.d(TAG, "PhNo" + PHONENO);
             MAIL = user.getEmail();
         }
 
@@ -60,12 +93,12 @@ public class UpdateProfile extends AppCompatActivity {
                 int startidx = PHONENO.length() - 10;
                 getnumber = PHONENO.substring(startidx, PHONENO.length());
                 phone.setText(getnumber);
+                Log.d(TAG, "GetNo" + getnumber);
             } else {
                 phone.setText(Phone);
             }
         }
 
-        Database db = new Database();
 
         name.setText(Name);
         bio.setText(Bio);
@@ -85,184 +118,202 @@ public class UpdateProfile extends AppCompatActivity {
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBarOfUpdateProfile.setVisibility(View.VISIBLE);
-                NAME = name.getText().toString();
-                EMAIL = mail.getText().toString();
-                PHONE = new Long(phone.getText().toString()).longValue();
-                BIO = bio.getText().toString();
-                Database2 db = new Database2();
-                Toast.makeText(getApplicationContext(), "Profile Updated Successfully", Toast.LENGTH_LONG).show();
+                if (!validatePhoneNo() | !validateName()) {
+                    return;
+                } else {
+                    progressBarOfUpdateProfile.setVisibility(View.VISIBLE);
+                    emailTv = mail.getText().toString();
+
+                    Name = name.getText().toString();
+                    Email = mail.getText().toString();
+                    Ph = new Long(phone.getText().toString()).longValue();
+                    Bio = bio.getText().toString();
+
+                    getDataToFirebase();
+
+                    Intent intent = new Intent(getApplicationContext(), UpdateProfile.class);
+                    startActivity(intent);
+                    finish();
+
+                    Toast.makeText(getApplicationContext(), "Update Successful", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+
+        ValueEventListener valueEventListener1 = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d(TAG, "Number of children: " + dataSnapshot.getChildrenCount());
+                childCount = (int) dataSnapshot.getChildrenCount();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String free = ds.getKey();
+                    Log.d(TAG, free);
+
+                    forLoop(); //call function!
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d(TAG, databaseError.getMessage()); //Don't ignore errors!
+            }
+        };
+        mDatabaseRef.addValueEventListener(valueEventListener1);
+
+        if (email1 == null) {
+            email1 = "Empty String";
+            Log.d("EmailError : ", email1);
+        }
+
+
     }
+
+    private void forLoop() {
+        for (i = 1; i <= childCount; i++) {
+
+            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference projectDetailsRef = rootRef.child("Users").child(String.valueOf(i));
+            ValueEventListener valueEventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String Name = dataSnapshot.child("uName").getValue(String.class);
+                    Email2 = dataSnapshot.child("uEmail").getValue(String.class);
+                    Long PhoneNo = dataSnapshot.child("uPhone").getValue(Long.class);
+                    String Bio = dataSnapshot.child("uBio").getValue(String.class);
+                    phoneNo2 = "";
+                    phoneNo2 = String.valueOf(PhoneNo);
+
+
+                    if (email1.equalsIgnoreCase(Email2)) {
+                        parent = dataSnapshot.getKey();
+                        mail.setText(email1);
+                        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+                        DatabaseReference projectDetailsRef = rootRef.child("Users").child(parent);
+                        ValueEventListener valueEventListener = new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                String Name = dataSnapshot.child("uName").getValue(String.class);
+                                Email3 = dataSnapshot.child("uEmail").getValue(String.class);
+                                Long PhoneNo = dataSnapshot.child("uPhone").getValue(Long.class);
+                                String phoneNo1 = String.valueOf(PhoneNo);
+                                String Bio = dataSnapshot.child("uBio").getValue(String.class);
+
+
+                                if (email1.equals(Email3)) {
+                                    String parent = dataSnapshot.getKey();
+                                    mail.setText(email1);
+                                    name.setText(Name);
+                                    phone.setText(phoneNo1);
+                                    bio.setText(Bio);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                Log.d("TAG", databaseError.getMessage()); //Don't ignore potential errors!
+                            }
+                        };
+                        projectDetailsRef.addListenerForSingleValueEvent(valueEventListener);
+                    } else if (getnumber.equals(phoneNo2)) {
+                        Log.d(TAG, "GETNUMBER : " + getnumber);
+                        Log.d(TAG, "PHONENO2 : " + phoneNo2);
+                        parent = dataSnapshot.getKey();
+                        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+                        DatabaseReference projectDetailsRef = rootRef.child("Users").child(parent);
+                        Log.d(TAG, "Parent : " + parent);
+                        ValueEventListener valueEventListener = new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                String Name2 = dataSnapshot.child("uName").getValue(String.class);
+                                String Email5 = dataSnapshot.child("uEmail").getValue(String.class);
+                                Long PhoneNo = dataSnapshot.child("uPhone").getValue(Long.class);
+                                String phoneNo3 = String.valueOf(PhoneNo);
+                                String Bio4 = dataSnapshot.child("uBio").getValue(String.class);
+
+
+                                mail.setText(Email5);
+                                name.setText(Name2);
+                                phone.setText(phoneNo3);
+                                bio.setText(Bio4);
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                Log.d("TAG", databaseError.getMessage()); //Don't ignore potential errors!
+                            }
+                        };
+                        projectDetailsRef.addListenerForSingleValueEvent(valueEventListener);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Log.d("TAG", databaseError.getMessage()); //Don't ignore potential errors!
+                }
+            };
+            projectDetailsRef.addListenerForSingleValueEvent(valueEventListener);
+        }
+    }
+
 
     private void openLogin() {
         startActivity(new Intent(this, SignUp.class));
         finish();
     }
 
-    private class Database {
+    private Boolean validatePhoneNo() {
+        String val = phone.getText().toString();
 
-        private Connection connection;
-
-        private final String host = "ec2-54-158-232-223.compute-1.amazonaws.com";
-        private final String database = "ddgaguv61p4m63";
-        private final int port = 5432;
-        private final String user = "jfeitasqnyuanh";
-        private final String pass = "d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
-        private String url = "jdbc:postgresql://ec2-54-158-232-223.compute-1.amazonaws.com:5432/ddgaguv61p4m63?sslmode=require&user=jfeitasqnyuanh&password=d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
-        private boolean status;
-
-        public Database() {
-
-            this.url = String.format(this.url, this.host, this.port, this.database);
-            connect();
-            //this.disconnect();
-            System.out.println("connection status:" + status);
+        if (val.isEmpty()) {
+            phone.setError("Field cannnot be empty");
+            return false;
+        } else {
+            phone.setError(null);
+            return true;
         }
 
-
-        private void connect() {
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Class.forName("org.postgresql.Driver");
-                        connection = DriverManager.getConnection(url, user, pass);
-                        status = true;
-                        getExtraConnection();
-                        System.out.println("connected:" + status);
-                    } catch (Exception e) {
-                        status = false;
-                        System.out.print(e.getMessage());
-                        e.printStackTrace();
-                    }
-                }
-            });
-            thread.start();
-            try {
-                thread.join();
-            } catch (Exception e) {
-                e.printStackTrace();
-                this.status = false;
-            }
-        }
-
-        public Connection getExtraConnection() {
-            Connection c = null;
-            Statement stmt = null;
-            try {
-                Class.forName("org.postgresql.Driver");
-                c = DriverManager.getConnection(url, user, pass);
-                c.setAutoCommit(false);
-                System.out.println("Opened database successfully");
-
-                stmt = c.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM USERS WHERE EMAIL = '" + MAIL + "' OR PHONE = " + getnumber + ";");
-                while (rs.next()) {
-                    Name = rs.getString("USERNAME");
-                    Bio = rs.getString("BIO");
-                    Phone = String.valueOf(rs.getLong("PHONE"));
-                    Email = rs.getString("EMAIL");
-                    System.out.println("NAME = " + Name);
-                    System.out.println("BIO = " + Bio);
-                    System.out.println("PHONE = " + Phone);
-                    System.out.println();
-                }
-                rs.close();
-                stmt.close();
-                c.close();
-            } catch (Exception e) {
-                System.err.println(e.getClass().getName() + ": " + e.getMessage());
-                System.exit(0);
-            }
-            System.out.println("Records created successfully");
-            return c;
-
-        }
     }
 
-    private class Database2 {
+    private Boolean validateName() {
+        String val = name.getText().toString();
 
-        private Connection connection;
-
-        private final String host = "ec2-54-158-232-223.compute-1.amazonaws.com";
-        private final String database = "ddgaguv61p4m63";
-        private final int port = 5432;
-        private final String user = "jfeitasqnyuanh";
-        private final String pass = "d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
-        private String url = "jdbc:postgresql://ec2-54-158-232-223.compute-1.amazonaws.com:5432/ddgaguv61p4m63?sslmode=require&user=jfeitasqnyuanh&password=d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
-        private boolean status;
-
-        public Database2() {
-
-            this.url = String.format(this.url, this.host, this.port, this.database);
-            progressBarOfUpdateProfile.setVisibility(View.VISIBLE);
-            connect();
-            //this.disconnect();
-            System.out.println("connection status:" + status);
+        if (val.isEmpty()) {
+            name.setError("Field cannnot be empty");
+            return false;
+        } else {
+            name.setError(null);
+            return true;
         }
 
-
-        private void connect() {
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Class.forName("org.postgresql.Driver");
-                        connection = DriverManager.getConnection(url, user, pass);
-                        status = true;
-                        getExtraConnection();
-                        System.out.println("connected:" + status);
-                    } catch (Exception e) {
-                        status = false;
-                        System.out.print(e.getMessage());
-                        e.printStackTrace();
-                    }
-                }
-            });
-            thread.start();
-            try {
-                thread.join();
-            } catch (Exception e) {
-                e.printStackTrace();
-                this.status = false;
-            }
-        }
-
-        public Connection getExtraConnection() {
-            Connection c = null;
-            Statement stmt = null;
-            try {
-                Class.forName("org.postgresql.Driver");
-                c = DriverManager.getConnection(url, user, pass);
-                c.setAutoCommit(false);
-                System.out.println("Opened database successfully");
-
-                stmt = c.createStatement();
-                String sql = "UPDATE USERS set USERNAME = '" + NAME + "' , PHONE = " + PHONE + " , BIO = '" + BIO + "' where EMAIL = '" + EMAIL + "';";
-                stmt.executeUpdate(sql);
-                c.commit();
-
-                ResultSet rs = stmt.executeQuery("SELECT * FROM USERS WHERE EMAIL = '" + MAIL + "' OR PHONE = " + getnumber + ";");
-                while (rs.next()) {
-                    Name = rs.getString("USERNAME");
-                    Bio = rs.getString("BIO");
-                    Phone = String.valueOf(rs.getLong("PHONE"));
-                    Email = rs.getString("EMAIL");
-                    System.out.println();
-                }
-                rs.close();
-                stmt.close();
-                c.close();
-            } catch (Exception e) {
-                System.err.println(e.getClass().getName() + ": " + e.getMessage());
-                System.exit(0);
-            }
-            System.out.println("Records created successfully");
-            progressBarOfUpdateProfile.setVisibility(View.INVISIBLE);
-            return c;
-
-        }
     }
+
+    private void getDataToFirebase() {
+        Log.d(TAG, "Email1 : " + emailTv);
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                childCount = (int) dataSnapshot.getChildrenCount();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String free = ds.getKey();
+                    Log.d(TAG, free);
+
+                    ProfileHelper profileHelper = new ProfileHelper(Name, Email, Ph, Bio);
+                    mDatabaseRef.child(String.valueOf(parent)).setValue(profileHelper);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d(TAG, databaseError.getMessage()); //Don't ignore errors!
+            }
+        };
+        mDatabaseRef.addListenerForSingleValueEvent(valueEventListener);
+    }
+
 }

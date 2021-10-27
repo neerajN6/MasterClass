@@ -17,11 +17,16 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.AdminSignIn;
+import com.athrved.masterclass.AdminSignUp;
 import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
+import com.athrved.masterclass.ImagesActivity;
 import com.athrved.masterclass.LogOut;
+import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.UpdateProfile;
+import com.athrved.masterclass.appdev.AppDevActivity;
 import com.athrved.masterclass.uiux.FewAllAdapter;
 import com.athrved.masterclass.uiux.FewAllHelperClass;
 import com.athrved.masterclass.uiux.FreeHelperClass;
@@ -30,6 +35,11 @@ import com.athrved.masterclass.uiux.MenAdapter;
 import com.athrved.masterclass.uiux.MenHelperClass;
 import com.athrved.masterclass.uiux.PopHelperClass;
 import com.athrved.masterclass.uiux.PopclassesAdapter;
+import com.athrved.masterclass.uiux.UiuxActivity;
+import com.athrved.masterclass.webdevelopment.WebActivity;
+import com.athrved.masterclass.webdevelopment.WebFewAllAdapter;
+import com.athrved.masterclass.webdevelopment.WebFewAllHelperClass;
+import com.athrved.masterclass.webdevelopment.WebTopicsActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -45,6 +55,7 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    TextView viewAllMentorsTv;
 
     RecyclerView dataList2;
     List<String> titles2;
@@ -63,6 +74,10 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
     RecyclerView allFewRecycler;
     RecyclerView.Adapter adapter4;
 
+    ArrayList uiuxtopics;
+
+    public int callla=0;
+
 //    ArrayList<UiuxAllClasses> allCourseList=new ArrayList<>();
 
     @Override
@@ -73,6 +88,14 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+        viewAllMentorsTv = findViewById(R.id.viewAllMentorsTv);
+        viewAllMentorsTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AiActivity.this, ImagesActivity.class);
+                startActivity(intent);
+            }
+        });
 
         setSupportActionBar(toolbar);
 
@@ -101,7 +124,7 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
         learnMoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AiActivity.this, UpdateProfile.class);
+                Intent intent = new Intent(AiActivity.this, AiMainActivity.class);
                 startActivity(intent);
             }
         });
@@ -134,6 +157,13 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
         dataList2.setLayoutManager(gridLayoutManager);
         dataList2.setAdapter(AiimgAdapter2);
 
+    }
+
+    public void viewallallclasses_ai(View v){
+        Intent vac=new Intent(AiActivity.this, AiTopicsActivity.class);
+        callla=1;
+        vac.putExtra("vacai", "vac");
+        startActivity(vac);
     }
 
     private void featuredRecycler(){
@@ -186,23 +216,29 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
     }
 
     private void allfewRecycler(){
+        MainActivity k = new MainActivity();
+        k.getdatatotop();
         allFewRecycler.setHasFixedSize(true);
         allFewRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        ArrayList<FewAllHelperClass> fewAllLocatio = new ArrayList<>();
+ //       ArrayList<AiFewAllHelperClass> fewAllLocatio = new ArrayList<>();
 
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"Playing with Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo,"Protopie for Prototyping","PROTOTYPING\n","Abhinav Chikkara"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo,"Introduction to After Effects\nand Lottie Files","MOTION DESIGN","S.M Sudhanva Acharya"));
+        uiuxtopics = new ArrayList();
+        uiuxtopics.add("VISUAL DESIGN");
+        uiuxtopics.add("UX DESIGN");
+        uiuxtopics.add("MOTION DESIGN");
+        uiuxtopics.add("PROTOTYPING");
+        uiuxtopics.add("3D DESIGN");
+        uiuxtopics.add("WEBFLOW");
 
-        adapter4=new FewAllAdapter(fewAllLocatio);
+ //       fewAllLocatio.add(new AiFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(0),uiuxtopics.get((k.topic.get(0))).toString(),k.authorr.get(0)));
+ //       fewAllLocatio.add(new AiFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(1),uiuxtopics.get((k.topic.get(1))).toString(),k.authorr.get(1)));
+ //       fewAllLocatio.add(new AiFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(2),uiuxtopics.get((k.topic.get(2))).toString(),k.authorr.get(2)));
+
+ //       adapter4=new AiFewAllAdapter(fewAllLocatio);
         allFewRecycler.setAdapter(adapter4);
 
     }
-
-
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -247,6 +283,16 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
             case R.id.nav_bookmark:
                 Intent intent3 = new Intent(AiActivity.this, BookmarkedVideos.class);
                 startActivity(intent3);
+                break;
+
+            case R.id.nav_AdminAccess:
+                Intent intent4 = new Intent(AiActivity.this, AdminSignIn.class);
+                startActivity(intent4);
+                break;
+
+            case R.id.nav_MyMentors:
+                Intent intent5 = new Intent(AiActivity.this, AiImagesActivity.class);
+                startActivity(intent5);
                 break;
 
         }

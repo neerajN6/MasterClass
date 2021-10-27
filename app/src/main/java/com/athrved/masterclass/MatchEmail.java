@@ -1,22 +1,26 @@
 package com.athrved.masterclass;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MatchEmail extends AppCompatActivity {
+    DatabaseReference mDatabaseRef;
+    int childCount;
     String email, EMAIL;
     private ProgressBar progressBar;
 
@@ -30,102 +34,67 @@ public class MatchEmail extends AppCompatActivity {
         if (signInAccount != null) {
             EMAIL = signInAccount.getEmail();
         }
-        Database db = new Database();
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+
+        ValueEventListener valueEventListener1 = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d(TAG, "Number of children: " + dataSnapshot.getChildrenCount());
+                childCount = (int) dataSnapshot.getChildrenCount();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String free = ds.getKey();
+                    Log.d(TAG, free);
+
+
+                    forLoop(); //call function!
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d(TAG, databaseError.getMessage()); //Don't ignore errors!
+            }
+        };
+        mDatabaseRef.addValueEventListener(valueEventListener1);
+
+
     }
 
-    class Database {
+    private void forLoop() {
+        for (int i = 1; i <= childCount; i++) {
 
-        private Connection connection;
-
-        private final String host = "ec2-54-158-232-223.compute-1.amazonaws.com";
-        private final String database = "ddgaguv61p4m63";
-        private final int port = 5432;
-        private final String user = "jfeitasqnyuanh";
-        private final String pass = "d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
-        private String url = "jdbc:postgresql://ec2-54-158-232-223.compute-1.amazonaws.com:5432/ddgaguv61p4m63?sslmode=require&user=jfeitasqnyuanh&password=d60b43b4e9ea924c91deb754cf18a51d5948b7a7e58b4e4d0045487767174ad8";
-        private boolean status;
-
-        public Database() {
-
-            this.url = String.format(this.url, this.host, this.port, this.database);
-            connect();
-            //this.disconnect();
-            System.out.println("connection status:" + status);
-
-        }
-
-
-        private void connect() {
-            Thread thread = new Thread(new Runnable() {
+            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference projectDetailsRef = rootRef.child("Users").child(String.valueOf(i));
+            ValueEventListener valueEventListener = new ValueEventListener() {
                 @Override
-                public void run() {
-                    try {
-                        Class.forName("org.postgresql.Driver");
-                        connection = DriverManager.getConnection(url, user, pass);
-                        status = true;
-                        getExtraConnection();
-                        System.out.println("connected:" + status);
-                    } catch (Exception e) {
-                        status = false;
-                        System.out.print(e.getMessage());
-                        e.printStackTrace();
-                    }
-                }
-            });
-            thread.start();
-            try {
-                thread.join();
-            } catch (Exception e) {
-                e.printStackTrace();
-                this.status = false;
-            }
-        }
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String Name = dataSnapshot.child("uName").getValue(String.class);
+                    String Email = dataSnapshot.child("uEmail").getValue(String.class);
+                    Long PhoneNo = dataSnapshot.child("uPhone").getValue(Long.class);
+                    String Bio = dataSnapshot.child("uBio").getValue(String.class);
 
-        public Connection getExtraConnection() {
 
-            setContentView(R.layout.activity_sign_up);
-            Connection c = null;
-            Statement stmt = null;
-            try {
-                Class.forName("org.postgresql.Driver");
-                c = DriverManager.getConnection(url, user, pass);
-                c.setAutoCommit(false);
-                System.out.println("Opened database successfully");
-
-                stmt = c.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM USERS;");
-                while (rs.next()) {
-                    email = rs.getString("email");
-                    System.out.print("firstString.equals(secondString) : ");
-                    System.out.println(email.compareTo(EMAIL));
-                    if (email.compareTo(EMAIL) == 0) {
-                        System.out.println("EMAIL = " + email);
-                        System.out.println("EMAIL1 = " + EMAIL);
-                        Intent intent3 = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent3);
-                        progressBar.setVisibility(View.VISIBLE);
-                        finish();
-                        finish();
-                        break;
-                    } else {
-                        System.out.println("False wrong" + EMAIL);
-                        Intent intent4 = new Intent(getApplicationContext(), Profile.class);
-                        startActivity(intent4);
-                        progressBar.setVisibility(View.VISIBLE);
-                        finish();
+                    if (EMAIL.equals(Email)) {
+                        Log.d("Email", Email);
+                        Log.d("EmailLogin", EMAIL);
+                        Intent intent = new Intent(MatchEmail.this, MainActivity.class);
+                        startActivity(intent);
                         finish();
                     }
-                    System.out.println();
                 }
-                rs.close();
-                stmt.close();
-                c.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            System.out.println("Records selected successfully");
-            return c;
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Log.d("TAG", databaseError.getMessage()); //Don't ignore potential errors!
+                }
+            };
+            projectDetailsRef.addListenerForSingleValueEvent(valueEventListener);
         }
+        Intent intent2 = new Intent(MatchEmail.this, Profile.class);
+        startActivity(intent2);
+        finish();
     }
+
 }

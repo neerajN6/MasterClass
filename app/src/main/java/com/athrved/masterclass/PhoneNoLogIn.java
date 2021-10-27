@@ -1,15 +1,16 @@
 package com.athrved.masterclass;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.textfield.TextInputLayout;
 import com.hbb20.CountryCodePicker;
 
 public class PhoneNoLogIn extends AppCompatActivity {
@@ -60,6 +61,7 @@ public class PhoneNoLogIn extends AppCompatActivity {
 
         intent.putExtra("phoneNo", _phoneNo);
         intent.putExtra("phNo", _getUserEnteredNumber);
+        Log.d(TAG, "PhoneNoInPhoneNoLogin : " + _getUserEnteredNumber);
 
         startActivity(intent);
         finish();

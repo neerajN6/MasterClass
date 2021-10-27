@@ -53,7 +53,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
         MainActivity k = new MainActivity();
         k.getdatatotop();
         UiuxActivity g = new UiuxActivity();
-        int gh = g.callla;
+        //int gh = g.callla;
         TopicsActivity ta = new TopicsActivity();
         String ca = ta.calll;
 

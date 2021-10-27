@@ -13,7 +13,49 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AApp">
         <activity
+            android:name=".ImagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdminAccessPage"
+            android:exported="true" />
+        <activity
+            android:name=".webdevelopment.WImagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".iot.IotImagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".webdevelopment.WMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".iot.IotMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddMentors"
+            android:exported="true" />
+        <activity
+            android:name=".iot.IotDesc"
+            android:exported="true" />
+        <activity
             android:name=".machdesign.MachTopicsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".webdevelopment.WebDevDesc"
+            android:exported="true" />
+        <activity
+            android:name=".uiux.UiuxDesc"
+            android:exported="true" />
+        <activity
+            android:name=".machdesign.MachDesignDesc"
+            android:exported="true" />
+        <activity
+            android:name=".appdev.AppDevDesc"
+            android:exported="true" />
+        <activity
+            android:name=".appdev.ATopicsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ai.AiTopicsActivity"
             android:exported="true" />
         <activity
             android:name=".webdevelopment.WebTopicsActivity"
@@ -22,10 +64,49 @@
             android:name=".webdevelopment.WebTopicsActivity2"
             android:exported="true" />
         <activity
+            android:name=".PhoneNoProfileHelper"
+            android:exported="true" />
+        <activity
+            android:name=".AdminSignIn"
+            android:exported="true" />
+        <activity
+            android:name=".AdminSignUp"
+            android:exported="true" />
+        <activity
+            android:name=".uiux.TestingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".uiux.Testing"
+            android:exported="true" />
+        <activity
             android:name=".TopicsActivity"
             android:exported="true" />
         <activity
             android:name=".UiuxSubCourse1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".uiux.UiuxImagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".uiux.UiuxMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".machdesign.MImagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".machdesign.MMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".appdev.AImagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".appdev.AMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ai.AiMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ai.AiImagesActivity"
             android:exported="true" />
         <activity
             android:name=".ai.AiCourseDesc"

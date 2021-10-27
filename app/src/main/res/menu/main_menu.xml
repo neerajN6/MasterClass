@@ -11,16 +11,30 @@
         android:title="Bookmarked Video" />
 
     <item
-        android:id="@+id/nav_mentorprofile"
-        android:icon="@drawable/ic_baseline_person_outline_24"
-        android:title="Mentor Profile" />
-
-    <item
         android:id="@+id/nav_MyCourse"
         android:icon="@drawable/course_icon"
         android:title="My Course" />
 
+
+    <item
+        android:id="@+id/nav_MyMentors"
+        android:icon="@drawable/person_icon"
+        android:title="My Mentors" />
+
     </group>
+
+    <item android:title="Admin Access">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_AdminAccess"
+                android:icon="@drawable/ic_baseline_admin_panel_settings_24"
+                android:title="Admin Access" />
+
+        </menu>
+
+    </item>
 
 
 

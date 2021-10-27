@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".uiux.UiuxDesc">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/amaranth"
+            android:text="UI/UX Design"
+            android:textAlignment="center"
+            android:textColor="#F2FAFF"
+            android:textSize="40dp" />
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/uiux_logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/amaranth"
+            android:text="The “UI” in UI design stands for “user interface.” The user interface is the graphical layout of an application.\n\nIt consists of the buttons users click on, the text they read, the images, sliders, text entry fields, and all the rest of the items the user interacts with.\n\nThis includes screen layout, transitions, interface animations and every single micro-interaction.\nAny sort of visual element, interaction, or animation must all be designed.The “UI” in UI design stands for “user interface.” The user interface is the graphical layout of an application.\n\nIt consists of the buttons users click on, the text they read, the images, sliders, text entry fields, and all the rest of the items the user interacts with.\nThis includes screen layout, transitions, interface animations and every single micro-interaction. Any sort of visual element, interaction, or animation must all be designed.UI designers are graphic designers.\nThey’re concerned with aesthetics. It’s up to them to make sure the application’s interface is attractive, visually-stimulating and themed appropriately to match the purpose and/or personality of the app.\n\nAnd they need to make sure every single visual element feels united, both aesthetically, and in purpose."
+            android:textColor="#F2FAFF"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+</ScrollView>

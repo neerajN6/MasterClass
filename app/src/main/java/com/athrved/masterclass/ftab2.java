@@ -47,8 +47,8 @@ public class ftab2 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
-
+    }}
+/**
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class ftab2 extends Fragment {
         foundedbut=v.findViewById(R.id.foundedbut);
         foundRecycler =(RecyclerView) v.findViewById(R.id.r1foundation);
         foundationRecycler();
+
 
         foundbut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,4 +97,4 @@ public class ftab2 extends Fragment {
             foundRecycler.setAdapter(adapter1);
 
     }
-}
+}*/

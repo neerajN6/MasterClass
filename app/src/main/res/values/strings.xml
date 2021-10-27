@@ -11,4 +11,81 @@
     <string name="web" translatable="false">461196820940-jr3kb40ep80cf1re7ub8chj2e62rrlj3.apps.googleusercontent.com</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="Course_array">
+        <item>Artificial Intelligence</item>
+        <item>Web Development</item>
+        <item>App Development</item>
+        <item>Machine Design</item>
+        <item>Ui/ux Design</item>
+        <item>Internet of Things</item>
+    </string-array>
+    <string-array name="PaidOrFree_array">
+        <item>Free</item>
+        <item>Paid</item>
+    </string-array>
+    <string-array name="uiux_topics_array">
+        <item>Visual Design</item>
+        <item>UX Design</item>
+        <item>Motion Design</item>
+        <item>Prototyping</item>
+        <item>3D Design</item>
+        <item>Webflow</item>
+    </string-array>
+    <string-array name="web_topics_array">
+        <item>HTML and CSS</item>
+        <item>Javascript</item>
+        <item>Reactjs</item>
+        <item>Nodejs</item>
+    </string-array>
+    <string-array name="ai_topics_array">
+        <item>Convolutional Neural Network</item>
+        <item>OpenCV</item>
+        <item>Tensorflow</item>
+        <item>Neural Network Basics</item>
+        <item>Machine Learning With Scikit Learn</item>
+        <item>Machine Learning Basics</item>
+        <item>Matplotlib</item>
+        <item>Pandas</item>
+        <item>Numpy</item>
+        <item>Introduction</item>
+    </string-array>
+    <string-array name="app_topics_array">
+        <item>Assignments</item>
+        <item>Projects</item>
+        <item>Advanced Android Features-1</item>
+        <item>Advanced Android Features-2</item>
+        <item>Adding Media To Project</item>
+        <item>Java</item>
+        <item>Introduction</item>
+        <item>Firebase</item>
+    </string-array>
+    <string-array name="mach_topics_array">
+        <item>Sketch And Sketch Tools</item>
+        <item>Introduction To 3D Extrusion</item>
+        <item>Introduction To Assembly</item>
+        <item>Introduction To Surfacing</item>
+        <item>Introduction To Drawing Tools</item>
+        <item>Introduction To Surface Tools</item>
+        <item>Machine Assembly</item>
+        <item>Photo Quality Rendering</item>
+        <item>Surfacing</item>
+        <item>Sheet Metal</item>
+        <item>Exploded View</item>
+        <item>Motion Design</item>
+    </string-array>
+    <string-array name="iot_topics_array">
+        <item>Introduction</item>
+        <item>Home Automation</item>
+        <item>Robotics</item>
+        <item>IoT network design and Cloud networks</item>
+    </string-array>
+    <string-array name="add_mentors_array">
+        <item></item>
+        <item>Artificial Intelligence</item>
+        <item>Web Development</item>
+        <item>App Development</item>
+        <item>Machine Design</item>
+        <item>Ui/ux Design</item>
+        <item>Internet of Things</item>
+    </string-array>
 </resources>

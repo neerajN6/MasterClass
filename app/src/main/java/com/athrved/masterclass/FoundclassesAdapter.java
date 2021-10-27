@@ -19,7 +19,7 @@ import com.athrved.masterclass.uiux.PopclassesAdapter;
 
 import java.util.ArrayList;
 
-public class FoundclassesAdapter extends RecyclerView.Adapter<FoundclassesAdapter.FoundViewHolder> {
+/**public class FoundclassesAdapter extends RecyclerView.Adapter<FoundclassesAdapter.FoundViewHolder> {
 
     ArrayList<FoundHelperClass> featloc;
 
@@ -123,3 +123,4 @@ public class FoundclassesAdapter extends RecyclerView.Adapter<FoundclassesAdapte
 
 
 }
+ */

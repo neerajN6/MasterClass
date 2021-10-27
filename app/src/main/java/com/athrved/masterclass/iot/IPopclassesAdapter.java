@@ -11,8 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 public class IPopclassesAdapter extends RecyclerView.Adapter<IPopclassesAdapter.IPopViewHolder> {
@@ -42,6 +44,45 @@ public class IPopclassesAdapter extends RecyclerView.Adapter<IPopclassesAdapter.
         holder.ititle.setText(IPopHelperClass.getItitle());
         holder.itopic.setText(IPopHelperClass.getItopic());
         holder.iauthor.setText(IPopHelperClass.getIauthor());
+
+        ArrayList<String> videoIds;
+        ArrayList<String> vtitle;
+        ArrayList<String> authorr;
+        ArrayList<Integer> topic;
+        ArrayList<Integer> course_id;
+        ArrayList<Integer> paid;
+        ArrayList<Integer> slno;
+
+        ArrayList<String> webvv;
+
+        videoIds = new ArrayList<>();
+        course_id = new ArrayList<>();
+        paid = new ArrayList<>();
+        vtitle = new ArrayList<>();
+        slno = new ArrayList<>();
+        topic = new ArrayList<>();
+        authorr = new ArrayList<>();
+
+        MainActivity k = new MainActivity();
+        k.getdatatotop();
+        int jj=0;
+
+        int pl=6;
+        for (int kk=0;kk<k.videoIds.size();kk++) {
+            if (k.course_id.get(kk) == pl-1)
+                jj = kk + 1;
+
+
+            if (position == 0) {
+                holder.ititle.setText(k.vtitle.get(jj));
+                Picasso.get().load("https://img.youtube.com/vi/" + k.videoIds.get(jj) + "/maxresdefault.jpg").into(holder.iimagebig);
+            }
+            if (position == 1) {
+                holder.ititle.setText(k.vtitle.get(jj + 1));
+                Picasso.get().load("https://img.youtube.com/vi/" + k.videoIds.get(jj + 1) + "/maxresdefault.jpg").into(holder.iimagebig);
+            }
+
+        }
     }
 
     @Override
@@ -99,9 +140,39 @@ public class IPopclassesAdapter extends RecyclerView.Adapter<IPopclassesAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    ArrayList<String> videoIds;
+                    ArrayList<String> vtitle;
+                    ArrayList<String> authorr;
+                    ArrayList<Integer> topic;
+                    ArrayList<Integer> course_id;
+                    ArrayList<Integer> paid;
+                    ArrayList<Integer> slno;
+
+                    ArrayList<String> webvv;
+
+                    videoIds = new ArrayList<>();
+                    course_id = new ArrayList<>();
+                    paid = new ArrayList<>();
+                    vtitle = new ArrayList<>();
+                    slno = new ArrayList<>();
+                    topic = new ArrayList<>();
+                    authorr = new ArrayList<>();
+
+                    MainActivity k = new MainActivity();
+                    k.getdatatotop();
+                    int jj=0;
+
+                    int pl=6;
+                    for (int kk=0;kk<k.videoIds.size();kk++) {
+                        if (k.course_id.get(kk) == pl - 1)
+                            break;
+                        jj = kk + 1;
+                    }
+
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "_vAmKNin0QM");
+                        intent.putExtra("VIDEOID", k.videoIds.get(jj));
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -110,7 +181,7 @@ public class IPopclassesAdapter extends RecyclerView.Adapter<IPopclassesAdapter.
 
                     if (getAdapterPosition() == 1) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", "lrcqt4RelJ4");
+                        intent.putExtra("VIDEOID", k.videoIds.get(jj+1));
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

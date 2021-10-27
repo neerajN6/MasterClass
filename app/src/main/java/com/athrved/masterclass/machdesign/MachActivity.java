@@ -16,13 +16,16 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.AdminSignIn;
 import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.LogOut;
 import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.UpdateProfile;
+import com.athrved.masterclass.ai.AiActivity;
 import com.athrved.masterclass.ai.AiCourseDesc;
+import com.athrved.masterclass.ai.AiImagesActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -249,6 +252,16 @@ public class MachActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_bookmark:
                 Intent intent3 = new Intent(MachActivity.this, BookmarkedVideos.class);
                 startActivity(intent3);
+                break;
+
+            case R.id.nav_AdminAccess:
+                Intent intent4 = new Intent(MachActivity.this, AdminSignIn.class);
+                startActivity(intent4);
+                break;
+
+            case R.id.nav_MyMentors:
+                Intent intent5 = new Intent(MachActivity.this, MImagesActivity.class);
+                startActivity(intent5);
                 break;
 
         }

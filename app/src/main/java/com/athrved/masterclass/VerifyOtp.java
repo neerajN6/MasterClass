@@ -1,7 +1,10 @@
 package com.athrved.masterclass;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -109,7 +112,8 @@ public class VerifyOtp extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(VerifyOtp.this, "Verification Completed", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(VerifyOtp.this, MatchPhoneNo.class);
-                            intent.putExtra("phNo", PHONENO);
+                            intent.putExtra("PHONENO", PHONENO);
+                            Log.d(TAG, "PhoneNoInVerifyOtp : " + PHONENO);
                             startActivity(intent);
                             finish();
                             finish();

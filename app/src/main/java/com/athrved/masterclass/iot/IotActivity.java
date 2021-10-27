@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.AdminSignIn;
+import com.athrved.masterclass.AdminSignUp;
 import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.LogOut;
@@ -29,6 +31,7 @@ import com.athrved.masterclass.uiux.MenAdapter;
 import com.athrved.masterclass.uiux.MenHelperClass;
 import com.athrved.masterclass.uiux.PopHelperClass;
 import com.athrved.masterclass.uiux.PopclassesAdapter;
+import com.athrved.masterclass.uiux.UiuxActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -230,13 +233,23 @@ public class IotActivity extends AppCompatActivity implements NavigationView.OnN
                 break;
 
             case R.id.nav_MyCourse:
-                Intent intent2 = new Intent(IotActivity.this, AiCourseDesc.class);
+                Intent intent2 = new Intent(IotActivity.this, IotDesc.class);
                 startActivity(intent2);
                 break;
 
             case R.id.nav_bookmark:
                 Intent intent3 = new Intent(IotActivity.this, BookmarkedVideos.class);
                 startActivity(intent3);
+                break;
+
+            case R.id.nav_AdminAccess:
+                Intent intent4 = new Intent(IotActivity.this, AdminSignIn.class);
+                startActivity(intent4);
+                break;
+
+            case R.id.nav_MyMentors:
+                Intent intent5 = new Intent(IotActivity.this, IotImagesActivity.class);
+                startActivity(intent5);
                 break;
 
         }

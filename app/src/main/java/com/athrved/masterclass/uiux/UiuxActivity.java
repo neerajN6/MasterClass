@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,14 +17,17 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.athrved.masterclass.AdminSignIn;
+import com.athrved.masterclass.AdminSignUp;
 import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.LogOut;
-import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.R;
-import com.athrved.masterclass.TopicsActivity;
 import com.athrved.masterclass.UpdateProfile;
+import com.athrved.masterclass.ai.AiActivity;
 import com.athrved.masterclass.ai.AiCourseDesc;
+import com.athrved.masterclass.ai.AiImagesActivity;
+import com.athrved.masterclass.appdev.AppDevDesc;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -35,13 +39,14 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
 
     TextView abcde;
     TextView ak;
-    TextView viewAllClasses;
     String tit;
     String urlname,videoID,tita;
 
     RecyclerView dataList2;
     List<String> titles2;
     List<Integer> images2;
+    Button learnMoreInUiux;
+    TextView viewAllMentorsTv;
 
 
     List<String> videoid;
@@ -69,10 +74,6 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
     FirebaseDatabase rootnode;
     DatabaseReference reference;
 
-    ArrayList uiuxtopics;
-
-    public int callla=0;
-
     ArrayList<UiuxFewAllClasses> allCourseList=new ArrayList<>();
 
     @Override
@@ -81,8 +82,24 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_uiux);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view1);
         toolbar = findViewById(R.id.toolbar);
+        viewAllMentorsTv = findViewById(R.id.viewAllMentorsTv);
+        viewAllMentorsTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UiuxActivity.this,TestingActivity.class);
+                startActivity(intent);
+            }
+        });
+        learnMoreInUiux = findViewById(R.id.learnMoreInUiux);
+        learnMoreInUiux.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UiuxActivity.this,UiuxMainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         setSupportActionBar(toolbar);
 
@@ -114,7 +131,6 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         allfewRecycler();
 
         dataList2 = findViewById(R.id.dataList2);
-        viewAllClasses=findViewById(R.id.viewall_allclass);
 
         abcde = findViewById(R.id.tvv1);
         ak=findViewById(R.id.ak);
@@ -128,7 +144,6 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         titles2.add("Prototyping");
         titles2.add("3D Design");
         titles2.add("Webflow");
-
 
         images2.add(R.drawable.visuald_logo);
         images2.add(R.drawable.uiux_logo);
@@ -145,12 +160,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    public void viewallallclasses(View v){
-        Intent vac=new Intent(UiuxActivity.this, TopicsActivity.class);
-        callla=1;
-        vac.putExtra("vacuiux", "vac");
-        startActivity(vac);
-    }
+
 
     private void featuredRecycler(){
 
@@ -202,25 +212,14 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void allfewRecycler(){
-        MainActivity k = new MainActivity();
-        k.getdatatotop();
-
         allFewRecycler.setHasFixedSize(true);
         allFewRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         ArrayList<FewAllHelperClass> fewAllLocatio = new ArrayList<>();
 
-        uiuxtopics = new ArrayList();
-        uiuxtopics.add("VISUAL DESIGN");
-        uiuxtopics.add("UX DESIGN");
-        uiuxtopics.add("MOTION DESIGN");
-        uiuxtopics.add("PROTOTYPING");
-        uiuxtopics.add("3D DESIGN");
-        uiuxtopics.add("WEBFLOW");
-
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(0),uiuxtopics.get((k.topic.get(0))).toString(),k.authorr.get(0)));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(1),uiuxtopics.get((k.topic.get(1))).toString(),k.authorr.get(1)));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(2),uiuxtopics.get((k.topic.get(2))).toString(),k.authorr.get(2)));
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"Playing with Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo,"Protopie for Prototyping","PROTOTYPING\n","Abhinav Chikkara"));
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo,"Introduction to After Effects\nand Lottie Files","MOTION DESIGN","S.M Sudhanva Acharya"));
 
         adapter4=new FewAllAdapter(fewAllLocatio);
         allFewRecycler.setAdapter(adapter4);
@@ -264,7 +263,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_MyCourse:
-                Intent intent2 = new Intent(UiuxActivity.this, AiCourseDesc.class);
+                Intent intent2 = new Intent(UiuxActivity.this, UiuxDesc.class);
                 startActivity(intent2);
                 break;
 
@@ -272,6 +271,17 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent3 = new Intent(UiuxActivity.this, BookmarkedVideos.class);
                 startActivity(intent3);
                 break;
+
+            case R.id.nav_AdminAccess:
+                Intent intent4 = new Intent(UiuxActivity.this, AdminSignIn.class);
+                startActivity(intent4);
+                break;
+
+            case R.id.nav_MyMentors:
+                Intent intent5 = new Intent(UiuxActivity.this, UiuxImagesActivity.class);
+                startActivity(intent5);
+                break;
+
 
         }
         drawerLayout.closeDrawer(GravityCompat.START);

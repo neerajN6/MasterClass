@@ -61,7 +61,7 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
         holder.topic.setText(freeHelperClass.getTopic());
         holder.author.setText(freeHelperClass.getAuthor());
 
-        for(int k =1;k<=2;k++){
+        for(int k =1;k<=3;k++){
             String ka=String.valueOf(k);
             reff= FirebaseDatabase.getInstance().getReference("video").child("uiux").child("free").child(ka);
             int finalK = k;
@@ -77,12 +77,21 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                         vtitle2=snapshot.child("title_video").getValue().toString();
 
                     }
+                    if(finalK ==3) {
+                        v_id2 = snapshot.child("video_Id").getValue().toString();
+                        vtitle2=snapshot.child("title_video").getValue().toString();
+
+                    }
 
                     if (holder.getAdapterPosition() == 0) {
                         holder.title.setText(vtitle1);
                         Picasso.get().load("https://img.youtube.com/vi/" + v_id1 + "/maxresdefault.jpg").into(holder.imagebig);
                     }
                     if (holder.getAdapterPosition() == 1) {
+                        holder.title.setText(vtitle2);
+                        Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.imagebig);
+                    }
+                    if (holder.getAdapterPosition() == 2) {
                         holder.title.setText(vtitle2);
                         Picasso.get().load("https://img.youtube.com/vi/" + v_id2 + "/maxresdefault.jpg").into(holder.imagebig);
                     }
@@ -155,7 +164,7 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
             });
 
 
-            for(int k =1;k<=2;k++){
+            for(int k =1;k<=3;k++){
                 String ka=String.valueOf(k);
                 DatabaseReference reff= FirebaseDatabase.getInstance().getReference("video").child("uiux").child("free").child(ka);
                 int finalK = k;
@@ -167,6 +176,10 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                             vtitle1=snapshot.child("title_video").getValue().toString();
                         }
                         if(finalK ==2) {
+                            v_id2 = snapshot.child("video_Id").getValue().toString();
+                            vtitle2=snapshot.child("title_video").getValue().toString();
+                        }
+                        if(finalK ==3) {
                             v_id2 = snapshot.child("video_Id").getValue().toString();
                             vtitle2=snapshot.child("title_video").getValue().toString();
                         }
@@ -184,6 +197,14 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                                 }
 
                                 if (getAdapterPosition() == 1) {
+                                    Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
+                                    intent.putExtra("VIDEOID", v_id2);
+                                    itemView.getContext().startActivity(intent);
+                                    Activity activity = (Activity) itemView.getContext();
+                                    activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                                }
+
+                                if (getAdapterPosition() == 2) {
                                     Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                                     intent.putExtra("VIDEOID", v_id2);
                                     itemView.getContext().startActivity(intent);
