@@ -79,13 +79,14 @@ public class PopclassesAdapter extends RecyclerView.Adapter<PopclassesAdapter.Po
 
             if (position == 0) {
                 holder.title.setText(k.vtitle.get(jj));
+                System.out.println("Uiux videoid"+k.videoIds.get(jj));
                 Picasso.get().load("https://img.youtube.com/vi/" + k.videoIds.get(jj) + "/maxresdefault.jpg").into(holder.imagebig);
             }
             if (position == 1) {
                 holder.title.setText(k.vtitle.get(jj + 1));
                 Picasso.get().load("https://img.youtube.com/vi/" + k.videoIds.get(jj + 1) + "/maxresdefault.jpg").into(holder.imagebig);
             }
-
+            break;
         }
     }
 
@@ -169,7 +170,7 @@ public class PopclassesAdapter extends RecyclerView.Adapter<PopclassesAdapter.Po
 
                     int pl=5;
                     for (int kk=0;kk<k.videoIds.size();kk++) {
-                        if (k.course_id.get(kk) == pl - 1)
+                        if (k.course_id.get(kk) == pl)
                             break;
                         jj = kk + 1;
                     }
@@ -177,6 +178,7 @@ public class PopclassesAdapter extends RecyclerView.Adapter<PopclassesAdapter.Po
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                         intent.putExtra("VIDEOID", k.videoIds.get(jj));
+                        System.out.println("Uiux itemclick: " +k.videoIds.get(jj) );
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
