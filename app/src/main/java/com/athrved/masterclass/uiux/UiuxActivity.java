@@ -22,6 +22,7 @@ import com.athrved.masterclass.AdminSignUp;
 import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.LogOut;
+import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.UpdateProfile;
 import com.athrved.masterclass.ai.AiActivity;
@@ -58,6 +59,8 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+
+    ArrayList uiuxtopics;
 
     RecyclerView popRecycler;
     RecyclerView.Adapter adapter1;
@@ -212,12 +215,20 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void allfewRecycler(){
+        MainActivity k = new MainActivity();
+        k.getdatatotop();
         allFewRecycler.setHasFixedSize(true);
         allFewRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         ArrayList<FewAllHelperClass> fewAllLocatio = new ArrayList<>();
-
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"Playing with Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
+        uiuxtopics = new ArrayList();
+        uiuxtopics.add("VISUAL DESIGN");
+        uiuxtopics.add("UX DESIGN");
+        uiuxtopics.add("MOTION DESIGN");
+        uiuxtopics.add("PROTOTYPING");
+        uiuxtopics.add("3D DESIGN");
+        uiuxtopics.add("WEBFLOW");
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"lalalalalalalalPlaying with Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
         fewAllLocatio.add(new FewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo,"Protopie for Prototyping","PROTOTYPING\n","Abhinav Chikkara"));
         fewAllLocatio.add(new FewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo,"Introduction to After Effects\nand Lottie Files","MOTION DESIGN","S.M Sudhanva Acharya"));
 
