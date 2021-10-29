@@ -136,6 +136,7 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
 
     }
 
+    //cancelled...
     public void viewallallclasses_web(View v){
         Intent vac=new Intent(WebActivity.this, WebTopicsActivity2.class);
        // callla=1;

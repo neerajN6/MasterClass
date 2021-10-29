@@ -139,13 +139,13 @@ public class IotActivity extends AppCompatActivity implements NavigationView.OnN
         popRecycler.setHasFixedSize(true);
         popRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        ArrayList<PopHelperClass> popLocatio = new ArrayList<>();
+        ArrayList<IPopHelperClass> popLocatio = new ArrayList<>();
 
-        popLocatio.add(new PopHelperClass(R.drawable.secndone, R.drawable.ai_logo,0,"Color and Color Theory -\nFundamentals of Visual Design","VISUAL DESIGN","Goutham Naik","Um3BhY0oS2c"));
-        popLocatio.add(new PopHelperClass(R.drawable.firstone, R.drawable.ai_logo, R.drawable.motiond_logo,"Color and Color Theory -\nFundamentals of Visual Design","UX DESIGN","  Goutham Naik, S. M. Sudhanva Acharya","_vAmKNin0QM"));
+        popLocatio.add(new IPopHelperClass(R.drawable.secndone, R.drawable.ai_logo,0,"Color and Color Theory -\nFundamentals of Visual Design","VISUAL DESIGN","Goutham Naik","Um3BhY0oS2c"));
+        popLocatio.add(new IPopHelperClass(R.drawable.firstone, R.drawable.ai_logo, R.drawable.motiond_logo,"Color and Color Theory -\nFundamentals of Visual Design","UX DESIGN","  Goutham Naik, S. M. Sudhanva Acharya","_vAmKNin0QM"));
 
 
-        adapter1=new PopclassesAdapter(popLocatio);
+        adapter1=new IPopclassesAdapter(popLocatio);
         popRecycler.setAdapter(adapter1);
 
     }

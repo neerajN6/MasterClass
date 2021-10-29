@@ -29,6 +29,8 @@ import com.athrved.masterclass.ai.AiActivity;
 import com.athrved.masterclass.ai.AiCourseDesc;
 import com.athrved.masterclass.ai.AiImagesActivity;
 import com.athrved.masterclass.appdev.AppDevDesc;
+import com.athrved.masterclass.webdevelopment.WebActivity;
+import com.athrved.masterclass.webdevelopment.WebTopicsActivity2;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -76,13 +78,26 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
 
     FirebaseDatabase rootnode;
     DatabaseReference reference;
-
+    TextView viewall;
+    public int callla=0;
     ArrayList<UiuxFewAllClasses> allCourseList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uiux);
+
+        viewall = findViewById(R.id.viewall_allclass_uiux);
+        viewall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vac = new Intent(UiuxActivity.this, UiuxTopicsActivity2.class);
+                callla = 1;
+                vac.putExtra("vacuiux", "vac");
+                startActivity(vac);
+            }
+        });
+
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view1);
@@ -91,7 +106,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         viewAllMentorsTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UiuxActivity.this,TestingActivity.class);
+                Intent intent = new Intent(UiuxActivity.this, TestingActivity.class);
                 startActivity(intent);
             }
         });
@@ -99,7 +114,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         learnMoreInUiux.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UiuxActivity.this,UiuxMainActivity.class);
+                Intent intent = new Intent(UiuxActivity.this, UiuxMainActivity.class);
                 startActivity(intent);
             }
         });
@@ -109,7 +124,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView.bringToFront();
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -126,17 +141,17 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
 
         popRecycler = findViewById(R.id.r1popclass);
         featuredRecycler();
-        freeRecycler=findViewById(R.id.r1freeclass);
-        freeturedRecycler( tit);
-        menRecycler=findViewById(R.id.r3menclass);
+        freeRecycler = findViewById(R.id.r1freeclass);
+        freeturedRecycler(tit);
+        menRecycler = findViewById(R.id.r3menclass);
         mentoredRecycler();
-        allFewRecycler=findViewById(R.id.r4fewalllist);
+        allFewRecycler = findViewById(R.id.r4fewalllist);
         allfewRecycler();
 
         dataList2 = findViewById(R.id.dataList2);
 
         abcde = findViewById(R.id.tvv1);
-        ak=findViewById(R.id.ak);
+        ak = findViewById(R.id.ak);
 
         titles2 = new ArrayList<>();
         images2 = new ArrayList<>();
@@ -155,15 +170,13 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         images2.add(R.drawable.threed_logo);
         images2.add(R.drawable.iot_logo);
 
-        imgAdapter2 = new ImgAdapter2(this,titles2,images2);
+        imgAdapter2 = new ImgAdapter2(this, titles2, images2);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         dataList2.setLayoutManager(gridLayoutManager);
         dataList2.setAdapter(imgAdapter2);
 
     }
-
-
 
     private void featuredRecycler(){
 
@@ -228,9 +241,9 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         uiuxtopics.add("PROTOTYPING");
         uiuxtopics.add("3D DESIGN");
         uiuxtopics.add("WEBFLOW");
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"lalalalalalalalPlaying with Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo,"Protopie for Prototyping","PROTOTYPING\n","Abhinav Chikkara"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo,"Introduction to After Effects\nand Lottie Files","MOTION DESIGN","S.M Sudhanva Acharya"));
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(0),uiuxtopics.get((k.topic.get(0))).toString(),k.authorr.get(0)));
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo,k.vtitle.get(1),uiuxtopics.get((k.topic.get(1))).toString(),k.authorr.get(1)));
+        fewAllLocatio.add(new FewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo,k.vtitle.get(2),uiuxtopics.get((k.topic.get(2))).toString(),k.authorr.get(2)));
 
         adapter4=new FewAllAdapter(fewAllLocatio);
         allFewRecycler.setAdapter(adapter4);
