@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AApp">
         <activity
+            android:name=".uiux.UiuxTopicsActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".uiux.UiuxTopicsActivity"
+            android:exported="true" />
+        <activity
             android:name=".ImagesActivity"
             android:exported="true" />
         <activity

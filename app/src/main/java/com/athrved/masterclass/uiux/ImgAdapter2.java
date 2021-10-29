@@ -67,37 +67,37 @@ public class ImgAdapter2 extends RecyclerView.Adapter<ImgAdapter2.ViewHolder> {
                     top = getAdapterPosition();
                     Toast.makeText(v.getContext(), "Clicked -> " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
                     if(getAdapterPosition()==0){
-                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        Intent intent = new Intent(itemView.getContext(), UiuxTopicsActivity.class);
                         intent.putExtra("topic",String.valueOf(getAdapterPosition()));
                         intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                     else if(getAdapterPosition()==1){
-                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        Intent intent = new Intent(itemView.getContext(), UiuxTopicsActivity.class);
                         intent.putExtra("topic",String.valueOf(getAdapterPosition()));
                         intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                     else if(getAdapterPosition()==2){
-                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        Intent intent = new Intent(itemView.getContext(), UiuxTopicsActivity.class);
                         intent.putExtra("topic",String.valueOf(getAdapterPosition()));
                         intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                     else if(getAdapterPosition()==3){
-                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        Intent intent = new Intent(itemView.getContext(), UiuxTopicsActivity.class);
                         intent.putExtra("topic",String.valueOf(getAdapterPosition()));
                         intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                     else if(getAdapterPosition()==4){
-                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        Intent intent = new Intent(itemView.getContext(), UiuxTopicsActivity.class);
                         intent.putExtra("topic",String.valueOf(getAdapterPosition()));
                         intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
                     }
                     else if(getAdapterPosition()==5){
-                        Intent intent = new Intent(itemView.getContext(), TopicsActivity.class);
+                        Intent intent = new Intent(itemView.getContext(), UiuxTopicsActivity.class);
                         intent.putExtra("topic",String.valueOf(getAdapterPosition()));
                         intent.putExtra("course",String.valueOf(5));
                         itemView.getContext().startActivity(intent);
