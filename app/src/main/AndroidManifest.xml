@@ -13,6 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AApp">
         <activity
+            android:name=".appdev.ATopicsActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".machdesign.MachTopicsActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".appdev.AppDevTopicsActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".ai.AiTopicsActivity2"
+            android:exported="true" />
+        <activity
             android:name=".uiux.UiuxTopicsActivity2"
             android:exported="true" />
         <activity

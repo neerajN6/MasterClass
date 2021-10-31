@@ -55,10 +55,11 @@ public class AiImgAdapter2 extends RecyclerView.Adapter<AiImgAdapter2.ViewHolder
             super(itemView);
             title2 = itemView.findViewById(R.id.textView3);
             gridIcon2 = itemView.findViewById(R.id.imageView3);
-            aitop = getAdapterPosition();
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    aitop = getAdapterPosition();
                     Toast.makeText(v.getContext(), "Clicked -> " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), AiTopicsActivity.class);

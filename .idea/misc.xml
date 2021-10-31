@@ -34,7 +34,9 @@
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.18489583333333334" />
         <entry key="app/src/main/res/layout/activity_ai.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_ai_course_desc.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_amain.xml" value="0.30344202898550726" />
         <entry key="app/src/main/res/layout/activity_app_dev.xml" value="0.2875905797101449" />
+        <entry key="app/src/main/res/layout/activity_atopics2.xml" value="0.29347826086956524" />
         <entry key="app/src/main/res/layout/activity_bookmarked_videos.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.27485822451372355" />
         <entry key="app/src/main/res/layout/activity_database.xml" value="0.13677811550151975" />

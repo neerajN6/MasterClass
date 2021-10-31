@@ -40,6 +40,7 @@ import com.athrved.masterclass.webdevelopment.WebActivity;
 import com.athrved.masterclass.webdevelopment.WebFewAllAdapter;
 import com.athrved.masterclass.webdevelopment.WebFewAllHelperClass;
 import com.athrved.masterclass.webdevelopment.WebTopicsActivity;
+import com.athrved.masterclass.webdevelopment.WebTopicsActivity2;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -75,6 +76,7 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
     RecyclerView.Adapter adapter4;
 
     ArrayList uiuxtopics;
+    TextView viewall;
 
     public int callla=0;
 
@@ -88,6 +90,19 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+
+        viewall = findViewById(R.id.viewall_allclass_ai);
+        viewall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vac = new Intent(AiActivity.this, AiTopicsActivity2.class);
+                callla=1;
+                vac.putExtra("vacai", "vac");
+                startActivity(vac);
+            }
+        });
+
+
         viewAllMentorsTv = findViewById(R.id.viewAllMentorsTv);
         viewAllMentorsTv.setOnClickListener(new View.OnClickListener() {
             @Override

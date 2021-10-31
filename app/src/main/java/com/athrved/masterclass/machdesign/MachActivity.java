@@ -26,6 +26,8 @@ import com.athrved.masterclass.UpdateProfile;
 import com.athrved.masterclass.ai.AiActivity;
 import com.athrved.masterclass.ai.AiCourseDesc;
 import com.athrved.masterclass.ai.AiImagesActivity;
+import com.athrved.masterclass.webdevelopment.WebActivity;
+import com.athrved.masterclass.webdevelopment.WebTopicsActivity2;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -59,6 +61,7 @@ public class MachActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView.Adapter adapter4;
 
     ArrayList uiuxtopics;
+    TextView viewall;
 
     public int callla=0;
 //    ArrayList<UiuxAllClasses> allCourseList=new ArrayList<>();
@@ -71,6 +74,17 @@ public class MachActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+
+        viewall = findViewById(R.id.viewall_allclass_mach);
+        viewall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vac = new Intent(MachActivity.this, MachTopicsActivity2.class);
+                callla=1;
+                vac.putExtra("vacmach", "vac");
+                startActivity(vac);
+            }
+        });
 
         setSupportActionBar(toolbar);
 

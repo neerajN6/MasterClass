@@ -39,6 +39,8 @@ import com.athrved.masterclass.uiux.PopHelperClass;
 import com.athrved.masterclass.uiux.PopclassesAdapter;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.uiux.UiuxActivity;
+import com.athrved.masterclass.webdevelopment.WebActivity;
+import com.athrved.masterclass.webdevelopment.WebTopicsActivity2;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -69,6 +71,7 @@ public class AppDevActivity extends AppCompatActivity implements NavigationView.
 
     RecyclerView menRecycler;
     RecyclerView.Adapter adapter3;
+    TextView viewall;
 
     RecyclerView allFewRecycler;
     RecyclerView.Adapter adapter4;
@@ -87,6 +90,18 @@ public class AppDevActivity extends AppCompatActivity implements NavigationView.
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+
+        viewall = findViewById(R.id.viewall_allclass_app);
+        viewall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vac = new Intent(AppDevActivity.this, AppDevTopicsActivity2.class);
+                callla=1;
+                vac.putExtra("vacapp", "vac");
+                startActivity(vac);
+            }
+        });
+
         learnMoreInAppDev = findViewById(R.id.learnMoreInAppDev);
 
         learnMoreInAppDev.setOnClickListener(new View.OnClickListener() {
