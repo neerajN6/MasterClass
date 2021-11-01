@@ -25,6 +25,12 @@
             android:name=".ai.AiTopicsActivity2"
             android:exported="true" />
         <activity
+            android:name=".iot.IotTopicsActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".iot.IotTopicsActivity"
+            android:exported="true" />
+        <activity
             android:name=".uiux.UiuxTopicsActivity2"
             android:exported="true" />
         <activity

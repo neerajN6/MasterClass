@@ -1,7 +1,6 @@
 package com.athrved.masterclass.appdev;
 
 public class AFewAllHelperClass {
-
     private String atitle;
     private String achannel;
     private String aauthor;
@@ -11,7 +10,7 @@ public class AFewAllHelperClass {
     public AFewAllHelperClass() {
     }
 
-    public AFewAllHelperClass(String atitle, String achannel, String aauthor, int aimagebig, int aimagesmall) {
+    public AFewAllHelperClass(int aimagebig, int aimagesmall,String atitle, String achannel, String aauthor) {
         this.atitle = atitle;
         this.achannel = achannel;
         this.aauthor = aauthor;
@@ -59,4 +58,3 @@ public class AFewAllHelperClass {
         this.aimagesmall = aimagesmall;
     }
 }
-

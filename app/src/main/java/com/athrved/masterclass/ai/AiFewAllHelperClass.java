@@ -1,7 +1,6 @@
 package com.athrved.masterclass.ai;
 
 public class AiFewAllHelperClass {
-
     private String aititle;
     private String aichannel;
     private String aiauthor;
@@ -11,7 +10,7 @@ public class AiFewAllHelperClass {
     public AiFewAllHelperClass() {
     }
 
-    public AiFewAllHelperClass(String aititle, String aichannel, String aiauthor, int aiimagebig, int aiimagesmall) {
+    public AiFewAllHelperClass(int aiimagebig, int aiimagesmall, String aititle, String aichannel, String aiauthor) {
         this.aititle = aititle;
         this.aichannel = aichannel;
         this.aiauthor = aiauthor;

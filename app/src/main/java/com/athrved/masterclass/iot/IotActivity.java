@@ -3,6 +3,7 @@ package com.athrved.masterclass.iot;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import com.athrved.masterclass.AdminSignUp;
 import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
 import com.athrved.masterclass.LogOut;
+import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.R;
 import com.athrved.masterclass.UpdateProfile;
 import com.athrved.masterclass.ai.AiCourseDesc;
@@ -32,6 +34,8 @@ import com.athrved.masterclass.uiux.MenHelperClass;
 import com.athrved.masterclass.uiux.PopHelperClass;
 import com.athrved.masterclass.uiux.PopclassesAdapter;
 import com.athrved.masterclass.uiux.UiuxActivity;
+import com.athrved.masterclass.webdevelopment.WebActivity;
+import com.athrved.masterclass.webdevelopment.WebTopicsActivity2;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -60,10 +64,11 @@ public class IotActivity extends AppCompatActivity implements NavigationView.OnN
 
     RecyclerView menRecycler;
     RecyclerView.Adapter adapter3;
-
+    ArrayList uiuxtopics;
+    TextView viewall;
     RecyclerView allFewRecycler;
     RecyclerView.Adapter adapter4;
-
+    public int callla=0;
 //    ArrayList<UiuxAllClasses> allCourseList=new ArrayList<>();
 
     @Override
@@ -74,6 +79,18 @@ public class IotActivity extends AppCompatActivity implements NavigationView.OnN
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+
+
+        viewall = findViewById(R.id.viewall_allclass_iot);
+        viewall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vac = new Intent(IotActivity.this, IotTopicsActivity2.class);
+                callla=1;
+                vac.putExtra("vaciot", "vac");
+                startActivity(vac);
+            }
+        });
 
         setSupportActionBar(toolbar);
 
@@ -154,13 +171,13 @@ public class IotActivity extends AppCompatActivity implements NavigationView.OnN
         freeRecycler.setHasFixedSize(true);
         freeRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        ArrayList<FreeHelperClass> freeLocatio = new ArrayList<>();
+        ArrayList<IFreeHelperClass> freeLocatio = new ArrayList<>();
 
-        freeLocatio.add(new FreeHelperClass(R.drawable.ai_logo,0,"Top UX Design Interview Questions","VISUAL DESIGN","S M Sudhanva Acharya"));
-        freeLocatio.add(new FreeHelperClass(R.drawable.ai_logo,0,"White Space in Design","VISUAL DESIGN","Abhinav Chikkara"));
+        freeLocatio.add(new IFreeHelperClass(R.drawable.ai_logo,0,"Top UX Design Interview Questions","VISUAL DESIGN","S M Sudhanva Acharya"));
+        freeLocatio.add(new IFreeHelperClass(R.drawable.ai_logo,0,"White Space in Design","VISUAL DESIGN","Abhinav Chikkara"));
 
 
-        adapter2=new FreeclassesAdapter(freeLocatio);
+        adapter2=new IFreeClassesAdapter(freeLocatio);
         freeRecycler.setAdapter(adapter2);
 
     }
@@ -169,30 +186,39 @@ public class IotActivity extends AppCompatActivity implements NavigationView.OnN
         menRecycler.setHasFixedSize(true);
         menRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        ArrayList<MenHelperClass> menLocatio = new ArrayList<>();
+        ArrayList<IMenHelperClass> menLocatio = new ArrayList<>();
 
-        menLocatio.add(new MenHelperClass(R.drawable.oneman,"Goutam Naik","CEO, AthrV-Ed"));
-        menLocatio.add(new MenHelperClass(R.drawable.twoman,"S M Sudhanva Acharya", "Product Designer, AthrV-Ed"));
-        menLocatio.add(new MenHelperClass(R.drawable.threeman,"Abhinav Chikkara", "Founder, 10kilogram"));
+        menLocatio.add(new IMenHelperClass(R.drawable.oneman,"Goutam Naik","CEO, AthrV-Ed"));
+        menLocatio.add(new IMenHelperClass(R.drawable.twoman,"S M Sudhanva Acharya", "Product Designer, AthrV-Ed"));
+        menLocatio.add(new IMenHelperClass(R.drawable.threeman,"Abhinav Chikkara", "Founder, 10kilogram"));
 
-        adapter2=new MenAdapter(menLocatio);
+        adapter2=new IMenAdapter(menLocatio);
         menRecycler.setAdapter(adapter2);
 
     }
 
     private void allfewRecycler(){
+        MainActivity k = new MainActivity();
+        k.getdatatotop();
         allFewRecycler.setHasFixedSize(true);
         allFewRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        ArrayList<FewAllHelperClass> fewAllLocatio = new ArrayList<>();
+        uiuxtopics = new ArrayList();
+        uiuxtopics.add("VISUAL DESIGN");
+        uiuxtopics.add("UX DESIGN");
+        uiuxtopics.add("MOTION DESIGN");
+        uiuxtopics.add("PROTOTYPING");
+        uiuxtopics.add("3D DESIGN");
+        uiuxtopics.add("WEBFLOW");
 
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,"Playing with Grid-\nWeb Design Fundamentals","WEBFLOW","Goutham Naik"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.protopie_l, R.drawable.ai_logo,"Protopie for Prototyping","PROTOTYPING\n","Abhinav Chikkara"));
-        fewAllLocatio.add(new FewAllHelperClass(R.drawable.afepluslot_l, R.drawable.ai_logo,"Introduction to After Effects\nand Lottie Files","MOTION DESIGN","S.M Sudhanva Acharya"));
+        ArrayList<IotFewAllHelperClass> fewAllLocatio = new ArrayList<>(); //Let it be UIUXtopics for now
 
-        adapter4=new FewAllAdapter(fewAllLocatio);
+        fewAllLocatio.add(new IotFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(0),uiuxtopics.get((k.topic.get(0))).toString(),k.authorr.get(0)));
+        fewAllLocatio.add(new IotFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(1),uiuxtopics.get((k.topic.get(1))).toString(),k.authorr.get(1)));
+        fewAllLocatio.add(new IotFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(2),uiuxtopics.get((k.topic.get(2))).toString(),k.authorr.get(2)));
+
+        adapter4=new IotFewAllAdapter(fewAllLocatio);
         allFewRecycler.setAdapter(adapter4);
-
     }
 
 

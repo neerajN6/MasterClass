@@ -236,7 +236,7 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
         allFewRecycler.setHasFixedSize(true);
         allFewRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
- //       ArrayList<AiFewAllHelperClass> fewAllLocatio = new ArrayList<>();
+        ArrayList<AiFewAllHelperClass> fewAllLocatio = new ArrayList<>();
 
         uiuxtopics = new ArrayList();
         uiuxtopics.add("VISUAL DESIGN");
@@ -246,11 +246,11 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
         uiuxtopics.add("3D DESIGN");
         uiuxtopics.add("WEBFLOW");
 
- //       fewAllLocatio.add(new AiFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(0),uiuxtopics.get((k.topic.get(0))).toString(),k.authorr.get(0)));
- //       fewAllLocatio.add(new AiFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(1),uiuxtopics.get((k.topic.get(1))).toString(),k.authorr.get(1)));
- //       fewAllLocatio.add(new AiFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(2),uiuxtopics.get((k.topic.get(2))).toString(),k.authorr.get(2)));
+        fewAllLocatio.add(new AiFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(0),uiuxtopics.get((k.topic.get(0))).toString(),k.authorr.get(0)));
+        fewAllLocatio.add(new AiFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(1),uiuxtopics.get((k.topic.get(1))).toString(),k.authorr.get(1)));
+        fewAllLocatio.add(new AiFewAllHelperClass(R.drawable.webflow_l, R.drawable.ai_logo,k.vtitle.get(2),uiuxtopics.get((k.topic.get(2))).toString(),k.authorr.get(2)));
 
- //       adapter4=new AiFewAllAdapter(fewAllLocatio);
+        adapter4=new AiFewAllAdapter(fewAllLocatio);
         allFewRecycler.setAdapter(adapter4);
 
     }

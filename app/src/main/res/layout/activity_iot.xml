@@ -302,6 +302,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 />
             <TextView
+                android:id="@+id/viewall_allclass_iot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

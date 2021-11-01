@@ -73,9 +73,10 @@ public class IFreeClassesAdapter extends RecyclerView.Adapter<IFreeClassesAdapte
 
         int pl=6;
         for (int kk=0;kk<k.videoIds.size();kk++) {
-            if (k.course_id.get(kk) == pl-1)
-                jj = kk + 3;
-
+            if (k.course_id.get(kk) == pl)
+                break;
+            jj = kk + 3;
+        }
 
             if (position == 0) {
                 holder.ititle.setText(k.vtitle.get(jj));
@@ -87,7 +88,7 @@ public class IFreeClassesAdapter extends RecyclerView.Adapter<IFreeClassesAdapte
             }
 
         }
-    }
+
 
     @Override
     public int getItemCount() {
@@ -172,7 +173,7 @@ public class IFreeClassesAdapter extends RecyclerView.Adapter<IFreeClassesAdapte
 
                     int pl=6;
                     for (int kk=0;kk<k.videoIds.size();kk++) {
-                        if (k.course_id.get(kk) == pl - 1)
+                        if (k.course_id.get(kk) == pl)
                             break;
                         jj = kk + 3;
                     }

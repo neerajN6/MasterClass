@@ -73,9 +73,10 @@ public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.
 
         int pl=3;
         for (int kk=0;kk<k.videoIds.size();kk++) {
-            if (k.course_id.get(kk) == pl-1)
-                jj = kk + 1;
-
+            if (k.course_id.get(kk) == pl)
+                break;
+            jj = kk + 1;
+        }
 
             if (position == 0) {
                 holder.atitle.setText(k.vtitle.get(jj));
@@ -87,7 +88,7 @@ public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.
             }
 
         }
-    }
+    
 
     @Override
     public int getItemCount() {
@@ -169,7 +170,7 @@ public class APopclassesAdapter extends RecyclerView.Adapter<APopclassesAdapter.
 
                     int pl=3;
                     for (int kk=0;kk<k.videoIds.size();kk++) {
-                        if (k.course_id.get(kk) == pl - 1)
+                        if (k.course_id.get(kk) == pl)
                             break;
                         jj = kk + 1;
                     }

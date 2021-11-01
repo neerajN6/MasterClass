@@ -78,9 +78,10 @@ public class AFreeClassesAdapter extends RecyclerView.Adapter<AFreeClassesAdapte
 
         int pl=3;
         for (int kk=0;kk<k.videoIds.size();kk++) {
-            if (k.course_id.get(kk) == pl-1)
+            if (k.course_id.get(kk) == pl)
+                break;
                 jj = kk + 3;
-
+        }
 
             if (position == 0) {
                 holder.atitle.setText(k.vtitle.get(jj));
@@ -91,7 +92,7 @@ public class AFreeClassesAdapter extends RecyclerView.Adapter<AFreeClassesAdapte
                 Picasso.get().load("https://img.youtube.com/vi/" + k.videoIds.get(jj + 1) + "/maxresdefault.jpg").into(holder.aimagebig);
             }
 
-        }
+
     }
 
     @Override
@@ -176,7 +177,7 @@ public class AFreeClassesAdapter extends RecyclerView.Adapter<AFreeClassesAdapte
 
                     int pl=3;
                     for (int kk=0;kk<k.videoIds.size();kk++) {
-                        if (k.course_id.get(kk) == pl - 1)
+                        if (k.course_id.get(kk) == pl)
                             break;
                         jj = kk + 3;
                     }
