@@ -211,13 +211,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 //APP
-    slno.add(1);    videoIds.add("TnTn6e4Pfn8");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("How to become an Android Developer | Step by Step | Freelancing and Placement");
-    slno.add(2);    videoIds.add("5soHbJrzuok");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Avish");  vtitle.add("How Applications Are Made? | Android Development for Beginners | Basics of Android Development");
-    slno.add(3);    videoIds.add("InigFUSiPl8");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Installing Android Studio & Setup | Android Tutorials in Hindi #1");
-    slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Ankith");  vtitle.add("Creating Our First Android App (with APK) | Android Tutorials in Hindi #2");
-    slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Preetham");  vtitle.add("Linear Layout & Relative Layout In Android | Android Tutorials in Hindi #3");
-    slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Android activity & Activity Lifecycle | Android Tutorials in Hindi #4");
-    slno.add(7);    videoIds.add("WVjqX1BoQeM");   course_id.add(3);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Project 1: Tic Tac Toe Game Android Game Development | Android Tutorials in Hindi #5");
+    slno.add(1);    videoIds.add("TnTn6e4Pfn8");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("How to become an Android Developer");
+    slno.add(2);    videoIds.add("5soHbJrzuok");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Avish");  vtitle.add("How Applications Are Made?");
+    slno.add(3);    videoIds.add("InigFUSiPl8");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Installing Android Studio & Setup");
+    slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Ankith");  vtitle.add("Creating Our First Android App (with APK)");
+    slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Preetham");  vtitle.add("Linear Layout & Relative Layout In Android");
+    slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(3);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Android activity & Activity Lifecycle");
+    slno.add(7);    videoIds.add("WVjqX1BoQeM");   course_id.add(3);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Project 1: Tic Tac Toe Game ");
 
 //MECH
     slno.add(1);    videoIds.add("W74y1RxN6BA");   course_id.add(4);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("What is Mechanical Engineering?");
@@ -226,33 +226,33 @@ public class MainActivity extends AppCompatActivity {
     slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(4);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Creating Our First Android App");
     slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(4);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Linear Layout & Relative Layout In Android");
     slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(4);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva"); vtitle.add("Android activity & Activity Lifecycle");
-    slno.add(7);    videoIds.add("dFmeB7Q8jww");   course_id.add(4);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva"); vtitle.add("Step by Step Product Design Prototyping & Product Development Process");
+    slno.add(7);    videoIds.add("dFmeB7Q8jww");   course_id.add(4);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva"); vtitle.add("Step by Step Product Design Prototyping");
 //AI
         slno.add(1);    videoIds.add("ora5jY7yIEw");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("How to Learn AI for Free??");
-        slno.add(2);    videoIds.add("DVbiH_P2ogk");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Scope of Artificial Intelligence in India, Courses, Salary, Skills");
+        slno.add(2);    videoIds.add("DVbiH_P2ogk");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Scope of Artificial Intelligence");
         slno.add(3);    videoIds.add("ad79nYk2keg");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Artificial Intelligence In 5 Minutes");
-        slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Creating Our First Android App (with APK) | Android Tutorials in Hindi #2");
-        slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Linear Layout & Relative Layout In Android | Android Tutorials in Hindi #3");
-        slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Android activity & Activity Lifecycle | Android Tutorials in Hindi #4");
-        slno.add(7);    videoIds.add("a0_lo_GDcFw");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("What Is Artificial Intelligence? Crash Course AI");
+        slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Creating Our First Android App (with APK)");
+        slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Linear Layout & Relative Layout In Android");
+        slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("Android activity & Activity Lifecycle");
+        slno.add(7);    videoIds.add("a0_lo_GDcFw");   course_id.add(1);    paid.add(0);      topic.add(0);  authorr.add("Sudhanva");  vtitle.add("What Is Artificial Intelligence?");
 
 //WEB
         slno.add(1);    videoIds.add("l1EssrLxt7E");   course_id.add(2);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Introduction to Web Development");
         slno.add(2);    videoIds.add("ysEN5RaKOlA");   course_id.add(2);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Learn web development as an absolute beginner");
-        slno.add(3);    videoIds.add("GLk7-imcjiI");   course_id.add(2);    paid.add(0);      topic.add(1);   authorr.add("Sudhanva"); vtitle.add("Complete Roadmap for Web Development || Noob to Advanced");
+        slno.add(3);    videoIds.add("GLk7-imcjiI");   course_id.add(2);    paid.add(0);      topic.add(1);   authorr.add("Sudhanva"); vtitle.add("Complete Roadmap for Web Development");
         slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(2);    paid.add(0);      topic.add(1);   authorr.add("Sudhanva"); vtitle.add("Creating Our First Android App");
         slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(2);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Linear Layout & Relative Layout In Android");
         slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(2);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Android activity & Activity Lifecycle");
-        slno.add(7);    videoIds.add("2Gv6CMvI-Lw");   course_id.add(2);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Web Development Roadmap | How to become a Web Developer");
+        slno.add(7);    videoIds.add("2Gv6CMvI-Lw");   course_id.add(2);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Web Development Roadmap");
 
 //IOT
         slno.add(1);    videoIds.add("LlhmzVL5bm8");   course_id.add(6);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Internet of Things (IoT) | What is IoT");
-        slno.add(2);    videoIds.add("6mBO2vqLv38");   course_id.add(6);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("IoT - Internet of Things | What is IoT? | IoT Explained in 6 Minutes");
-        slno.add(3);    videoIds.add("7yYb2224yH0");   course_id.add(6);    paid.add(0);      topic.add(1);   authorr.add("Sudhanva"); vtitle.add("Internet of Things(IoT) | What Is IoT? | How It Works | IoT Explained");
-        slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(6);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Creating Our First Android App (with APK) | Android Tutorials in Hindi #2");
-        slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(6);    paid.add(0);      topic.add(1);   authorr.add("Sudhanva"); vtitle.add("Linear Layout & Relative Layout In Android | Android Tutorials in Hindi #3");
-        slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(6);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Android activity & Activity Lifecycle | Android Tutorials in Hindi #4");
-        slno.add(7);    videoIds.add("Fj02iTrWUx0");   course_id.add(6);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Internet Of Things (IoT) In 10 Minutes | What Is IoT");
+        slno.add(2);    videoIds.add("6mBO2vqLv38");   course_id.add(6);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("IoT - Internet of Things | What is IoT?");
+        slno.add(3);    videoIds.add("7yYb2224yH0");   course_id.add(6);    paid.add(0);      topic.add(1);   authorr.add("Sudhanva"); vtitle.add("Internet of Things(IoT) | How It Works");
+        slno.add(4);    videoIds.add("PoBePPh5Iko");   course_id.add(6);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Creating Our First Android App");
+        slno.add(5);    videoIds.add("HHaghq5wXic");   course_id.add(6);    paid.add(0);      topic.add(1);   authorr.add("Sudhanva"); vtitle.add("Linear Layout & Relative Layout In Android");
+        slno.add(6);    videoIds.add("jUmqYE2iWiI");   course_id.add(6);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Android activity & Activity Lifecycle");
+        slno.add(7);    videoIds.add("Fj02iTrWUx0");   course_id.add(6);    paid.add(0);      topic.add(0);   authorr.add("Sudhanva"); vtitle.add("Internet Of Things (IoT) In 10 Minutes");
 
 
 

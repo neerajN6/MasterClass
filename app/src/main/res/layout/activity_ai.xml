@@ -49,6 +49,7 @@
 
 
                 <EditText
+                    android:visibility="gone"
                     android:id="@+id/search_ai"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -68,6 +69,7 @@
                     android:textColorHint="#c0c0c0" />
 
                 <androidx.cardview.widget.CardView
+                    android:visibility="gone"
                     android:layout_width="272dp"
                     android:layout_height="167dp"
                     android:layout_gravity="center"
@@ -144,7 +146,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="65dp"
                         android:text="Popular Classes"
                         android:textColor="#FFF"
                         android:textSize="20sp"
@@ -184,6 +186,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/viewAllMentorsTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -230,6 +233,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -332,12 +336,13 @@
                     app:layout_constraintVertical_bias=".35" />
 
                 <Button
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="21dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="60dp"
                     android:backgroundTint="#2b73c9"
                     android:text="Learn more"
                     android:textAllCaps="false"

@@ -48,6 +48,7 @@
 
 
         <EditText
+            android:visibility="gone"
             android:id="@+id/search_iot"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -67,6 +68,7 @@
             android:drawableRight="@drawable/ic_baseline_search_24" />
 
         <androidx.cardview.widget.CardView
+            android:visibility="gone"
             android:layout_width="272dp"
             android:layout_height="167dp"
             android:layout_marginStart="1dp"
@@ -145,7 +147,7 @@
                 android:textColor="#FFF"
                 android:layout_marginLeft="16dp"
                 android:textSize="20sp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="65dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -184,6 +186,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -229,6 +232,7 @@
                 />
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -329,6 +333,7 @@
             app:layout_constraintVertical_bias=".35" />
 
         <Button
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:backgroundTint="#2b73c9"
