@@ -336,15 +336,15 @@
                     app:layout_constraintVertical_bias=".35" />
 
                 <Button
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="21dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="60dp"
+                    android:layout_marginBottom="30dp"
                     android:backgroundTint="#2b73c9"
-                    android:text="Learn more"
+                    android:text="View All Classes"
                     android:textAllCaps="false"
                     android:textColor="#FFF"
                     app:layout_constraintEnd_toEndOf="parent"
