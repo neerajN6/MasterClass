@@ -343,7 +343,7 @@
             android:layout_marginBottom="30dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="View All Classes"
+            android:text="Learn more"
             android:textColor="#FFF"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"

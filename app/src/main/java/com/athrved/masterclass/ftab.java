@@ -33,7 +33,7 @@ public class ftab extends Fragment {
 
     public ftab() {
         // Required empty public constructor
-    }}
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -44,7 +44,7 @@ public class ftab extends Fragment {
      * @return A new instance of fragment ftab.
      */
     // TODO: Rename and change types and number of parameters
-  /**  public static ftab newInstance(String param1, String param2) {
+    public static ftab newInstance(String param1, String param2) {
         ftab fragment = new ftab();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -146,4 +146,4 @@ public class ftab extends Fragment {
 
         return v;
     }
-}*/
+}

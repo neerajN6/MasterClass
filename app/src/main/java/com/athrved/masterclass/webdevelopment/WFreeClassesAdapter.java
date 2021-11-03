@@ -182,6 +182,7 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
                             if (getAdapterPosition() == 0) {
                                 Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                                 intent.putExtra("VIDEOID", k.videoIds.get(jj));
+                                intent.putExtra("VTITLE",k.vtitle.get(jj));
                                 itemView.getContext().startActivity(intent);
                                 Activity activity = (Activity) itemView.getContext();
                                 activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -191,6 +192,7 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
                         if (getAdapterPosition() == 1) {
                             Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                             intent.putExtra("VIDEOID", k.videoIds.get(jj+1));
+                            intent.putExtra("VTITLE",k.vtitle.get(jj+1));
                             itemView.getContext().startActivity(intent);
                             Activity activity = (Activity) itemView.getContext();
                             activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

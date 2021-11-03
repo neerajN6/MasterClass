@@ -179,10 +179,10 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                             v_id2 = snapshot.child("video_Id").getValue().toString();
                             vtitle2=snapshot.child("title_video").getValue().toString();
                         }
-                        if(finalK ==3) {
-                            v_id2 = snapshot.child("video_Id").getValue().toString();
-                            vtitle2=snapshot.child("title_video").getValue().toString();
-                        }
+//                        if(finalK ==3) {
+//                            v_id2 = snapshot.child("video_Id").getValue().toString();
+//                            vtitle2=snapshot.child("title_video").getValue().toString();
+//                        }
 
                         itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -190,6 +190,8 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                                 if (getAdapterPosition() == 0) {
                                     Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                                     intent.putExtra("VIDEOID", v_id1);
+                                    intent.putExtra("VTITLE",vtitle1);
+
                                     itemView.getContext().startActivity(intent);
                                     Activity activity = (Activity) itemView.getContext();
                                     activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -199,6 +201,8 @@ public class FreeclassesAdapter extends RecyclerView.Adapter<FreeclassesAdapter.
                                 if (getAdapterPosition() == 1) {
                                     Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                                     intent.putExtra("VIDEOID", v_id2);
+                                    intent.putExtra("VTITLE",vtitle2);
+
                                     itemView.getContext().startActivity(intent);
                                     Activity activity = (Activity) itemView.getContext();
                                     activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

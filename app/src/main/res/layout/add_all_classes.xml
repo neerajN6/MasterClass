@@ -38,7 +38,7 @@
 
         android:id="@+id/allc_title"
         android:textStyle="bold"
-        android:textSize="15sp"
+        android:textSize="14sp"
         android:textColor="#FFF"
         android:text="Playing with Grid -\nWeb design Fundamentals"
         android:layout_width="wrap_content"
@@ -47,10 +47,10 @@
 
         <TextView
             android:id="@+id/allc_topic"
-            android:textSize="12sp"
+            android:textSize="10.5sp"
             android:textColor="#2b73c9"
             android:text="WEBFLOW"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="3dp"
             android:layout_marginBottom="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,8 +66,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
 
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:id="@+id/allc_image"
                 android:src="@mipmap/ic_launcher"/>
 
@@ -76,7 +76,7 @@
                 android:text="Goutam Naik"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="2dp"
-                android:textSize="11sp"
+                android:textSize="10.5sp"
                 android:textColor="#FFF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

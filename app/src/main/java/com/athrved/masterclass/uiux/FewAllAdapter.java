@@ -133,6 +133,7 @@ public class FewAllAdapter extends RecyclerView.Adapter<FewAllAdapter.FewAllView
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                         intent.putExtra("VIDEOID", k.videoIds.get(getAdapterPosition()));
+                        intent.putExtra("VTITLE",k.vtitle.get(getAdapterPosition()));
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -142,6 +143,7 @@ public class FewAllAdapter extends RecyclerView.Adapter<FewAllAdapter.FewAllView
                     if (getAdapterPosition() == 1) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                         intent.putExtra("VIDEOID", k.videoIds.get(getAdapterPosition()));
+                        intent.putExtra("VTITLE",k.vtitle.get(getAdapterPosition()));
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -150,6 +152,7 @@ public class FewAllAdapter extends RecyclerView.Adapter<FewAllAdapter.FewAllView
                     if (getAdapterPosition() == 2) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                         intent.putExtra("VIDEOID", k.videoIds.get(getAdapterPosition()));
+                        intent.putExtra("VTITLE",k.vtitle.get(getAdapterPosition()));
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

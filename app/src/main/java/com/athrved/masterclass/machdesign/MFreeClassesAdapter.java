@@ -79,9 +79,10 @@ public class MFreeClassesAdapter extends RecyclerView.Adapter<MFreeClassesAdapte
 
         int pl=4;
         for (int kk=0;kk<k.videoIds.size();kk++) {
-            if (k.course_id.get(kk) == pl-1)
-                jj = kk + 3;
-
+            if (k.course_id.get(kk) == pl)
+                break;
+            jj = kk + 3;
+        }
 
             if (position == 0) {
                 holder.mtitle.setText(k.vtitle.get(jj));
@@ -92,7 +93,7 @@ public class MFreeClassesAdapter extends RecyclerView.Adapter<MFreeClassesAdapte
                 Picasso.get().load("https://img.youtube.com/vi/" + k.videoIds.get(jj + 1) + "/maxresdefault.jpg").into(holder.mimagebig);
             }
 
-        }
+
     }
 
     @Override
@@ -176,13 +177,15 @@ public class MFreeClassesAdapter extends RecyclerView.Adapter<MFreeClassesAdapte
 
                     int pl=4;
                     for (int kk=0;kk<k.videoIds.size();kk++) {
-                        if (k.course_id.get(kk) == pl - 1)
+                        if (k.course_id.get(kk) == pl)
                             break;
                         jj = kk + 3;
                     }
                     if (getAdapterPosition() == 0) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                         intent.putExtra("VIDEOID", k.videoIds.get(jj));
+                        intent.putExtra("VTITLE",k.vtitle.get(jj));
+
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -191,7 +194,8 @@ public class MFreeClassesAdapter extends RecyclerView.Adapter<MFreeClassesAdapte
 
                     if (getAdapterPosition() == 1) {
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
-                        intent.putExtra("VIDEOID", k.videoIds.get(jj));
+                        intent.putExtra("VIDEOID", k.videoIds.get(jj+1));
+                        intent.putExtra("VTITLE",k.vtitle.get(jj+1));
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
