@@ -2,6 +2,7 @@ package com.athrved.masterclass.webdevelopment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
+import com.athrved.masterclass.ftab;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -188,6 +191,7 @@ public class WPopclassesAdapter extends RecyclerView.Adapter<WPopclassesAdapter.
                         Intent intent = new Intent(itemView.getContext(), PlayerActivity.class);
                         intent.putExtra("VIDEOID", k.videoIds.get(jj+1));
                         intent.putExtra("VTITLE",k.vtitle.get(jj+1));
+
                         itemView.getContext().startActivity(intent);
                         Activity activity = (Activity) itemView.getContext();
                         activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

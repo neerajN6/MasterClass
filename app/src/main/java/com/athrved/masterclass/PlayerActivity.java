@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabItem;
@@ -23,7 +24,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 public class PlayerActivity extends AppCompatActivity {
 
     YouTubePlayerView youTubePlayerView;
-    String a,b,titl;
+    String a,b,titl,kfc;
     Button goback;
     TabLayout tabLayout;
     TabItem tabItem1, tabItem2, tabItem3;
@@ -53,7 +54,7 @@ public class PlayerActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
 
-                if(tab.getPosition()==0||tab.getPosition()==1||tab.getPosition()==2)
+                if(tab.getPosition()==0||tab.getPosition()==1||tab.getPositio=n()==2)
                     pageAdapter.notifyDataSetChanged();
             }
 
@@ -75,6 +76,9 @@ public class PlayerActivity extends AppCompatActivity {
 
         a=getIntent().getStringExtra("VIDEOID");
         titl=getIntent().getStringExtra("VTITLE");
+
+        kfc =a;
+
         if(titl!=null){
             youtitle.setText(titl);
         }

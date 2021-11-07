@@ -73,6 +73,13 @@ public class ftab extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+        TextView topmen;
+        TextView menname;
+        TextView mendesc;
+        TextView mendsgn;
+        TextView topicdesc;
+
+
         final LinearLayout expand1;
         final Button btn1;
         final CardView card1;
@@ -86,6 +93,23 @@ public class ftab extends Fragment {
         final CardView card3;
 
         View v = inflater.inflate(R.layout.fragment_ftab, container, false);
+
+        topmen = v.findViewById(R.id.topmen);
+        menname = v.findViewById(R.id.men_name);
+        mendesc = v.findViewById(R.id.mendesc);
+        mendsgn = v.findViewById(R.id.mendsgn);
+
+        String vvid;
+
+        Bundle data = getArguments();
+        if(data!=null){
+            vvid= data.getString("videoid");
+        }
+
+
+
+        PlayerActivity pa= new PlayerActivity();
+        menname.setText(pa.youtitle.getText().toString());
 
         expand1 = v.findViewById(R.id.expanded_lay1);
         btn1 = v.findViewById(R.id.but_q_exp_lay1);

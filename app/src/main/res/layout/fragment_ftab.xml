@@ -14,7 +14,7 @@
         android:orientation="vertical">
     <!-- TODO: Update blank fragment layout -->
         <TextView
-            android:id="@+id/l"
+            android:id="@+id/topicdesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="13dp"
@@ -59,7 +59,7 @@
             android:textSize="16dp"
             android:textColor="#FFF"
             android:gravity="center_vertical"
-            android:text="20+ resources to boost your learning"/>
+            android:text="10+ resources to boost your learning"/>
 
         </LinearLayout>
 
@@ -158,6 +158,7 @@
                     android:layout_marginTop="2dp">
 
                     <TextView
+                        android:id="@+id/men_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -177,6 +178,7 @@
                         app:cardElevation="8dp">
 
                         <TextView
+                            android:id="@+id/topmen"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="#057EBD"
@@ -190,6 +192,7 @@
 
 
                 <TextView
+                    android:id="@+id/mendsgn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="13dp"
@@ -201,6 +204,7 @@
 
 
                 <TextView
+                    android:id="@+id/mendesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingRight="13dp"
