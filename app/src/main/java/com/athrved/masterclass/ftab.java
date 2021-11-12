@@ -109,7 +109,7 @@ public class ftab extends Fragment {
 
 
         PlayerActivity pa= new PlayerActivity();
-        menname.setText(pa.youtitle.getText().toString());
+//        menname.setText(pa.youtitle.getText().toString());
 
         expand1 = v.findViewById(R.id.expanded_lay1);
         btn1 = v.findViewById(R.id.but_q_exp_lay1);

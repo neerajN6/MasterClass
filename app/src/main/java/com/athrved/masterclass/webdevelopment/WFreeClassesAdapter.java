@@ -1,26 +1,35 @@
 package com.athrved.masterclass.webdevelopment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.RequestQueue;
+import com.athrved.masterclass.DatabaseHelper;
+import com.athrved.masterclass.ListDataActivity;
 import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.PlayerActivity;
 import com.athrved.masterclass.R;
+import com.athrved.masterclass.TermsAndCondition;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapter.WFreeViewHolder> {
+
+    DatabaseHelper mDatabaseHelper;
 
     ArrayList<WFreeHelperClass> featloc;
     public static String a, b = "FAILED TO LOAD";
@@ -104,6 +113,7 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
         TextView wtopic, wauthor;
         TextView wtitle;
         Button wbookmark, wbookmark_border;
+        DatabaseHelper mDatabaseHelper;
 
         public WFreeViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -118,6 +128,7 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
             wtitle = itemView.findViewById(R.id.freec_title);
             wtopic = itemView.findViewById(R.id.freec_topic);
             wauthor = itemView.findViewById(R.id.freec_author);
+            mDatabaseHelper = new DatabaseHelper(itemView.getContext());
 
 
             wbookmark_border.setOnClickListener(new View.OnClickListener() {
@@ -126,10 +137,20 @@ public class WFreeClassesAdapter extends RecyclerView.Adapter<WFreeClassesAdapte
                     if (getAdapterPosition() == 0) {
                         wbookmark_border.setVisibility(View.GONE);
                         wbookmark.setVisibility(View.VISIBLE);
+
+                        String newEntry = v_id1;
+                        mDatabaseHelper.addData(newEntry);
+                        ListDataActivity lda = new ListDataActivity();
+                        Log.i("Counter1", String.valueOf(lda.counter));
+
                     }
                     if (getAdapterPosition() == 1) {
                         wbookmark_border.setVisibility(View.GONE);
                         wbookmark.setVisibility(View.VISIBLE);
+
+                        String newEntry = v_id2;
+                        mDatabaseHelper.addData(newEntry);
+
                     }
                 }
             });

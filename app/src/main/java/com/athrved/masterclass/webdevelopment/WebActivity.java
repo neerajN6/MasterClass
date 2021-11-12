@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.athrved.masterclass.AdminSignIn;
 import com.athrved.masterclass.BookmarkedVideos;
 import com.athrved.masterclass.FetchData;
+import com.athrved.masterclass.ListDataActivity;
 import com.athrved.masterclass.LogOut;
 import com.athrved.masterclass.MainActivity;
 import com.athrved.masterclass.UpdateProfile;
@@ -35,6 +37,7 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
     TextView ak;
     String tit;
     String urlname,videoID,tita;
+    Button LearnMoreInWeb;
 
     RecyclerView dataList2;
     List<String> titles2;
@@ -81,6 +84,14 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+        LearnMoreInWeb = findViewById(R.id.learnMoreInWeb);
+        LearnMoreInWeb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WebActivity.this, ListDataActivity.class);
+                startActivity(intent);
+            }
+        });
 
         setSupportActionBar(toolbar);
 

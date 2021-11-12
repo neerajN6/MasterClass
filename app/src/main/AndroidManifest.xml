@@ -96,6 +96,7 @@
         <activity
             android:name=".AdminSignUp"
             android:exported="true" />
+        <activity android:name=".ListDataActivity"></activity>
         <activity
             android:name=".uiux.TestingActivity"
             android:exported="true" />
