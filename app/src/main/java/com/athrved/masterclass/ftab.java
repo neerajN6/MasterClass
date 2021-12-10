@@ -19,6 +19,7 @@ import android.widget.TextView;
  * Use the  factory method to
  * create an instance of this fragment.
  */
+
 public class ftab extends Fragment {
 
      public TextView l;

@@ -78,7 +78,7 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
 
     FirebaseDatabase rootnode;
     DatabaseReference reference;
-    TextView viewall;
+    TextView viewAll;
     public int callla=0;
     ArrayList<UiuxFewAllClasses> allCourseList=new ArrayList<>();
 
@@ -87,8 +87,8 @@ public class UiuxActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uiux);
 
-        viewall = findViewById(R.id.viewall_allclass_uiux);
-        viewall.setOnClickListener(new View.OnClickListener() {
+        viewAll = findViewById(R.id.learnmoreuiux);
+        viewAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent vac = new Intent(UiuxActivity.this, UiuxTopicsActivity2.class);

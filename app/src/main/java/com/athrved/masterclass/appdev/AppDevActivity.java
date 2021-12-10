@@ -71,7 +71,8 @@ public class AppDevActivity extends AppCompatActivity implements NavigationView.
 
     RecyclerView menRecycler;
     RecyclerView.Adapter adapter3;
-    TextView viewall;
+
+    Button viewAll;
 
     RecyclerView allFewRecycler;
     RecyclerView.Adapter adapter4;
@@ -91,8 +92,8 @@ public class AppDevActivity extends AppCompatActivity implements NavigationView.
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
 
-        viewall = findViewById(R.id.viewall_allclass_app);
-        viewall.setOnClickListener(new View.OnClickListener() {
+        viewAll = (Button) findViewById(R.id.learnmoreapp);
+        viewAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent vac = new Intent(AppDevActivity.this, AppDevTopicsActivity2.class);
@@ -102,15 +103,15 @@ public class AppDevActivity extends AppCompatActivity implements NavigationView.
             }
         });
 
-        learnMoreInAppDev = findViewById(R.id.learnMoreInAppDev);
-
-        learnMoreInAppDev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AppDevActivity.this,AMainActivity.class);
-                startActivity(intent);
-            }
-        });
+//        learnMoreInAppDev = findViewById(R.id.learnMoreInAppDev);
+//
+//        learnMoreInAppDev.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AppDevActivity.this,AMainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         setSupportActionBar(toolbar);
 

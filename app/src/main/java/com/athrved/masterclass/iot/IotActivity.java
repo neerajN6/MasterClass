@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -65,7 +66,7 @@ public class IotActivity extends AppCompatActivity implements NavigationView.OnN
     RecyclerView menRecycler;
     RecyclerView.Adapter adapter3;
     ArrayList uiuxtopics;
-    TextView viewall;
+    Button viewAll;
     RecyclerView allFewRecycler;
     RecyclerView.Adapter adapter4;
     public int callla=0;
@@ -81,8 +82,8 @@ public class IotActivity extends AppCompatActivity implements NavigationView.OnN
         toolbar = findViewById(R.id.toolbar);
 
 
-        viewall = findViewById(R.id.viewall_allclass_iot);
-        viewall.setOnClickListener(new View.OnClickListener() {
+        viewAll = findViewById(R.id.learnmoreiot);
+        viewAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent vac = new Intent(IotActivity.this, IotTopicsActivity2.class);

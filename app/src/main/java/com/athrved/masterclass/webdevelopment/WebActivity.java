@@ -60,6 +60,7 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
     RecyclerView.Adapter adapter4;
 
     TextView viewall;
+    Button viewAll;
     ArrayList uiuxtopics;
 
     public int callla=0;
@@ -70,8 +71,8 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
 
-        viewall = findViewById(R.id.viewall_allclass_web);
-        viewall.setOnClickListener(new View.OnClickListener() {
+        viewAll = findViewById(R.id.learnMoreInWeb);
+        viewAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent vac = new Intent(WebActivity.this, WebTopicsActivity2.class);
@@ -84,14 +85,7 @@ public class WebActivity extends AppCompatActivity implements NavigationView.OnN
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
-        LearnMoreInWeb = findViewById(R.id.learnMoreInWeb);
-        LearnMoreInWeb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(WebActivity.this, ListDataActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         setSupportActionBar(toolbar);
 

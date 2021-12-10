@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "461196820940",
+    "firebase_url": "https://master-class-1d78a-default-rtdb.firebaseio.com",
     "project_id": "master-class-1d78a",
     "storage_bucket": "master-class-1d78a.appspot.com"
   },
@@ -27,6 +28,14 @@
           "android_info": {
             "package_name": "com.athrved.masterclass",
             "certificate_hash": "7188a623eafc87d8e013bf6501272d03fccdf1d1"
+          }
+        },
+        {
+          "client_id": "461196820940-8hhhrv0b8bfjflk5si0trg1jdu7f3cni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.athrved.masterclass",
+            "certificate_hash": "19b25ffaa7eed16991c3985b01e544fa2fdf58d4"
           }
         },
         {

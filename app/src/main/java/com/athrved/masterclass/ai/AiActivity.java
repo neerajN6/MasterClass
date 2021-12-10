@@ -76,7 +76,8 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
     RecyclerView.Adapter adapter4;
 
     ArrayList uiuxtopics;
-    TextView viewall;
+    //TextView viewall;
+    Button viewAll;
 
     public int callla=0;
 
@@ -91,8 +92,8 @@ public class AiActivity extends AppCompatActivity implements NavigationView.OnNa
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
 
-        viewall = findViewById(R.id.viewall_allclass_ai);
-        viewall.setOnClickListener(new View.OnClickListener() {
+        viewAll = findViewById(R.id.learnmoreai);
+        viewAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent vac = new Intent(AiActivity.this, AiTopicsActivity2.class);

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -61,7 +62,7 @@ public class MachActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView.Adapter adapter4;
 
     ArrayList uiuxtopics;
-    TextView viewall;
+    Button viewAll;
 
     public int callla=0;
 //    ArrayList<UiuxAllClasses> allCourseList=new ArrayList<>();
@@ -75,8 +76,8 @@ public class MachActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
 
-        viewall = findViewById(R.id.viewall_allclass_mach);
-        viewall.setOnClickListener(new View.OnClickListener() {
+        viewAll = findViewById(R.id.learnmoremach);
+        viewAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent vac = new Intent(MachActivity.this, MachTopicsActivity2.class);
